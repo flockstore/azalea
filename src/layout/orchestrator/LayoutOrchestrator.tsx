@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import DashboardLayout from "@/layout/dashboard/DashboardLayout";
 
 /**
  * Final abstraction of layout for further
@@ -10,7 +11,9 @@ import React from "react";
  * @constructor
  */
 const LayoutOrchestrator = ({children}: { children: React.ReactNode }) => {
-    return children;
+    return (<DashboardLayout>
+        {children}
+    </DashboardLayout>);
 };
 
 export default LayoutOrchestrator;
