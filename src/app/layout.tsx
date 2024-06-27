@@ -1,5 +1,7 @@
 import {ReactNode} from "react";
 
+import "@mantine/core/styles.css";
+
 /**
  * Defines the component props.
  */

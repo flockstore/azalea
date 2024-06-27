@@ -4,6 +4,9 @@ import {NextIntlClientProvider} from "next-intl";
 import React from "react";
 import LayoutOrchestrator from "@/layout/orchestrator/LayoutOrchestrator";
 import {SessionProvider} from "next-auth/react";
+import {MantineProvider} from "@mantine/core";
+import {mantineTheme} from "@/style/theme";
+import {SidebarProvider} from "@/context/sidebar/SidebarContext";
 
 /**
  * Defines the properties of the component.
@@ -31,11 +34,15 @@ const BaseLayout = (
 ) => {
     return (
         <NextIntlClientProvider locale={locale} messages={messages}>
-            <SessionProvider>
-                <LayoutOrchestrator>
-                    {children}
-                </LayoutOrchestrator>
-            </SessionProvider>
+            <MantineProvider theme={mantineTheme}>
+                <SessionProvider>
+                    <SidebarProvider>
+                        <LayoutOrchestrator>
+                            {children}
+                        </LayoutOrchestrator>
+                    </SidebarProvider>
+                </SessionProvider>
+            </MantineProvider>
         </NextIntlClientProvider>
     );
 };

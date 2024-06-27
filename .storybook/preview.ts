@@ -1,6 +1,9 @@
-import type { Preview } from "@storybook/react";
+import type {Preview} from '@storybook/react'
+import {decorators} from "../src/util/storybook/mantine.decorator";
+import {NextIntlDecorator} from "../src/util/storybook/next-intl.decorator";
 
 const preview: Preview = {
+  decorators: [...decorators, NextIntlDecorator],
   parameters: {
     controls: {
       matchers: {
@@ -11,4 +14,4 @@ const preview: Preview = {
   },
 };
 
-export default preview;
+export default preview
