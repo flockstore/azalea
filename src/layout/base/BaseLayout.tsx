@@ -3,6 +3,7 @@
 import {NextIntlClientProvider} from "next-intl";
 import React from "react";
 import LayoutOrchestrator from "@/layout/orchestrator/LayoutOrchestrator";
+import {SessionProvider} from "next-auth/react";
 
 /**
  * Defines the properties of the component.
@@ -30,9 +31,11 @@ const BaseLayout = (
 ) => {
     return (
         <NextIntlClientProvider locale={locale} messages={messages}>
-            <LayoutOrchestrator>
-                {children}
-            </LayoutOrchestrator>
+            <SessionProvider>
+                <LayoutOrchestrator>
+                    {children}
+                </LayoutOrchestrator>
+            </SessionProvider>
         </NextIntlClientProvider>
     );
 };
