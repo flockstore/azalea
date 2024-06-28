@@ -10,7 +10,10 @@ const SidebarHeader = () => {
     const { setColorScheme, colorScheme } = useMantineColorScheme();
     const { colors } = useMantineTheme();
     const { isExpanded } = useSidebar();
-    const logo = colors["azalea-blue"][4];
+
+    const logoLight = colors["azalea-blue"][4];
+    const logoDark = colors.dark[4];
+    const logo = colorScheme === "dark" ? logoDark : logoLight;
 
     const changeScheme = () => {
         setColorScheme(colorScheme === "dark" ? "light" : "dark" );
@@ -24,6 +27,7 @@ const SidebarHeader = () => {
             align="center"
             w="100%"
             my="xl"
+            px={isExpanded() ? "xl" : "lg"}
         >
             <Flex
                 pos="relative"
