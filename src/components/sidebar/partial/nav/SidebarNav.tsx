@@ -18,6 +18,7 @@ const SidebarNav = ({items}: SidebarNavProps) => {
     return (
         <Flex
             direction="column"
+            w="100%"
         >
             {items.map(item => (<SidebarItem key={item.translation} item={item}/>))}
         </Flex>
