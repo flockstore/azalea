@@ -1,9 +1,9 @@
-import {ActionIcon, Flex, useMantineColorScheme, useMantineTheme} from "@mantine/core";
+import {Flex, useMantineColorScheme, useMantineTheme} from "@mantine/core";
 import {motion} from "framer-motion";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
-import Logo from "@/components/logo/Logo";
-import {MoonIcon} from "@storybook/icons";
 import SidebarHeader from "@/components/sidebar/partial/header/SidebarHeader";
+import SidebarNav from "@/components/sidebar/partial/nav/SidebarNav";
+import {navigationItems} from "@/config/navigation";
 
 const Sidebar = () => {
 
@@ -32,8 +32,10 @@ const Sidebar = () => {
             }}
             initial={{ width }} animate={{ width }}
             align="start"
+            direction="column"
         >
             <SidebarHeader/>
+            <SidebarNav items={navigationItems}/>
         </Flex>
     );
 };

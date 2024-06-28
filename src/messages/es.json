@@ -1,3 +1,6 @@
 {
-  "test": "Hello world"
+  "navigation": {
+    "dashboard": "Inicio",
+    "product": "Productos"
+  }
 }

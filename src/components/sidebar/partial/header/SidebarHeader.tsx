@@ -13,7 +13,9 @@ const SidebarHeader = () => {
 
     const logoLight = colors["azalea-blue"][4];
     const logoDark = colors.dark[4];
-    const logo = colorScheme === "dark" ? logoDark : logoLight;
+    const logo =
+        isExpanded() ?
+        colorScheme === "dark" ? logoDark : logoLight : logoLight;
 
     const changeScheme = () => {
         setColorScheme(colorScheme === "dark" ? "light" : "dark" );
