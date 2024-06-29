@@ -31,7 +31,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
             <Tooltip
                 label={t(item.translation)}
                 position="right"
-                offset={{mainAxis: 10, crossAxis: -4}}
+                offset={10}
             >
                 <Flex mb="sm">
                     <Squircle
