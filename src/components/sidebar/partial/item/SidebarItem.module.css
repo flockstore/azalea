@@ -3,13 +3,20 @@
     width: 100%;
     border-radius: 12px;
     margin: 6px 0;
-    padding: 12px 0;
+    padding: 10px 0;
     transition: .3s ease;
+    cursor: pointer;
 
     &:hover {
         background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-7));
     }
 
+}
+
+.sidebarItemActive {
+    background-color: light-dark(var(--mantine-color-azalea-blue-4), var(--mantine-color-dark-7));
+    color: var(--mantine-color-white);
+    font-weight: 600;
 }
 
 .sidebarItemIcon {
@@ -29,6 +36,17 @@
 
     &:hover {
         background-color: light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-4));
+    }
+
+}
+
+.switcherActive {
+
+    background-color: var(--mantine-color-azalea-blue-4);
+    color: var(--mantine-color-white);
+
+    &:hover {
+        background-color: var(--mantine-color-azalea-blue-4);
     }
 
 }

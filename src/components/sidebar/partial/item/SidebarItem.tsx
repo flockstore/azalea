@@ -21,6 +21,9 @@ const SidebarItem = ({item}: SidebarItemProps) => {
     const route = usePathname();
     const active = route.startsWith(item.link);
 
+    const style = `${styles.switcher} ${active && styles.switcherActive}`;
+    const expandedStyle = `${styles.sidebarItem} ${active && styles.sidebarItemActive}`;
+
     if (!isExpanded()) {
         return (
             <Tooltip
@@ -34,7 +37,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
                         cornerSmoothing={1}
                         width={48}
                         height={48}
-                        className={styles.switcher}
+                        className={style}
                     >
                         {item.icon}
                     </Squircle>
@@ -44,7 +47,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
     }
 
     return (
-        <Flex className={styles.sidebarItem}>
+        <Flex className={expandedStyle}>
             <Flex>
                 <Flex className={styles.sidebarItemIcon}>
                     {item.icon}
