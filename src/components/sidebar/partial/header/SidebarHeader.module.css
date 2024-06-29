@@ -33,7 +33,7 @@
     align-items: center;
     justify-content: center;
     background-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-6));
-    color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-white));
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
     cursor: pointer;
     transition: .3s ease;
 

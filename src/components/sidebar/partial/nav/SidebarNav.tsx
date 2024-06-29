@@ -20,6 +20,7 @@ const SidebarNav = ({items}: SidebarNavProps) => {
         <Flex
             direction="column"
             w="100%"
+            px="lg"
         >
             {items.map(item => (<SidebarItem key={item.translation} item={item}/>))}
         </Flex>
