@@ -1,4 +1,4 @@
-import {Flex} from "@mantine/core";
+import {Flex, ScrollArea} from "@mantine/core";
 import {motion} from "framer-motion";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import SidebarHeader from "@/components/sidebar/partial/header/SidebarHeader";
@@ -20,7 +20,15 @@ const Sidebar = () => {
             className={styles.sidebar}
         >
             <SidebarHeader/>
-            <SidebarNav items={navigationItems}/>
+            <ScrollArea
+                h="75%"
+                w="100%"
+                type="hover"
+                scrollbarSize={5}
+
+            >
+                <SidebarNav items={navigationItems}/>
+            </ScrollArea>
         </Flex>
     );
 };

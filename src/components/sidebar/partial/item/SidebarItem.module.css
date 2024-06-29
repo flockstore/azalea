@@ -9,14 +9,22 @@
 
     &:hover {
         background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-7));
+        color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
     }
 
 }
 
 .sidebarItemActive {
+
     background-color: light-dark(var(--mantine-color-azalea-blue-4), var(--mantine-color-dark-7));
     color: var(--mantine-color-white);
     font-weight: 600;
+
+    &:hover {
+        background-color: light-dark(var(--mantine-color-azalea-blue-4), var(--mantine-color-dark-7));
+        color: light-dark(var(--mantine-color-white), var(--mantine-color-white));
+    }
+
 }
 
 .sidebarItemIcon {
