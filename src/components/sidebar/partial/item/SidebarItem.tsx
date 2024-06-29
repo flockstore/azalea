@@ -7,6 +7,7 @@ import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {usePathname} from "@/middleware";
 
 import styles from "./SidebarItem.module.css";
+import {Squircle} from "@squircle-js/react";
 
 export interface SidebarItemProps {
     item: SidebarNavItem;
@@ -20,14 +21,23 @@ const SidebarItem = ({item}: SidebarItemProps) => {
     const route = usePathname();
     const active = route.startsWith(item.link);
 
-    const expansionStyle = isExpanded() ?
-        styles.sidebarItemExpanded :
-        styles.sidebarItem;
-    const activeStyle = active ? styles.sidebarItemActive : "";
+    if (!isExpanded()) {
+        return  (
+            <Squircle
+                cornerRadius={10}
+                cornerSmoothing={1}
+                width={48}
+                height={48}
+                className={styles.switcher}
+            >
+                {item.icon}
+            </Squircle>
+        );
+    }
 
     return (
-        <Flex className={`${expansionStyle} ${activeStyle}`}>
-            <Flex className={styles.sidebarItemSlug}>
+        <Flex className={styles.sidebarItem}>
+            <Flex>
                 <Flex className={styles.sidebarItemIcon}>
                     {item.icon}
                 </Flex>

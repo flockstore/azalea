@@ -12,19 +12,23 @@
 
 }
 
-.sidebarItemActive {
-
-}
-
-.sidebarItemExpanded {
-    composes: sidebarItem;
-
-}
-
-.sidebarItemSlug {
-
-}
-
 .sidebarItemIcon {
     margin: 0 var(--mantine-spacing-md);
+}
+
+.switcher {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-6));
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+    cursor: pointer;
+    transition: .3s ease;
+    margin-bottom: var(--mantine-spacing-sm);
+
+    &:hover {
+        background-color: light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-4));
+    }
+
 }

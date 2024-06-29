@@ -19,6 +19,7 @@ const SidebarNav = ({items}: SidebarNavProps) => {
     return (
         <Flex
             direction="column"
+            align="center"
             w="100%"
             px="lg"
         >
