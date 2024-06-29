@@ -31,7 +31,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
                 <Flex className={styles.sidebarItemIcon}>
                     {item.icon}
                 </Flex>
-                {isExpanded() && <Text>{t(item.translation)}</Text>}
+                {isExpanded() && t(item.translation)}
             </Flex>
         </Flex>
     );

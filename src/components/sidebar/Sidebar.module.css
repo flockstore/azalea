@@ -5,7 +5,7 @@
     left: 0;
 
     height: 100vh;
-    background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-9));
+    background-color: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-9));
     border-right: 1px solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
 
     align-items: start;

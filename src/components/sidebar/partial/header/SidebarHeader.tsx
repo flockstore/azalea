@@ -1,11 +1,12 @@
 "use client";
 
-import {ActionIcon, Flex, useMantineColorScheme, useMantineTheme} from "@mantine/core";
+import {ActionIcon, Flex, Tooltip, useMantineColorScheme, useMantineTheme} from "@mantine/core";
 import Logo from "@/components/logo/Logo";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {IconMoon, IconSun} from "@tabler/icons-react";
 
 import styles from "./SidebarHeader.module.css";
+import {Squircle} from "@squircle-js/react";
 
 const SidebarHeader = () => {
 
@@ -14,7 +15,7 @@ const SidebarHeader = () => {
     const {isExpanded} = useSidebar();
 
     const logoLight = colors["azalea-blue"][4];
-    const logoDark = colors["azalea-blue"][4];
+    const logoDark = colors.gray[1];
     const logo =
         isExpanded() ?
             colorScheme === "dark" ? logoDark : logoLight : logoLight;
@@ -30,6 +31,7 @@ const SidebarHeader = () => {
     const headerStyle = `${styles.header} 
         ${isExpanded() ? styles.headerExpanded : ""}`;
     const logoStyle = isExpanded() ? styles.logoExpanded : styles.logo;
+    const switcherWidth = isExpanded() ? 36 : 48;
 
     return (
         <Flex
@@ -42,13 +44,16 @@ const SidebarHeader = () => {
                     collapsed={!isExpanded()}
                 />
             </Flex>
-            <ActionIcon
-                size="xl"
+            <Squircle
+                cornerRadius={10}
+                cornerSmoothing={1}
+                width={switcherWidth}
+                height={switcherWidth}
                 onClick={changeScheme}
-                variant="default"
+                className={styles.switcher}
             >
                 {themeSwitcher()}
-            </ActionIcon>
+            </Squircle>
         </Flex>
     );
 };
