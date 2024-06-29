@@ -5,10 +5,12 @@ import {navigation} from "@/config/translation";
 export const navigationItems: SidebarNavItem[] = [
     {
         translation: navigation.dashboard,
-        icon: <IconLayoutDashboard/>
+        icon: <IconLayoutDashboard/>,
+        link: "/"
     },
     {
         translation: navigation.product,
-        icon: <IconShoppingBag/>
+        icon: <IconShoppingBag/>,
+        link: "/product"
     }
 ];

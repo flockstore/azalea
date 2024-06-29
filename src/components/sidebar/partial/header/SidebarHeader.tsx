@@ -21,6 +21,10 @@ const SidebarHeader = () => {
         setColorScheme(colorScheme === "dark" ? "light" : "dark" );
     };
 
+    const themeSwitcher = () => {
+        return colorScheme === "dark" ? <IconSun/> : <IconMoon/>;
+    };
+
     return (
         <Flex
             direction={isExpanded() ? "row" : "column"}
@@ -47,10 +51,7 @@ const SidebarHeader = () => {
                 onClick={changeScheme}
                 variant="default"
             >
-                {
-                    colorScheme === "dark" ?
-                        <IconSun/> : <IconMoon/>
-                }
+                {themeSwitcher()}
             </ActionIcon>
         </Flex>
     );

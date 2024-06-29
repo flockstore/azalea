@@ -5,6 +5,7 @@ import SidebarItem from "@/components/sidebar/partial/item/SidebarItem";
 export interface SidebarNavItem {
     icon: React.ReactNode;
     translation: string;
+    link: string;
 }
 
 /**

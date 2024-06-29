@@ -1,0 +1,28 @@
+.sidebarItem {
+
+    width: 100%;
+    padding: 8px 0;
+    margin: 6px 0;
+    justify-content: center;
+    border-left: 3px solid transparent;
+    transition: .3s ease;
+    cursor: pointer;
+
+    &:hover {
+        color: var(--mantine-color-azalea-blue-4);
+        border-color: var(--mantine-color-azalea-blue-4);
+    }
+
+}
+
+.sidebarItemActive {
+    composes: sidebarItem;
+    color: var(--mantine-color-azalea-blue-4);
+    border-color: var(--mantine-color-azalea-blue-4);
+}
+
+.sidebarItemExpanded {
+    composes: sidebarItem;
+    justify-content: start;
+}
+
