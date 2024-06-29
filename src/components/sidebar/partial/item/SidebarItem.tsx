@@ -5,9 +5,11 @@ import {Flex, Tooltip} from "@mantine/core";
 import {useTranslations} from "next-intl";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {usePathname} from "@/middleware";
+import {Squircle} from "@squircle-js/react";
 
 import styles from "./SidebarItem.module.css";
-import {Squircle} from "@squircle-js/react";
+import switcherStyles from "../switcher/SidebarSwitcher.module.css";
+
 
 export interface SidebarItemProps {
     item: SidebarNavItem;
@@ -21,7 +23,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
     const route = usePathname();
     const active = route.startsWith(item.link);
 
-    const style = `${styles.switcher} ${active && styles.switcherActive}`;
+    const style = `${switcherStyles.switcher} ${active && styles.switcherActive}`;
     const expandedStyle = `${styles.sidebarItem} ${active && styles.sidebarItemActive}`;
 
     if (!isExpanded()) {
@@ -31,7 +33,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
                 position="right"
                 offset={{mainAxis: 10, crossAxis: -4}}
             >
-                <Flex>
+                <Flex mb="sm">
                     <Squircle
                         cornerRadius={10}
                         cornerSmoothing={1}
