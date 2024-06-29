@@ -2,10 +2,14 @@
 
 import {createTheme, MantineColorsTuple} from "@mantine/core";
 import "@fontsource/urbanist";
-import "@fontsource/poppins";
 import {passwordInput, textInput} from "@/style/components/input";
 import {anchor} from "@/style/components/text";
 import {button} from "@/style/components/button";
+
+import "@fontsource/poppins/400.css";
+import "@fontsource/poppins/500.css";
+import "@fontsource/poppins/600.css";
+import "@fontsource/poppins/700.css";
 
 const primaryColor: MantineColorsTuple = [
     "#ecebff",
@@ -29,7 +33,7 @@ export const mantineTheme = createTheme({
         fontFamily: "Urbanist, sans-serif",
     },
     colors: {
-        "azalea-blue": primaryColor,
+        "azalea-blue": primaryColor
     },
     primaryShade: 4,
     primaryColor: "azalea-blue",

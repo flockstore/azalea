@@ -1,4 +1,4 @@
-import { tss } from "tss-react";
+import {tss} from "tss-react";
 
 export const SidebarItemStyles = (
     borderColor: string,

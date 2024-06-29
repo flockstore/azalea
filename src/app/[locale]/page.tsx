@@ -3,7 +3,7 @@
 import {useTranslations} from "next-intl";
 import {signIn, signOut, useSession} from "next-auth/react";
 import {useRouter} from "next/navigation";
-import {Box, Button, useMantineColorScheme} from "@mantine/core";
+import {Box, Button} from "@mantine/core";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
     const t = useTranslations();
     const session = useSession();
     const router = useRouter();
-    const { toggle, isExpanded } = useSidebar();
+    const {toggle, isExpanded} = useSidebar();
 
     const logout = () => {
         signOut({redirect: false}).then(result => {

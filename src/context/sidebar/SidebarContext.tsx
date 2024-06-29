@@ -1,5 +1,5 @@
-import {createContext, useCallback, useEffect, useState, ReactNode, useContext} from "react";
-import { useMediaQuery } from "@mantine/hooks";
+import {createContext, ReactNode, useCallback, useContext, useEffect, useState} from "react";
+import {useMediaQuery} from "@mantine/hooks";
 
 export interface SidebarContextProps {
     isExpanded: () => boolean;
@@ -10,12 +10,13 @@ export interface SidebarContextProps {
 const defaultValues: SidebarContextProps = {
     isExpanded: () => false,
     canCollapse: () => false,
-    toggle: () => {}
+    toggle: () => {
+    }
 };
 
 const SidebarContext = createContext<SidebarContextProps>(defaultValues);
 
-export const SidebarProvider = ({ children }: { children: ReactNode }) => {
+export const SidebarProvider = ({children}: { children: ReactNode }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const isMd = useMediaQuery("(min-width: 768px)")!;

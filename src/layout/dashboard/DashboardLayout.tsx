@@ -8,7 +8,7 @@ import Sidebar from "@/components/sidebar/Sidebar";
  * @param children
  * @constructor
  */
-const DashboardLayout = ({children}: {children: React.ReactNode}) => {
+const DashboardLayout = ({children}: { children: React.ReactNode }) => {
     return (
         <Flex
             component="div"

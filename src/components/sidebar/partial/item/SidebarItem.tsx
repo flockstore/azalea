@@ -1,7 +1,7 @@
 "use client";
 
 import {SidebarNavItem} from "@/components/sidebar/partial/nav/SidebarNav";
-import {Flex} from "@mantine/core";
+import {Flex, Text} from "@mantine/core";
 import {useTranslations} from "next-intl";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {usePathname} from "@/middleware";
@@ -15,7 +15,7 @@ export interface SidebarItemProps {
 const SidebarItem = ({item}: SidebarItemProps) => {
 
     const t = useTranslations();
-    const { isExpanded } = useSidebar();
+    const {isExpanded} = useSidebar();
 
     const route = usePathname();
     const active = route.startsWith(item.link);
@@ -27,14 +27,11 @@ const SidebarItem = ({item}: SidebarItemProps) => {
 
     return (
         <Flex className={`${expansionStyle} ${activeStyle}`}>
-            <Flex>
-
-                <Flex>
+            <Flex className={styles.sidebarItemSlug}>
+                <Flex className={styles.sidebarItemIcon}>
                     {item.icon}
                 </Flex>
-
-                {isExpanded() && <Flex>{t(item.translation)}</Flex>}
-
+                {isExpanded() && <Text>{t(item.translation)}</Text>}
             </Flex>
         </Flex>
     );

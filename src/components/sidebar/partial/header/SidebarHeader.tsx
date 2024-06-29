@@ -5,42 +5,38 @@ import Logo from "@/components/logo/Logo";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {IconMoon, IconSun} from "@tabler/icons-react";
 
+import styles from "./SidebarHeader.module.css";
+
 const SidebarHeader = () => {
 
-    const { setColorScheme, colorScheme } = useMantineColorScheme();
-    const { colors } = useMantineTheme();
-    const { isExpanded } = useSidebar();
+    const {setColorScheme, colorScheme} = useMantineColorScheme();
+    const {colors} = useMantineTheme();
+    const {isExpanded} = useSidebar();
 
     const logoLight = colors["azalea-blue"][4];
-    const logoDark = colors.dark[4];
+    const logoDark = colors["azalea-blue"][4];
     const logo =
         isExpanded() ?
-        colorScheme === "dark" ? logoDark : logoLight : logoLight;
+            colorScheme === "dark" ? logoDark : logoLight : logoLight;
 
     const changeScheme = () => {
-        setColorScheme(colorScheme === "dark" ? "light" : "dark" );
+        setColorScheme(colorScheme === "dark" ? "light" : "dark");
     };
 
     const themeSwitcher = () => {
         return colorScheme === "dark" ? <IconSun/> : <IconMoon/>;
     };
 
+    const headerStyle = `${styles.header} 
+        ${isExpanded() ? styles.headerExpanded : ""}`;
+    const logoStyle = isExpanded() ? styles.logoExpanded : styles.logo;
+
     return (
         <Flex
-            direction={isExpanded() ? "row" : "column"}
             component="section"
-            justify="space-between"
-            align="center"
-            w="100%"
-            my="xl"
-            px={isExpanded() ? "xl" : "lg"}
+            className={headerStyle}
         >
-            <Flex
-                pos="relative"
-                top={isExpanded() ? "-3px" : "0"}
-                w={isExpanded() ? "120px" : "75%"}
-                mb={isExpanded() ? "0" : "lg"}
-            >
+            <Flex className={logoStyle}>
                 <Logo
                     color={logo}
                     collapsed={!isExpanded()}

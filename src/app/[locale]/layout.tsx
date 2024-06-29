@@ -5,24 +5,24 @@ import BaseLayout from "@/layout/base/BaseLayout";
 
 const Layout = ({children, params: {locale}}: any) => {
 
-  if (!localization.LOCALES.includes(locale as any)) {
-    notFound();
-  }
+    if (!localization.LOCALES.includes(locale as any)) {
+        notFound();
+    }
 
-  const messages = useMessages();
+    const messages = useMessages();
 
-  return (
-      <html lang={locale}>
+    return (
+        <html lang={locale}>
         <head>
-          <title>NextJS</title>
+            <title>NextJS</title>
         </head>
         <body>
-          <BaseLayout locale={locale} messages={messages}>
+        <BaseLayout locale={locale} messages={messages}>
             {children}
-          </BaseLayout>
+        </BaseLayout>
         </body>
-      </html>
-  );
+        </html>
+    );
 };
 
 export default Layout;
