@@ -2,6 +2,8 @@ import {Flex} from "@mantine/core";
 import React from "react";
 import SidebarItem from "@/components/sidebar/partial/item/SidebarItem";
 
+import styles from "./SidebarNav.module.css";
+
 export interface SidebarNavItem {
     icon: React.ReactNode;
     translation: string;
@@ -17,12 +19,7 @@ export interface SidebarNavProps {
 
 const SidebarNav = ({items}: SidebarNavProps) => {
     return (
-        <Flex
-            direction="column"
-            align="center"
-            w="100%"
-            px="lg"
-        >
+        <Flex className={styles.sidebarNav}>
             {items.map(item => (<SidebarItem key={item.translation} item={item}/>))}
         </Flex>
     );

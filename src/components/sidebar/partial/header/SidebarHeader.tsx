@@ -1,18 +1,21 @@
 "use client";
 
-import {ActionIcon, Flex, Tooltip, useMantineColorScheme, useMantineTheme} from "@mantine/core";
+import {Flex, Tooltip, useMantineColorScheme, useMantineTheme} from "@mantine/core";
 import Logo from "@/components/logo/Logo";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
-import {IconMoon, IconSun} from "@tabler/icons-react";
+import {IconBrightness} from "@tabler/icons-react";
 
 import styles from "./SidebarHeader.module.css";
 import {Squircle} from "@squircle-js/react";
+import {useTranslations} from "next-intl";
+import {colorModeSwitcher} from "@/config/translation";
 
 const SidebarHeader = () => {
 
     const {setColorScheme, colorScheme} = useMantineColorScheme();
     const {colors} = useMantineTheme();
     const {isExpanded} = useSidebar();
+    const t = useTranslations();
 
     const logoLight = colors["azalea-blue"][4];
     const logoDark = colors.gray[1];
@@ -24,14 +27,13 @@ const SidebarHeader = () => {
         setColorScheme(colorScheme === "dark" ? "light" : "dark");
     };
 
-    const themeSwitcher = () => {
-        return colorScheme === "dark" ? <IconSun/> : <IconMoon/>;
-    };
-
     const headerStyle = `${styles.header} 
         ${isExpanded() ? styles.headerExpanded : ""}`;
     const logoStyle = isExpanded() ? styles.logoExpanded : styles.logo;
     const switcherWidth = isExpanded() ? 36 : 48;
+
+    const tooltipTranslation = colorScheme === "dark" ? colorModeSwitcher.light : colorModeSwitcher.dark;
+    // TODO: Set switcher in separate component.
 
     return (
         <Flex
@@ -44,16 +46,24 @@ const SidebarHeader = () => {
                     collapsed={!isExpanded()}
                 />
             </Flex>
-            <Squircle
-                cornerRadius={10}
-                cornerSmoothing={1}
-                width={switcherWidth}
-                height={switcherWidth}
-                onClick={changeScheme}
-                className={styles.switcher}
+            <Tooltip
+                label={t(tooltipTranslation)}
+                position="right"
+                offset={10}
             >
-                {themeSwitcher()}
-            </Squircle>
+                <Flex>
+                    <Squircle
+                        cornerRadius={10}
+                        cornerSmoothing={1}
+                        width={switcherWidth}
+                        height={switcherWidth}
+                        onClick={changeScheme}
+                        className={styles.switcher}
+                    >
+                        <IconBrightness/>
+                    </Squircle>
+                </Flex>
+            </Tooltip>
         </Flex>
     );
 };

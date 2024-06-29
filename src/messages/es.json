@@ -2,5 +2,9 @@
   "navigation": {
     "dashboard": "Inicio",
     "product": "Productos"
+  },
+  "colorModeSwitcher": {
+    "light": "Modo claro",
+    "dark": "Modo oscuro"
   }
 }
