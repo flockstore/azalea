@@ -6,6 +6,7 @@ import SidebarNav from "@/components/sidebar/partial/nav/SidebarNav";
 import {navigationItems} from "@/config/navigation";
 
 import styles from "./Sidebar.module.css";
+import SidebarProfile from "@/components/sidebar/partial/profile/SidebarProfile";
 
 const Sidebar = () => {
 
@@ -29,6 +30,7 @@ const Sidebar = () => {
             >
                 <SidebarNav items={navigationItems}/>
             </ScrollArea>
+            <SidebarProfile/>
         </Flex>
     );
 };
