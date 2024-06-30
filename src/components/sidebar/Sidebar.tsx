@@ -20,17 +20,20 @@ const Sidebar = () => {
             initial={{width}} animate={{width}}
             className={styles.sidebar}
         >
-            <SidebarHeader/>
-            <ScrollArea
-                h="75%"
-                w="100%"
-                type="hover"
-                scrollbarSize={5}
-
-            >
-                <SidebarNav items={navigationItems}/>
-            </ScrollArea>
-            <SidebarProfile/>
+            <Flex className={styles.top}>
+                <SidebarHeader/>
+                <ScrollArea
+                    h="75%"
+                    w="100%"
+                    type="hover"
+                    scrollbarSize={5}
+                >
+                    <SidebarNav items={navigationItems}/>
+                </ScrollArea>
+            </Flex>
+            <Flex className={styles.profileHolder}>
+                <SidebarProfile/>
+            </Flex>
         </Flex>
     );
 };

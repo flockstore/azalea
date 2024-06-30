@@ -6,5 +6,9 @@
   "colorModeSwitcher": {
     "light": "Modo claro",
     "dark": "Modo oscuro"
+  },
+  "profile": {
+    "gag": "Si, eres tú",
+    "logout": "Cerrar sesión"
   }
 }

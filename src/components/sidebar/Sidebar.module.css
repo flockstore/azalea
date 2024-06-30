@@ -10,5 +10,18 @@
 
     align-items: start;
     flex-direction: column;
+    justify-content: space-between;
 
+}
+
+.top {
+    height: 80%;
+    width: 100%;
+    flex-direction: column;
+}
+
+.profileHolder {
+    padding: 0 var(--mantine-spacing-md);
+    margin: var(--mantine-spacing-md) 0;
+    width: 100%;
 }
