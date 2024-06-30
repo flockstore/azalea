@@ -1,7 +1,7 @@
 "use client";
 
 import {SidebarNavItem} from "@/components/sidebar/partial/nav/SidebarNav";
-import {Flex, Tooltip} from "@mantine/core";
+import {Badge, Flex, Text, Tooltip} from "@mantine/core";
 import {useTranslations} from "next-intl";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {usePathname} from "@/middleware";
@@ -9,6 +9,7 @@ import {Squircle} from "@squircle-js/react";
 
 import styles from "./SidebarItem.module.css";
 import switcherStyles from "../switcher/SidebarSwitcher.module.css";
+import {navigation} from "@/config/translation";
 
 
 export interface SidebarItemProps {
@@ -50,11 +51,12 @@ const SidebarItem = ({item}: SidebarItemProps) => {
 
     return (
         <Flex className={expandedStyle}>
-            <Flex>
+            <Flex w="70%" mr="md">
                 <Flex className={styles.sidebarItemIcon}>
                     {item.icon}
                 </Flex>
-                {isExpanded() && t(item.translation)}
+                <Text className={styles.text}>{isExpanded() && t(item.translation)}</Text>
+                {item.translation === navigation.dashboard && <Badge className={styles.badge}>+5</Badge>}
             </Flex>
         </Flex>
     );

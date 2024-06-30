@@ -6,6 +6,8 @@
     padding: 10px 0;
     transition: .3s ease;
     cursor: pointer;
+    overflow: hidden;
+    position: relative;
 
     &:hover {
         background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-7));
@@ -13,6 +15,21 @@
     }
 
 }
+
+.text {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.badge {
+    background-color: var(--mantine-color-red-7);
+    position: absolute;
+    top: 13px;
+    right: 20px;
+}
+
 
 .sidebarItemActive {
 

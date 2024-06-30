@@ -11,7 +11,7 @@ import SidebarProfile from "@/components/sidebar/partial/profile/SidebarProfile"
 const Sidebar = () => {
 
     const {isExpanded} = useSidebar();
-    const width = isExpanded() ? "270px" : "100px";
+    const width = isExpanded() ? "280px" : "100px";
 
     return (
         <Flex
