@@ -8,6 +8,11 @@ export const colorModeSwitcher = {
     dark: "colorModeSwitcher.dark",
 };
 
+export const sidebar = {
+    shrink: "sidebar.shrink",
+    expand: "sidebar.expand",
+};
+
 export const profile = {
     gag:  "profile.gag",
     logout: "profile.logout"

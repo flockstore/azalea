@@ -26,6 +26,7 @@ const Sidebar = () => {
                     h="75%"
                     w="100%"
                     type="hover"
+                    scrollbars="y"
                     scrollbarSize={5}
                 >
                     <SidebarNav items={navigationItems}/>

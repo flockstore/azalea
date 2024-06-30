@@ -11,7 +11,6 @@ const Home = () => {
     const t = useTranslations();
     const session = useSession();
     const router = useRouter();
-    const {toggle, isExpanded} = useSidebar();
 
     const logout = () => {
         signOut({redirect: false}).then(result => {
@@ -28,7 +27,6 @@ const Home = () => {
             {JSON.stringify(session)}
             <Button onClick={login}>Sign In</Button>
             <Button onClick={logout}>Logout</Button>
-            <Button onClick={() => toggle()}>Toggle</Button>
             <Box
                 m="xl"
                 h="1500px"

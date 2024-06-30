@@ -1,6 +1,7 @@
 import {Flex} from "@mantine/core";
 import React from "react";
 import Sidebar from "@/components/sidebar/Sidebar";
+import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
 
 /**
  * Defines the rendering behaviour of the dashboard
@@ -15,6 +16,7 @@ const DashboardLayout = ({children}: { children: React.ReactNode }) => {
             pos="relative"
         >
             <Sidebar/>
+            <SidebarShrink/>
             <main>
                 {children}
             </main>

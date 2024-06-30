@@ -3,6 +3,10 @@
     "dashboard": "Inicio",
     "product": "Productos"
   },
+  "sidebar": {
+    "shrink": "Contraer",
+    "expand": "Expandir"
+  },
   "colorModeSwitcher": {
     "light": "Modo claro",
     "dark": "Modo oscuro"
