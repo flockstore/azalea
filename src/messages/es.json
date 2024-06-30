@@ -1,7 +1,10 @@
 {
   "navigation": {
     "dashboard": "Inicio",
-    "product": "Productos"
+    "contact": "Contactos",
+    "product": "Productos",
+    "manufacturing": "Producciones",
+    "iam": "Identidades"
   },
   "sidebar": {
     "shrink": "Contraer",

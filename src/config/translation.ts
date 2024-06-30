@@ -1,6 +1,9 @@
 export const navigation = {
     dashboard: "navigation.dashboard",
-    product: "navigation.product"
+    contact: "navigation.contact",
+    product: "navigation.product",
+    manufacturing: "navigation.manufacturing",
+    iam: "navigation.iam",
 };
 
 export const colorModeSwitcher = {
