@@ -16,21 +16,6 @@
 
 }
 
-.text {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.badge {
-    background-color: var(--mantine-color-red-7);
-    position: absolute;
-    top: 13px;
-    right: 20px;
-}
-
-
 .sidebarItemActive {
 
     background-color: light-dark(var(--mantine-color-azalea-blue-4), var(--mantine-color-dark-7));
@@ -57,4 +42,18 @@
         background-color: var(--mantine-color-azalea-blue-4);
     }
 
+}
+
+.text {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.badge {
+    background-color: var(--mantine-color-red-7);
+    position: absolute;
+    top: 13px;
+    right: 20px;
 }

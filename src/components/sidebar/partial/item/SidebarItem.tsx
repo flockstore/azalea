@@ -1,7 +1,7 @@
 "use client";
 
 import {SidebarNavItem} from "@/components/sidebar/partial/nav/SidebarNav";
-import {Badge, Flex, Text, Tooltip} from "@mantine/core";
+import {Badge, Flex, Indicator, Text, Tooltip} from "@mantine/core";
 import {useTranslations} from "next-intl";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {usePathname} from "@/middleware";
@@ -26,6 +26,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
 
     const style = `${switcherStyles.switcher} ${active && styles.switcherActive}`;
     const expandedStyle = `${styles.sidebarItem} ${active && styles.sidebarItemActive}`;
+    const notifications = item.translation === navigation.dashboard;
 
     if (!isExpanded()) {
         return (
@@ -34,17 +35,22 @@ const SidebarItem = ({item}: SidebarItemProps) => {
                 position="right"
                 offset={10}
             >
-                <Flex mb="sm">
-                    <Squircle
-                        cornerRadius={10}
-                        cornerSmoothing={1}
-                        width={48}
-                        height={48}
-                        className={style}
-                    >
-                        {item.icon}
-                    </Squircle>
-                </Flex>
+
+                <Indicator color="red" disabled={!notifications}>
+                    <Flex mb="sm">
+                        <Squircle
+                            cornerRadius={10}
+                            cornerSmoothing={1}
+                            width={48}
+                            height={48}
+                            className={style}
+                        >
+
+                            {item.icon}
+                        </Squircle>
+                    </Flex>
+                </Indicator>
+
             </Tooltip>
         );
     }
@@ -56,7 +62,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
                     {item.icon}
                 </Flex>
                 <Text className={styles.text}>{isExpanded() && t(item.translation)}</Text>
-                {item.translation === navigation.dashboard && <Badge className={styles.badge}>+5</Badge>}
+                {notifications && <Badge className={styles.badge}>+5</Badge>}
             </Flex>
         </Flex>
     );
