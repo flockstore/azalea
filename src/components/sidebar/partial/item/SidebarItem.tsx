@@ -26,6 +26,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
 
     const style = `${switcherStyles.switcher} ${active && styles.switcherActive}`;
     const expandedStyle = `${styles.sidebarItem} ${active && styles.sidebarItemActive}`;
+    const textStyle = `${styles.text} ${active && styles.textActive}`;
     const notifications = item.translation === navigation.dashboard;
 
     if (!isExpanded()) {
@@ -33,7 +34,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
             <Tooltip
                 label={t(item.translation)}
                 position="right"
-                offset={10}
+                offset={{mainAxis: 10, crossAxis: -4}}
             >
 
                 <Indicator color="red" disabled={!notifications}>
@@ -61,7 +62,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
                 <Flex className={styles.sidebarItemIcon}>
                     {item.icon}
                 </Flex>
-                <Text className={styles.text}>{isExpanded() && t(item.translation)}</Text>
+                <Text className={textStyle}>{isExpanded() && t(item.translation)}</Text>
                 {notifications && <Badge className={styles.badge}>+5</Badge>}
             </Flex>
         </Flex>
