@@ -14,6 +14,7 @@ export const colorModeSwitcher = {
 export const sidebar = {
     shrink: "sidebar.shrink",
     expand: "sidebar.expand",
+    close: "sidebar.close",
 };
 
 export const profile = {

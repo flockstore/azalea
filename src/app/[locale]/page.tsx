@@ -13,7 +13,8 @@ const Home = () => {
     const t = useTranslations();
     const session = useSession();
     const router = useRouter();
-    const { setItems } = useBreadcrumb();
+    const { setItems} = useBreadcrumb();
+    const { isResponsiveEnabled } = useSidebar();
 
     useEffect(() => {
         setItems([
@@ -39,6 +40,7 @@ const Home = () => {
             {JSON.stringify(session)}
             <Button onClick={login}>Sign In</Button>
             <Button onClick={logout}>Logout</Button>
+            {JSON.stringify(isResponsiveEnabled())}
             <Box
                 m="xl"
                 h="1500px"

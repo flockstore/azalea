@@ -1,4 +1,4 @@
-import {Flex} from "@mantine/core";
+import {Flex, Overlay} from "@mantine/core";
 import React from "react";
 import Sidebar from "@/components/sidebar/Sidebar";
 import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
@@ -6,6 +6,7 @@ import Header from "@/components/header/Header";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 
 import styles from "./DashboardLayout.module.css";
+import HeaderResponsive from "@/components/header-responsive/HeaderResponsive";
 
 /**
  * Defines the rendering behaviour of the dashboard
@@ -15,14 +16,21 @@ import styles from "./DashboardLayout.module.css";
  */
 const DashboardLayout = ({children}: { children: React.ReactNode }) => {
 
-    const { isExpanded } = useSidebar();
+    const { isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
 
     return (
-        <Flex
-            component="div"
-            pos="relative"
-        >
+        <Flex className={styles.dashboard}>
             <Sidebar/>
+            {
+                isResponsiveEnabled() &&
+                <Overlay
+                    color="#000"
+                    backgroundOpacity={0.85}
+                    zIndex={50}
+                    onClick={toggleResponsive}
+                />
+            }
+            {!canCollapse() && <HeaderResponsive/>}
             <Flex
                 component="main"
                 className={isExpanded() ? styles.mainExpanded : styles.main}

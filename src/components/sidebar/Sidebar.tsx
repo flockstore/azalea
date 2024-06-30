@@ -1,4 +1,6 @@
-import {Flex, ScrollArea} from "@mantine/core";
+"use client";
+
+import {Button, Flex, ScrollArea} from "@mantine/core";
 import {motion} from "framer-motion";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import SidebarHeader from "@/components/sidebar/partial/header/SidebarHeader";
@@ -9,21 +11,26 @@ import styles from "./Sidebar.module.css";
 import SidebarProfile from "@/components/sidebar/partial/profile/SidebarProfile";
 import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
 import React from "react";
+import {IconX} from "@tabler/icons-react";
+import {useTranslations} from "next-intl";
+import {sidebar} from "@/config/translation";
 
 const Sidebar = () => {
 
-    const {isExpanded} = useSidebar();
+    const {isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
     const width = isExpanded() ? "280px" : "100px";
+    const sidebarClass = `${styles.sidebar} && ${isResponsiveEnabled() && styles.sidebarActive}`;
+    const t = useTranslations();
 
     return (
         <Flex
             component={motion.aside}
             w={width}
             initial={{width}} animate={{width}}
-            className={styles.sidebar}
+            className={sidebarClass}
         >
 
-            <SidebarShrink/>
+            {canCollapse() && <SidebarShrink/>}
             <Flex className={styles.top}>
                 <SidebarHeader/>
                 <ScrollArea
@@ -39,6 +46,13 @@ const Sidebar = () => {
             <Flex className={styles.profileHolder}>
                 <SidebarProfile/>
             </Flex>
+            {!canCollapse() && (
+                <Flex className={styles.button} onClick={toggleResponsive}>
+                    <Button className={styles.buttonHolder}>
+                        <IconX/> {t(sidebar.close)}
+                    </Button>
+                </Flex>
+            )}
         </Flex>
     );
 };

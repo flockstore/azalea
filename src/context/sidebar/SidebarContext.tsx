@@ -4,43 +4,59 @@ import {useMediaQuery} from "@mantine/hooks";
 export interface SidebarContextProps {
     isExpanded: () => boolean;
     canCollapse: () => boolean;
+    isResponsiveEnabled: () => boolean;
+    toggleResponsive: () => void;
     toggle: () => void;
 }
 
 const defaultValues: SidebarContextProps = {
     isExpanded: () => false,
     canCollapse: () => false,
-    toggle: () => {
-    }
+    isResponsiveEnabled: () => false,
+    toggleResponsive: () => {},
+    toggle: () => {}
 };
 
 const SidebarContext = createContext<SidebarContextProps>(defaultValues);
 
 export const SidebarProvider = ({children}: { children: ReactNode }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [isResponsiveEnabled, setIsResponsiveEnabled] = useState(false);
 
-    const isMd = useMediaQuery("(min-width: 768px)")!;
+    const isLg = useMediaQuery("(min-width: 992px)")!;
 
-    const canCollapse = useCallback(() => isMd, [isMd]);
+    const canCollapse = useCallback(() => isLg, [isLg]);
 
     const toggle = () => {
-        if (!canCollapse) {
+        if (!canCollapse()) {
             return;
         }
         setIsExpanded(!isExpanded);
     };
 
-    useEffect(() => {
-        if (!canCollapse() && isExpanded) {
-            setIsExpanded(false);
+    const toggleResponsive = () => {
+        console.log(canCollapse());
+        if (canCollapse()) {
+            return;
         }
-    }, [isMd, canCollapse, isExpanded]);
+        setIsResponsiveEnabled(!isResponsiveEnabled);
+    };
+
+    useEffect(() => {
+
+        if (!canCollapse() && !isExpanded) {
+            setIsExpanded(true);
+        }
+
+    }, [isLg, canCollapse, isExpanded]);
 
     return (
         <SidebarContext.Provider
             value={{
                 isExpanded: () => isExpanded,
+                isResponsiveEnabled: () => isResponsiveEnabled,
                 canCollapse: canCollapse,
+                toggleResponsive,
                 toggle
             }}
         >
