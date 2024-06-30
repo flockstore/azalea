@@ -7,6 +7,7 @@ import {SessionProvider} from "next-auth/react";
 import {MantineProvider} from "@mantine/core";
 import {mantineTheme} from "@/style/theme";
 import {SidebarProvider} from "@/context/sidebar/SidebarContext";
+import {BreadcrumbProvider} from "@/context/breadcrumb/BreadcrumbContext";
 
 /**
  * Defines the properties of the component.
@@ -37,9 +38,11 @@ const BaseLayout = (
             <MantineProvider theme={mantineTheme}>
                 <SessionProvider>
                     <SidebarProvider>
-                        <LayoutOrchestrator>
-                            {children}
-                        </LayoutOrchestrator>
+                        <BreadcrumbProvider>
+                            <LayoutOrchestrator>
+                                {children}
+                            </LayoutOrchestrator>
+                        </BreadcrumbProvider>
                     </SidebarProvider>
                 </SessionProvider>
             </MantineProvider>

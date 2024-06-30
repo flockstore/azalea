@@ -1,0 +1,8 @@
+.breadLink {
+    color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-0));
+}
+
+.breadActive {
+    font-weight: 600;
+    color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+}

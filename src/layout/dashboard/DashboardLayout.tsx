@@ -2,6 +2,10 @@ import {Flex} from "@mantine/core";
 import React from "react";
 import Sidebar from "@/components/sidebar/Sidebar";
 import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
+import Header from "@/components/header/Header";
+import {useSidebar} from "@/context/sidebar/SidebarContext";
+
+import styles from "./DashboardLayout.module.css";
 
 /**
  * Defines the rendering behaviour of the dashboard
@@ -10,16 +14,22 @@ import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
  * @constructor
  */
 const DashboardLayout = ({children}: { children: React.ReactNode }) => {
+
+    const { isExpanded } = useSidebar();
+
     return (
         <Flex
             component="div"
             pos="relative"
         >
             <Sidebar/>
-            <SidebarShrink/>
-            <main>
+            <Flex
+                component="main"
+                className={isExpanded() ? styles.mainExpanded : styles.main}
+            >
+                <Header/>
                 {children}
-            </main>
+            </Flex>
         </Flex>
     );
 };

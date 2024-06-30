@@ -5,12 +5,22 @@ import {signIn, signOut, useSession} from "next-auth/react";
 import {useRouter} from "next/navigation";
 import {Box, Button, Text, Tooltip} from "@mantine/core";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
+import {useBreadcrumb} from "@/context/breadcrumb/BreadcrumbContext";
+import {useEffect} from "react";
 
 const Home = () => {
 
     const t = useTranslations();
     const session = useSession();
     const router = useRouter();
+    const { setItems } = useBreadcrumb();
+
+    useEffect(() => {
+        setItems([
+            {link: "/demo", label: "navigation.dashboard"},
+            {link: "/products", label: "navigation.product", active: true},
+        ]);
+    }, [setItems]);
 
     const logout = () => {
         signOut({redirect: false}).then(result => {
@@ -21,6 +31,8 @@ const Home = () => {
     const login = () => {
         signIn("logto");
     };
+
+
 
     return (
         <div>
@@ -33,9 +45,6 @@ const Home = () => {
                 w="50px"
                 bg="orange"
             >CHILE</Box>
-            <Tooltip label="xd">
-                <Text>aaa</Text>
-            </Tooltip>
         </div>
     );
 

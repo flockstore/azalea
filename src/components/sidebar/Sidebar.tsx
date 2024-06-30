@@ -7,6 +7,8 @@ import {navigationItems} from "@/config/navigation";
 
 import styles from "./Sidebar.module.css";
 import SidebarProfile from "@/components/sidebar/partial/profile/SidebarProfile";
+import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
+import React from "react";
 
 const Sidebar = () => {
 
@@ -20,6 +22,8 @@ const Sidebar = () => {
             initial={{width}} animate={{width}}
             className={styles.sidebar}
         >
+
+            <SidebarShrink/>
             <Flex className={styles.top}>
                 <SidebarHeader/>
                 <ScrollArea
