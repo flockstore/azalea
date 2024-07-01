@@ -7,16 +7,25 @@ import styles from "./SidebarProfile.module.css";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {useTranslations} from "next-intl";
 import {profile} from "@/config/translation";
+import {signOut} from "next-auth/react";
+import {useRouter} from "@/middleware";
 
 const SidebarProfile = () => {
 
     const { isExpanded } = useSidebar();
     const t = useTranslations();
+    const router = useRouter();
 
     const profileStyles = isExpanded() ? styles.profileExpanded : styles.profile;
 
     const profileTooltipPosition = isExpanded() ? "top" : "right";
     const gagName = isExpanded() ? t(profile.gag) : "Ian Felipe";
+
+    const logout = () => {
+        signOut({redirect: false}).then(result => {
+            router.push("/api/auth/federated-logout");
+        });
+    };
 
     return (
         <Flex className={profileStyles}>
@@ -51,7 +60,7 @@ const SidebarProfile = () => {
                     offset={10}
 
                 >
-                    <ActionIcon className={styles.logout}>
+                    <ActionIcon className={styles.logout} onClick={logout}>
                         <IconLogout/>
                     </ActionIcon>
                 </Tooltip>

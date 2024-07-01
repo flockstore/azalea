@@ -2,11 +2,11 @@
 
 import {useTranslations} from "next-intl";
 import {signIn, signOut, useSession} from "next-auth/react";
-import {useRouter} from "next/navigation";
 import {Box, Button} from "@mantine/core";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {useBreadcrumb} from "@/context/breadcrumb/BreadcrumbContext";
 import {useEffect} from "react";
+import {useRouter} from "next/navigation";
 
 const Home = () => {
 
@@ -32,8 +32,6 @@ const Home = () => {
     const login = () => {
         signIn("logto");
     };
-
-
 
     return (
         <div>
