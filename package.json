@@ -21,6 +21,7 @@
     "@mantine/notifications": "^7.11.0",
     "@squircle-js/react": "^1.2.0",
     "@tabler/icons-react": "^3.7.0",
+    "axios": "^1.7.2",
     "framer-motion": "^11.2.12",
     "next": "14.2.4",
     "next-auth": "^4.24.7",

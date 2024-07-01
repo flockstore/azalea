@@ -1,5 +1,6 @@
 import {NextIntlClientProvider} from "next-intl";
 import messages from "@/messages/es.json";
+import {localization} from "@/config/app";
 
 /**
  * next-itl decorator which load messages in storybook context.
@@ -8,7 +9,7 @@ import messages from "@/messages/es.json";
  */
 export const NextIntlDecorator = (Story: any) => {
     return (
-        <NextIntlClientProvider locale="es" messages={messages}>
+        <NextIntlClientProvider locale="es" messages={messages} timeZone={localization.TIME_ZONE}>
             <Story/>
         </NextIntlClientProvider>
     );

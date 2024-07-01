@@ -14,7 +14,7 @@ export const authProvider: AuthOptions = {
             name: "logto",
             type: "oauth",
             wellKnown: "https://auth.ianfe.dev/oidc/.well-known/openid-configuration",
-            authorization: {params: {scope: "openid offline_access profile email"}},
+            authorization: {params: {scope: "openid offline_access profile email organization picture"}},
             clientId: logto.clientId,
             clientSecret: logto.secret,
             client: {
@@ -26,6 +26,7 @@ export const authProvider: AuthOptions = {
                     name: profile.name ?? profile.username,
                     email: profile.email,
                     image: profile.picture,
+                    organization: profile.organization,
                 };
             },
         }

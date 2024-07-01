@@ -9,5 +9,6 @@ export const localization = {
 export const logto = {
     clientId: process.env.LOGTO_ID,
     secret: process.env.LOGTO_SECRET,
-    logoutURL: process.env.LOGTO_LOGOUT_URL
+    logoutURL: process.env.LOGTO_LOGOUT_URL,
+    endpoint: process.env.LOGTO_ENDPOINT,
 };

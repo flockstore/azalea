@@ -1,5 +1,5 @@
 import {useForm} from "@mantine/form";
-import {Box, Button, Flex, Grid, TextInput} from "@mantine/core";
+import {Button, Grid, TextInput} from "@mantine/core";
 
 export interface ProfileFormValues {
     name: string;

@@ -8,7 +8,7 @@ import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {useTranslations} from "next-intl";
 import {profile} from "@/config/translation";
 import {signOut} from "next-auth/react";
-import {useRouter} from "@/middleware";
+import {useRouter} from "next/navigation";
 
 const SidebarProfile = () => {
 
