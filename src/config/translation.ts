@@ -4,6 +4,7 @@ export const navigation = {
     product: "navigation.product",
     manufacturing: "navigation.manufacturing",
     iam: "navigation.iam",
+    profile: "navigation.profile",
 };
 
 export const colorModeSwitcher = {
