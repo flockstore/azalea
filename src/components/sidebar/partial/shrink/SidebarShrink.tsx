@@ -1,10 +1,10 @@
 "use client";
 
 import {Flex, Tooltip} from "@mantine/core";
-import { useSidebar } from "@/context/sidebar/SidebarContext";
-import { motion } from "framer-motion";
+import {useSidebar} from "@/context/sidebar/SidebarContext";
+import {motion} from "framer-motion";
 import styles from "./SidebarShrink.module.css";
-import { IconChevronRight } from "@tabler/icons-react";
+import {IconChevronRight} from "@tabler/icons-react";
 import {useTranslations} from "next-intl";
 import {sidebar} from "@/config/translation";
 

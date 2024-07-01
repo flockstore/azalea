@@ -1,7 +1,6 @@
 import {Flex, Overlay} from "@mantine/core";
 import React from "react";
 import Sidebar from "@/components/sidebar/Sidebar";
-import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
 import Header from "@/components/header/Header";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 

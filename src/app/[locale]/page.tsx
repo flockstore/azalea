@@ -3,7 +3,7 @@
 import {useTranslations} from "next-intl";
 import {signIn, signOut, useSession} from "next-auth/react";
 import {useRouter} from "next/navigation";
-import {Box, Button, Text, Tooltip} from "@mantine/core";
+import {Box, Button} from "@mantine/core";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {useBreadcrumb} from "@/context/breadcrumb/BreadcrumbContext";
 import {useEffect} from "react";
