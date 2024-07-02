@@ -1,0 +1,37 @@
+import {Canvas, Controls, Meta} from "@storybook/blocks";
+
+import * as SidebarItem from "./SidebarItem.stories";
+
+<Meta of={SidebarItem} />
+
+# Sidebar Item
+
+The sidebar item is a graphic representation ready for
+sidebar navigation in order to bring navigability to user
+and current state of it.
+
+<Controls/>
+
+## Example of default item
+
+<Canvas of={SidebarItem.Default} />
+
+## Example of active item
+
+<Canvas of={SidebarItem.DefaultActive} />
+
+## Example of default items with notifications
+
+<Canvas of={SidebarItem.DefaultNotifications} />
+
+## Example of collapsed item
+
+<Canvas of={SidebarItem.Collapsed} />
+
+## Example of collapsed active item
+
+<Canvas of={SidebarItem.CollapsedActive} />
+
+## Example of collapsed item with notifications
+
+<Canvas of={SidebarItem.CollapsedNotifications} />

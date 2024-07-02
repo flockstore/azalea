@@ -10,61 +10,64 @@ import switcherStyles from "../switcher/SidebarSwitcher.module.css";
  * Defines the component props.
  */
 export interface SidebarItemProps {
-    icon: any;
     text: string;
     expanded: boolean;
     action: () => void;
     active: boolean;
-    notifications?: number;
+    notifications: number;
+    icon: any;
 }
 
 /**
  * Defines the rendering behaviour for a sidebar item,
  * which serves as graphic anchor for the sidebar navigation.
- * @param icon to show as graphic representation.
  * @param text to render along the icon.
  * @param expanded or contracted version.
  * @param action to execute when clicking.
  * @param active if item is being navigated currently.
+ * @param notifications if sidebar has related notifications.
+ * @param icon to show as graphic representation.
  * @constructor
  */
 const SidebarItem = ({
-        icon,
         text,
         expanded,
         action,
-        active
+        active,
+        notifications,
+        icon,
 }: SidebarItemProps) => {
 
     const style = `${switcherStyles.switcher} ${active && styles.switcherActive}`;
     const expandedStyle = `${styles.item} ${active && styles.active}`;
     const textStyle = `${styles.text} ${active && styles.textActive}`;
-    const notifications = false;
 
     if (!expanded) {
         return (
-            <Tooltip
-                label={text}
-                position="right"
-                offset={{mainAxis: 10, crossAxis: -4}}
-            >
+            <Flex>
+                <Tooltip
+                    label={text}
+                    position="right"
+                    offset={{mainAxis: 10, crossAxis: -4}}
+                >
 
-                <Indicator color="red" disabled={!notifications}>
-                    <Flex mb="sm" onClick={action}>
-                        <Squircle
-                            cornerRadius={10}
-                            cornerSmoothing={1}
-                            width={48}
-                            height={48}
-                            className={style}
-                        >
+                    <Indicator color="red" disabled={notifications === 0}>
+                        <Flex mb="sm" onClick={action}>
+                            <Squircle
+                                cornerRadius={10}
+                                cornerSmoothing={1}
+                                width={48}
+                                height={48}
+                                className={style}
+                            >
 
-                            {icon}
-                        </Squircle>
-                    </Flex>
-                </Indicator>
+                                {icon}
+                            </Squircle>
+                        </Flex>
+                    </Indicator>
 
-            </Tooltip>
+                </Tooltip>
+            </Flex>
         );
     }
 
@@ -75,7 +78,7 @@ const SidebarItem = ({
                     {icon}
                 </Flex>
                 <Text className={textStyle}>{expanded && text}</Text>
-                {notifications && <Badge className={styles.badge}>{notifications}</Badge>}
+                {notifications !== 0 && <Badge className={styles.badge}>{notifications}a</Badge>}
             </Flex>
         </Flex>
     );

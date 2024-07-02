@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/react";
 import {SidebarNavItem} from "@/components/sidebar/partial/nav/SidebarNav";
 import {navigation} from "@/config/translation";
-import SidebarItem from "@/components/sidebar/partial/item/SidebarItem";
+import SidebarItem, {SidebarItemProps} from "@/components/sidebar/partial/item/SidebarItem";
 import {IconDashboard} from "@tabler/icons-react";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {Box} from "@mantine/core";
@@ -16,38 +16,22 @@ export default meta;
 
 type Story = StoryObj<typeof SidebarItem>;
 
-const navigationItem: SidebarNavItem = {
-    link: "/dashboard",
-    translation: navigation.dashboard,
+const navigationItem: SidebarItemProps = {
+    text: "Dashboard",
+    expanded: true,
+    action: () => {},
+    active: false,
+    notifications: 0,
     icon: <IconDashboard />,
 };
 
 export const Default: Story = {
-    args: {
-        item: {...navigationItem},
-    },
-    decorators: [
-        (Story) => {
-            return <Box w="300px" bg="orange" p="md">
-                <Story/>
-            </Box>;
-        }
-    ],
-    parameters: {
-        nextjs: {
-            appDirectory: true,
-            navigation: {
-                pathname: "/name"
-            }
-        },
-    }
+    args: {...navigationItem},
 };
 
 export const DefaultActive: Story = {
-    name: "Default in active URL",
-    args: {
-        item: {...navigationItem},
-    },
+    name: "Default active",
+    args: {...navigationItem, active: true},
     decorators: [
         (Story) => {
             return <Box w="300px" bg="orange" p="md">
@@ -55,34 +39,31 @@ export const DefaultActive: Story = {
             </Box>;
         }
     ],
-    parameters: {
-        nextjs: {
-            appDirectory: true,
-            navigation: {
-                pathname: "/dashboard"
-            }
-        },
-    }
+};
+
+export const DefaultNotifications: Story = {
+    name: "Default with notifications",
+    args: {...navigationItem, active: true, notifications: 5},
+    decorators: [
+        (Story) => {
+            return <Box w="300px" bg="orange" p="md">
+                <Story/>
+            </Box>;
+        }
+    ],
 };
 
 export const Collapsed: Story = {
-    name: "Collapsed default",
-    args: {
-        item: {...navigationItem},
-    },
-    decorators: [
-        (Story) => {
-            return <Box w="300px" bg="orange" p="md">
-                <Story/>
-            </Box>;
-        }
-    ],
-    parameters: {
-        nextjs: {
-            appDirectory: true,
-            navigation: {
-                pathname: "/dashboard"
-            }
-        },
-    }
+    name: "Collapsed state",
+    args: {...navigationItem, expanded: false},
+};
+
+export const CollapsedActive: Story = {
+    name: "Collapsed active",
+    args: {...navigationItem, expanded: false, active: true},
+};
+
+export const CollapsedNotifications: Story = {
+    name: "Collapsed with notifications",
+    args: {...navigationItem, expanded: false, notifications: 5},
 };

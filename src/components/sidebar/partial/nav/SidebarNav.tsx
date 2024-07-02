@@ -32,11 +32,12 @@ const SidebarNav = ({items}: SidebarNavProps) => {
             {items.map(item => (
                 <SidebarItem
                     key={item.translation}
-                    icon={item.icon}
                     expanded={isExpanded}
                     text={t(item.translation)}
                     action={() => router.push(item.link)}
                     active={route.startsWith(item.link)}
+                    notifications={0}
+                    icon={item.icon}
                 />
             ))}
         </Flex>
