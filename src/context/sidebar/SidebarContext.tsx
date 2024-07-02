@@ -41,6 +41,7 @@ export const SidebarProvider = ({children}: { children: ReactNode }) => {
     };
 
     useEffect(() => {
+        console.log(canCollapse);
 
         if (!canCollapse && !isExpanded) {
             setIsExpanded(true);
@@ -50,7 +51,7 @@ export const SidebarProvider = ({children}: { children: ReactNode }) => {
             setIsResponsiveEnabled(false);
         }
 
-    }, [canCollapse, isExpanded]);
+    }, [canCollapse, isExpanded, isResponsiveEnabled]);
 
     return (
         <SidebarContext.Provider

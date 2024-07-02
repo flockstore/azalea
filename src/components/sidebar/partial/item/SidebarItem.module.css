@@ -1,4 +1,4 @@
-.sidebarItem {
+.item {
 
     width: 100%;
     border-radius: 12px;
@@ -16,7 +16,7 @@
 
 }
 
-.sidebarItemActive {
+.active {
 
     background-color: light-dark(var(--mantine-color-azalea-blue-4), var(--mantine-color-dark-7));
     color: var(--mantine-color-white);
@@ -29,7 +29,7 @@
 
 }
 
-.sidebarItemIcon {
+.icon {
     margin: 0 var(--mantine-spacing-md);
 }
 

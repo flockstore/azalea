@@ -44,6 +44,29 @@ export const Default: Story = {
 };
 
 export const DefaultActive: Story = {
+    name: "Default in active URL",
+    args: {
+        item: {...navigationItem},
+    },
+    decorators: [
+        (Story) => {
+            return <Box w="300px" bg="orange" p="md">
+                <Story/>
+            </Box>;
+        }
+    ],
+    parameters: {
+        nextjs: {
+            appDirectory: true,
+            navigation: {
+                pathname: "/dashboard"
+            }
+        },
+    }
+};
+
+export const Collapsed: Story = {
+    name: "Collapsed default",
     args: {
         item: {...navigationItem},
     },
