@@ -3,7 +3,7 @@ import {useMediaQuery} from "@mantine/hooks";
 
 export interface SidebarContextProps {
     isExpanded: boolean;
-    canCollapse: () => boolean;
+    canCollapse: boolean;
     isResponsiveEnabled: () => boolean;
     toggleResponsive: () => void;
     toggle: () => void;
@@ -11,7 +11,7 @@ export interface SidebarContextProps {
 
 const defaultValues: SidebarContextProps = {
     isExpanded: true,
-    canCollapse: () => false,
+    canCollapse: false,
     isResponsiveEnabled: () => false,
     toggleResponsive: () => {},
     toggle: () => {}
@@ -20,22 +20,21 @@ const defaultValues: SidebarContextProps = {
 const SidebarContext = createContext<SidebarContextProps>(defaultValues);
 
 export const SidebarProvider = ({children}: { children: ReactNode }) => {
+
     const [isExpanded, setIsExpanded] = useState(false);
     const [isResponsiveEnabled, setIsResponsiveEnabled] = useState(false);
 
-    const isLg = useMediaQuery("(min-width: 992px)")!;
-
-    const canCollapse = useCallback(() => isLg, [isLg]);
+    const canCollapse = useMediaQuery("(min-width: 992px)") ?? false;
 
     const toggle = () => {
-        if (!canCollapse()) {
+        if (!canCollapse) {
             return;
         }
         setIsExpanded(!isExpanded);
     };
 
     const toggleResponsive = () => {
-        if (canCollapse()) {
+        if (canCollapse) {
             return;
         }
         setIsResponsiveEnabled(!isResponsiveEnabled);
@@ -43,18 +42,18 @@ export const SidebarProvider = ({children}: { children: ReactNode }) => {
 
     useEffect(() => {
 
-        if (!canCollapse() && !isExpanded) {
+        if (!canCollapse && !isExpanded) {
             setIsExpanded(true);
         }
 
-    }, [isLg, canCollapse, isExpanded]);
+    }, [canCollapse, isExpanded]);
 
     return (
         <SidebarContext.Provider
             value={{
                 isExpanded,
                 isResponsiveEnabled: () => isResponsiveEnabled,
-                canCollapse: canCollapse,
+                canCollapse,
                 toggleResponsive,
                 toggle
             }}

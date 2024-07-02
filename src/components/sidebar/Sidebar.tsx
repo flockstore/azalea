@@ -30,7 +30,7 @@ const Sidebar = () => {
             className={sidebarClass}
         >
 
-            {canCollapse() && <SidebarShrink/>}
+            {canCollapse && <SidebarShrink/>}
             <Flex className={styles.top}>
                 <SidebarHeader/>
                 <ScrollArea
@@ -46,7 +46,7 @@ const Sidebar = () => {
             <Flex className={styles.profileHolder}>
                 <SidebarProfile/>
             </Flex>
-            {!canCollapse() && (
+            {!canCollapse && (
                 <Flex className={styles.button} onClick={toggleResponsive}>
                     <Button className={styles.buttonHolder}>
                         <IconX/> {t(sidebar.close)}

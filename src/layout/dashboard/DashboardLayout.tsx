@@ -29,7 +29,7 @@ const DashboardLayout = ({children}: { children: React.ReactNode }) => {
                     onClick={toggleResponsive}
                 />
             }
-            {!canCollapse() && <HeaderResponsive/>}
+            {!canCollapse && <HeaderResponsive/>}
             <Flex
                 component="main"
                 className={isExpanded ? styles.mainExpanded : styles.main}

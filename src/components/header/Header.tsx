@@ -16,7 +16,7 @@ const Header = () => {
             align="center"
         >
             <HeaderBreadcrumb/>
-            {canCollapse() && <HeaderToolbar/>}
+            {canCollapse && <HeaderToolbar/>}
         </Flex>
     );
 };
