@@ -18,7 +18,7 @@ import {sidebar} from "@/config/translation";
 const Sidebar = () => {
 
     const {isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
-    const width = isExpanded() ? "280px" : "100px";
+    const width = isExpanded ? "280px" : "100px";
     const sidebarClass = `${styles.sidebar} && ${isResponsiveEnabled() && styles.sidebarActive}`;
     const t = useTranslations();
 

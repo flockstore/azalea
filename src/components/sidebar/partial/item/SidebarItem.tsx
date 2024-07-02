@@ -37,7 +37,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
     const textStyle = `${styles.text} ${active && styles.textActive}`;
     const notifications = item.translation === navigation.dashboard;
 
-    if (!isExpanded()) {
+    if (!isExpanded) {
         return (
             <Tooltip
                 label={t(item.translation)}
@@ -70,7 +70,7 @@ const SidebarItem = ({item}: SidebarItemProps) => {
                 <Flex className={styles.sidebarItemIcon}>
                     {item.icon}
                 </Flex>
-                <Text className={textStyle}>{isExpanded() && t(item.translation)}</Text>
+                <Text className={textStyle}>{isExpanded && t(item.translation)}</Text>
                 {notifications && <Badge className={styles.badge}>+5</Badge>}
             </Flex>
         </Flex>

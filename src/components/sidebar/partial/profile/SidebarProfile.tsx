@@ -19,10 +19,10 @@ const SidebarProfile = () => {
     const {data: session, status} = useSession();
     const userProfile = session?.user as User;
 
-    const profileStyles = isExpanded() ? styles.profileExpanded : styles.profile;
+    const profileStyles = isExpanded ? styles.profileExpanded : styles.profile;
 
-    const profileTooltipPosition = isExpanded() ? "top" : "right";
-    const gagName = isExpanded() ? t(profile.gag) : "Ian Felipe";
+    const profileTooltipPosition = isExpanded ? "top" : "right";
+    const gagName = isExpanded ? t(profile.gag) : "Ian Felipe";
 
     const logout = () => {
         signOut({redirect: false}).then(result => {
@@ -36,7 +36,7 @@ const SidebarProfile = () => {
 
                 <Flex
                     align="center"
-                    className={`${!isExpanded() && styles.slug}`}
+                    className={`${!isExpanded && styles.slug}`}
                 >
                     <Tooltip
                         label={gagName}
@@ -49,7 +49,7 @@ const SidebarProfile = () => {
                             alt={userProfile?.name}
                         />
                     </Tooltip>
-                    {isExpanded() &&
+                    {isExpanded &&
                         <Flex className={styles.context}>
                             <Text className={styles.name}>{userProfile?.name}</Text>
                             <Text className={styles.organization}>{userProfile?.organizations[0] || ""}</Text>

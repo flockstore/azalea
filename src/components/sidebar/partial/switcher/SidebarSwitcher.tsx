@@ -19,7 +19,7 @@ const SidebarSwitcher = () => {
         setColorScheme(colorScheme === "dark" ? "light" : "dark");
     };
 
-    const switcherWidth = isExpanded() ? 36 : 48;
+    const switcherWidth = isExpanded ? 36 : 48;
     const tooltipTranslation = colorScheme === "dark" ? colorModeSwitcher.light : colorModeSwitcher.dark;
 
     return (

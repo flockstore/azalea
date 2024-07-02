@@ -2,7 +2,7 @@ import {createContext, ReactNode, useCallback, useContext, useEffect, useState} 
 import {useMediaQuery} from "@mantine/hooks";
 
 export interface SidebarContextProps {
-    isExpanded: () => boolean;
+    isExpanded: boolean;
     canCollapse: () => boolean;
     isResponsiveEnabled: () => boolean;
     toggleResponsive: () => void;
@@ -10,7 +10,7 @@ export interface SidebarContextProps {
 }
 
 const defaultValues: SidebarContextProps = {
-    isExpanded: () => false,
+    isExpanded: true,
     canCollapse: () => false,
     isResponsiveEnabled: () => false,
     toggleResponsive: () => {},
@@ -52,7 +52,7 @@ export const SidebarProvider = ({children}: { children: ReactNode }) => {
     return (
         <SidebarContext.Provider
             value={{
-                isExpanded: () => isExpanded,
+                isExpanded,
                 isResponsiveEnabled: () => isResponsiveEnabled,
                 canCollapse: canCollapse,
                 toggleResponsive,

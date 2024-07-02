@@ -18,12 +18,12 @@ const SidebarHeader = () => {
     const logoLight = colors["azalea-blue"][4];
     const logoDark = colors.gray[1];
     const logo =
-        isExpanded() ?
+        isExpanded ?
             colorScheme === "dark" ? logoDark : logoLight : logoLight;
 
     const headerStyle = `${styles.header} 
-        ${isExpanded() ? styles.headerExpanded : ""}`;
-    const logoStyle = isExpanded() ? styles.logoExpanded : styles.logo;
+        ${isExpanded ? styles.headerExpanded : ""}`;
+    const logoStyle = isExpanded ? styles.logoExpanded : styles.logo;
 
     return (
         <Flex
@@ -33,7 +33,7 @@ const SidebarHeader = () => {
             <Flex className={logoStyle}>
                 <Logo
                     color={logo}
-                    collapsed={!isExpanded()}
+                    collapsed={!isExpanded}
                 />
             </Flex>
             <SidebarSwitcher/>

@@ -12,7 +12,7 @@ const SidebarShrink = () => {
 
     const { isExpanded, toggle } = useSidebar();
     const t = useTranslations();
-    const tooltip = isExpanded() ? sidebar.shrink : sidebar.expand;
+    const tooltip = isExpanded ? sidebar.shrink : sidebar.expand;
 
     return (
         <Flex className={styles.shrink}>
@@ -23,7 +23,7 @@ const SidebarShrink = () => {
                 <Flex
                     component={motion.section}
                     onClick={toggle} style={{ cursor: "pointer" }}
-                    animate={{ rotate: isExpanded() ? 180 : 0 }}
+                    animate={{ rotate: isExpanded ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                 >
                     <IconChevronRight />

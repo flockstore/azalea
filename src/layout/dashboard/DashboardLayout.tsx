@@ -32,7 +32,7 @@ const DashboardLayout = ({children}: { children: React.ReactNode }) => {
             {!canCollapse() && <HeaderResponsive/>}
             <Flex
                 component="main"
-                className={isExpanded() ? styles.mainExpanded : styles.main}
+                className={isExpanded ? styles.mainExpanded : styles.main}
             >
                 <Header/>
                 {children}
