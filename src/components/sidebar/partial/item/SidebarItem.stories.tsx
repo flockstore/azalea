@@ -5,6 +5,7 @@ import SidebarItem from "@/components/sidebar/partial/item/SidebarItem";
 import {IconDashboard} from "@tabler/icons-react";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {Box} from "@mantine/core";
+import {useEffect} from "react";
 
 const meta: Meta<typeof SidebarItem> = {
     component: SidebarItem,
@@ -27,13 +28,30 @@ export const Default: Story = {
     },
     decorators: [
         (Story) => {
-
-            const { toggle } = useSidebar();
-
-            return <Box w="200px">
+            return <Box w="300px" bg="orange" p="md">
                 <Story/>
             </Box>;
+        }
+    ],
+    parameters: {
+        nextjs: {
+            appDirectory: true,
+            navigation: {
+                pathname: "/name"
+            }
+        },
+    }
+};
 
+export const DefaultActive: Story = {
+    args: {
+        item: {...navigationItem},
+    },
+    decorators: [
+        (Story) => {
+            return <Box w="300px" bg="orange" p="md">
+                <Story/>
+            </Box>;
         }
     ],
     parameters: {

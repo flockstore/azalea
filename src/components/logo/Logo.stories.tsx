@@ -18,7 +18,7 @@ export default meta;
 type Story = StoryObj<typeof Logo>;
 
 export const DefaultLogo: Story = {
-    name: "Default state logo",
+    name: "Default",
     args: {
         color: "#000000",
         collapsed: false,
@@ -26,7 +26,7 @@ export const DefaultLogo: Story = {
 };
 
 export const CollapsedLogo: Story = {
-    name: "Collapsed state logo",
+    name: "Collapsed",
     args: {
         color: "#000000",
         collapsed: true,
@@ -34,7 +34,7 @@ export const CollapsedLogo: Story = {
 };
 
 export const CustomColorLogo: Story = {
-    name: "Custom color logo",
+    name: "Custom color",
     args: {
         color: "#FF5733",
         collapsed: false,
@@ -42,7 +42,7 @@ export const CustomColorLogo: Story = {
 };
 
 export const CollapsedCustomColorLogo: Story = {
-    name: "Collapsed custom color logo",
+    name: "Collapsed custom color",
     args: {
         color: "#FF5733",
         collapsed: true,
