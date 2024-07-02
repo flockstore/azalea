@@ -45,14 +45,14 @@ const SidebarProfile = () => {
                     >
                         <Avatar
                             className={styles.picture}
-                            src={userProfile.image || "img/avatar-holder.webp"}
-                            alt={userProfile.name}
+                            src={userProfile?.image || "img/avatar-holder.webp"}
+                            alt={userProfile?.name}
                         />
                     </Tooltip>
                     {isExpanded() &&
                         <Flex className={styles.context}>
-                            <Text className={styles.name}>{userProfile.name}</Text>
-                            <Text className={styles.organization}>{userProfile.organizations[0] || ''}</Text>
+                            <Text className={styles.name}>{userProfile?.name}</Text>
+                            <Text className={styles.organization}>{userProfile?.organizations[0] || ""}</Text>
                         </Flex>
                     }
                 </Flex>

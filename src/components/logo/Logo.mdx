@@ -1,0 +1,29 @@
+import {Canvas, Controls, Meta} from '@storybook/blocks'
+
+import * as Logo from './Logo.stories'
+
+<Meta of={Logo} />
+
+# Logo
+
+The logo component represents a svg modification
+of the vectorized Flock logo which can be rendered
+in full state or only using the corresponding isotype.
+
+<Controls/>
+
+## Example of default logo
+
+<Canvas of={Logo.DefaultLogo} />
+
+## Example of collapsed logo
+
+<Canvas of={Logo.CollapsedLogo} />
+
+## Example of custom color logo
+
+<Canvas of={Logo.CustomColorLogo} />
+
+## Example of custom color logo with collapse
+
+<Canvas of={Logo.CollapsedCustomColorLogo} />
