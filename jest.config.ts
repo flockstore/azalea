@@ -11,7 +11,7 @@ const config: Config.InitialOptions = {
     transform: {
         "^.+\\.tsx?$": "ts-jest",
     },
-    setupFilesAfterEnv: ["<rootDir>/jest.setup.ts",],
+    setupFilesAfterEnv: ["<rootDir>/jest.setup.ts", "<rootDir>/src/test/common.tsx", "<rootDir>/src/test/mocks.tsx"],
     coveragePathIgnorePatterns: [
         "/node_modules/",
         ".*test-util\\.(jsx?|tsx?)$"
