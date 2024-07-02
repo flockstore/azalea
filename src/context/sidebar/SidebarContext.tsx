@@ -35,7 +35,6 @@ export const SidebarProvider = ({children}: { children: ReactNode }) => {
     };
 
     const toggleResponsive = () => {
-        console.log(canCollapse());
         if (canCollapse()) {
             return;
         }

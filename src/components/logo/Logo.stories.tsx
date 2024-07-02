@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import {Meta, StoryObj} from "@storybook/react";
 import Logo from "@/components/logo/Logo";
 
 const BoxDecorator = (Story: any) => (

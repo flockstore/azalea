@@ -1,5 +1,5 @@
 import Logo from "@/components/logo/Logo";
-import { render } from "@testing-library/react";
+import {render} from "@testing-library/react";
 
 describe("Logo Component", () => {
 

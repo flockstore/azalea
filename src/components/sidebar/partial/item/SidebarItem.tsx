@@ -11,11 +11,19 @@ import styles from "./SidebarItem.module.css";
 import switcherStyles from "../switcher/SidebarSwitcher.module.css";
 import {navigation} from "@/config/translation";
 
-
+/**
+ * Defines the component props.
+ */
 export interface SidebarItemProps {
     item: SidebarNavItem;
 }
 
+/**
+ * Defines the rendering behaviour for a sidebar item,
+ * which serves as graphic anchor for the sidebar navigation.
+ * @param item from navigation to render.
+ * @constructor
+ */
 const SidebarItem = ({item}: SidebarItemProps) => {
 
     const t = useTranslations();
