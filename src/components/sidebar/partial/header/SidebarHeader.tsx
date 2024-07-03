@@ -24,6 +24,7 @@ const SidebarHeader = () => {
     const headerStyle = `${styles.header} 
         ${isExpanded ? styles.headerExpanded : ""}`;
     const logoStyle = isExpanded ? styles.logoExpanded : styles.logo;
+    const switcherWidth = isExpanded ? 36 : 48;
 
     return (
         <Flex
@@ -36,7 +37,7 @@ const SidebarHeader = () => {
                     collapsed={!isExpanded}
                 />
             </Flex>
-            <SidebarSwitcher/>
+            <SidebarSwitcher width={switcherWidth}/>
         </Flex>
     );
 };

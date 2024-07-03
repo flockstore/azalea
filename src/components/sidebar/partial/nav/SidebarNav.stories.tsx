@@ -3,7 +3,6 @@ import SidebarNav from "@/components/sidebar/partial/nav/SidebarNav";
 import {navigationItems} from "@/config/navigation";
 import {Box} from "@mantine/core";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
-import {usePathname} from "@/middleware";
 
 const meta: Meta<typeof SidebarNav> = {
     component: SidebarNav,
@@ -36,7 +35,6 @@ export const Collapsed: Story = {
         (Story) => {
 
             const { toggle, isExpanded } = useSidebar();
-            const route = usePathname();
 
             if (isExpanded) {
                 toggle();
