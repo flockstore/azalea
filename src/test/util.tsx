@@ -1,5 +1,5 @@
 import React from "react";
-import { render, RenderOptions } from "@testing-library/react";
+import {render, RenderOptions} from "@testing-library/react";
 import {Flex, MantineProvider} from "@mantine/core";
 import translations from "@/messages/es.json";
 import {IntlProvider} from "use-intl";
