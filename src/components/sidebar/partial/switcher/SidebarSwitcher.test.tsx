@@ -1,6 +1,7 @@
-import { render, setupIntlBasics, fireEvent } from "@/test/util";
+import {render, setupIntlBasics} from "@/test/util";
 import SidebarSwitcher from "@/components/sidebar/partial/switcher/SidebarSwitcher";
-import { useMantineColorScheme } from "@mantine/core";
+import {fireEvent} from "@testing-library/dom";
+import {useMantineColorScheme} from "@mantine/core";
 
 jest.mock("@mantine/core", () => ({
     ...jest.requireActual("@mantine/core"),
@@ -9,14 +10,14 @@ jest.mock("@mantine/core", () => ({
 
 describe("SidebarSwitcher Component", () => {
 
-    const setColorSchemeMock = jest.fn();
-    const useMantineColorSchemeMock = useMantineColorScheme as jest.Mock;
+    const mockSetColorScheme = jest.fn();
+    const mockUseMantineColorScheme = useMantineColorScheme as jest.Mock;
 
     beforeEach(() => {
         setupIntlBasics("/dashboard");
-        useMantineColorSchemeMock.mockReturnValue({
+        mockUseMantineColorScheme.mockReturnValue({
             colorScheme: "light",
-            setColorScheme: setColorSchemeMock
+            setColorScheme: mockSetColorScheme,
         });
     });
 
@@ -26,22 +27,24 @@ describe("SidebarSwitcher Component", () => {
     });
 
     it("should switch between color schemes", () => {
-        const { getByTestId } = render(<SidebarSwitcher width={40}/>);
+        const { getByTestId, rerender } = render(<SidebarSwitcher width={40} />);
         const switcher = getByTestId("sidebar-switcher");
 
-        // Simulate click to change color scheme
         fireEvent.click(switcher);
-        expect(setColorSchemeMock).toHaveBeenCalledWith("dark");
+        expect(mockSetColorScheme).toHaveBeenCalledWith("dark");
 
-        // Update mock to reflect the new color scheme
-        useMantineColorSchemeMock.mockReturnValue({
+        mockUseMantineColorScheme.mockReturnValue({
             colorScheme: "dark",
-            setColorScheme: setColorSchemeMock
+            setColorScheme: mockSetColorScheme,
         });
+        rerender(<SidebarSwitcher width={40} />);
 
-        // Simulate another click to change back to light color scheme
+        mockSetColorScheme.mockClear();
         fireEvent.click(switcher);
-        expect(setColorSchemeMock).toHaveBeenCalledWith("light");
+
+        expect(mockSetColorScheme).toHaveBeenCalledWith("light");
     });
+
+    // TODO: Add unit test with toolbars.
 
 });
