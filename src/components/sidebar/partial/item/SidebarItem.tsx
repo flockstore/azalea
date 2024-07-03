@@ -52,7 +52,11 @@ const SidebarItem = ({
                 >
 
                     <Indicator color="red" disabled={notifications === 0}>
-                        <Flex mb="sm" onClick={action}>
+                        <Flex
+                            mb="sm"
+                            onClick={action}
+                            data-testid={`sidebar-item-collapsed-${text}`}
+                        >
                             <Squircle
                                 cornerRadius={10}
                                 cornerSmoothing={1}
@@ -72,13 +76,13 @@ const SidebarItem = ({
     }
 
     return (
-        <Flex className={expandedStyle} onClick={action}>
+        <Flex className={expandedStyle} onClick={action} data-testid={`sidebar-item-${text}`}>
             <Flex w="70%" mr="md">
                 <Flex className={styles.icon}>
                     {icon}
                 </Flex>
                 <Text className={textStyle}>{expanded && text}</Text>
-                {notifications !== 0 && <Badge className={styles.badge}>{notifications}a</Badge>}
+                {notifications !== 0 && <Badge className={styles.badge}>{notifications}</Badge>}
             </Flex>
         </Flex>
     );

@@ -41,7 +41,6 @@ export const SidebarProvider = ({children}: { children: ReactNode }) => {
     };
 
     useEffect(() => {
-        console.log(canCollapse);
 
         if (!canCollapse && !isExpanded) {
             setIsExpanded(true);

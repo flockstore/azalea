@@ -1,22 +1,23 @@
 import React from "react";
-import {render} from "@testing-library/react";
-import {IntlProvider} from "next-intl";
+import { render, RenderOptions } from "@testing-library/react";
+import {Flex, MantineProvider} from "@mantine/core";
 import translations from "@/messages/es.json";
-import {MantineProvider} from "@mantine/core";
+import {IntlProvider} from "use-intl";
 
-/**
- * Render a component with base providers for
- * addon functionality.
- * @param component to render inside.
- */
-const renderWithProviders = (component: React.ReactElement) => {
-    return render(
+const AllProviders: React.FC = ({ children }: any) => {
+    return (
         <MantineProvider>
             <IntlProvider messages={translations} locale="es">
-                {component}
+                <Flex pos="relative">
+                    {children}
+                </Flex>
             </IntlProvider>
         </MantineProvider>
     );
 };
 
-export default renderWithProviders;
+const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
+    render(ui, { wrapper: AllProviders, ...options });
+
+export * from "@testing-library/react";
+export { customRender as render };
