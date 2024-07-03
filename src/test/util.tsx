@@ -34,4 +34,4 @@ export const setupIntlBasics = (path: string) => {
     const mockUsePathname = usePathname as jest.Mock;
     mockUseTranslations.mockReturnValue((key: string) => key);
     mockUsePathname.mockReturnValue(path);
-}
+};
