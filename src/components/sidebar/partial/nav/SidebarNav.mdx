@@ -1,0 +1,21 @@
+import {Canvas, Controls, Meta} from "@storybook/blocks";
+
+import * as SidebarNav from "./SidebarNav.stories";
+
+<Meta of={SidebarNav} />
+
+# Sidebar Nav
+
+The sidebar navigation is a component in charge of rendering all
+the links from the navigation config according to the sidebar
+context defined by user configuration.
+
+<Controls/>
+
+## Example of default navigation
+
+<Canvas of={SidebarNav.Default}/>
+
+## Example of collapsed navigation
+
+<Canvas of={SidebarNav.Collapsed} />

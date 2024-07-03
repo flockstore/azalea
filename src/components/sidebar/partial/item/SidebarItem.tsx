@@ -81,7 +81,7 @@ const SidebarItem = ({
                 <Flex className={styles.icon}>
                     {icon}
                 </Flex>
-                <Text className={textStyle}>{expanded && text}</Text>
+                <Text aria-current={active ? "page" : undefined} className={textStyle}>{expanded && text}</Text>
                 {notifications !== 0 && <Badge className={styles.badge}>{notifications}</Badge>}
             </Flex>
         </Flex>

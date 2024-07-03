@@ -1,12 +1,16 @@
 import {Flex} from "@mantine/core";
 import React from "react";
 import SidebarItem from "@/components/sidebar/partial/item/SidebarItem";
-
-import styles from "./SidebarNav.module.css";
 import {useTranslations} from "next-intl";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
-import {usePathname, useRouter} from "@/middleware";
+import {usePathname} from "@/middleware";
+import {useRouter} from "next/navigation";
 
+import styles from "./SidebarNav.module.css";
+
+/**
+ * Defines the properties for a sidebar element.
+ */
 export interface SidebarNavItem {
     icon: React.ReactNode;
     translation: string;
@@ -20,6 +24,13 @@ export interface SidebarNavProps {
     items: SidebarNavItem[];
 }
 
+/**
+ * Defines the rendering behaviour of a sidebar hook
+ * which is in charge of rendering the navigation items
+ * correctly depending on the sidebar context.
+ * @param items to render
+ * @constructor
+ */
 const SidebarNav = ({items}: SidebarNavProps) => {
 
     const t = useTranslations();
@@ -28,7 +39,7 @@ const SidebarNav = ({items}: SidebarNavProps) => {
     const router = useRouter();
 
     return (
-        <Flex className={styles.sidebarNav}>
+        <Flex className={styles.sidebarNav} data-testid="sidebar-nav">
             {items.map(item => (
                 <SidebarItem
                     key={item.translation}
