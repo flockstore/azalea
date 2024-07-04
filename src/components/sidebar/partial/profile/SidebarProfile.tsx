@@ -14,6 +14,7 @@ export interface SidebarProfileProps {
     picture: string;
     organization: string;
     logoutAction: () => void;
+    expanded: boolean;
 }
 
 /**
@@ -24,25 +25,24 @@ export interface SidebarProfileProps {
  * @param picture to display.
  * @param organization of the user.
  * @param logoutAction to be executed when the user logs out.
+ * @param expanded if sidebar is expanded or shrink.
  * @constructor
  */
-const SidebarProfile = ({name, picture, organization, logoutAction}: SidebarProfileProps) => {
+const SidebarProfile = ({name, picture, organization, logoutAction, expanded}: SidebarProfileProps) => {
 
-    const { isExpanded } = useSidebar();
     const t = useTranslations();
-    const router = useRouter();
 
-    const profileStyles = isExpanded ? styles.profileExpanded : styles.profile;
+    const profileStyles = expanded ? styles.profileExpanded : styles.profile;
 
-    const profileTooltipPosition = isExpanded ? "top" : "right";
-    const gagName = isExpanded ? t(profile.gag) : name;
+    const profileTooltipPosition = expanded ? "top" : "right";
+    const gagName = expanded ? t(profile.gag) : name;
 
     return (
         <Flex className={profileStyles}>
 
             <Flex
                 align="center"
-                className={`${!isExpanded && styles.slug}`}
+                className={`${!expanded && styles.slug}`}
             >
                 <Tooltip
                     label={gagName}
@@ -55,7 +55,7 @@ const SidebarProfile = ({name, picture, organization, logoutAction}: SidebarProf
                         alt={name}
                     />
                 </Tooltip>
-                {isExpanded &&
+                {expanded &&
                     <Flex className={styles.context}>
                         <Text className={styles.name}>{name}</Text>
                         <Text className={styles.organization}>{organization}</Text>

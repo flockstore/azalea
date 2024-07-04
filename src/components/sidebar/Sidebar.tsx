@@ -42,7 +42,6 @@ const Sidebar = () => {
             initial={{width}} animate={{width}}
             className={sidebarClass}
         >
-
             {canCollapse && <SidebarShrink/>}
             <Flex className={styles.top}>
                 <SidebarHeader/>
@@ -62,6 +61,7 @@ const Sidebar = () => {
                     organization={userProfile?.organizations![0] || "..."}
                     picture={userProfile?.image || "img/avatar-holder.webp"}
                     logoutAction={logout}
+                    expanded={isExpanded}
                 />
             </Flex>
             {!canCollapse && (
