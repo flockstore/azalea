@@ -1,0 +1,21 @@
+import {Canvas, Controls, Meta} from "@storybook/blocks";
+
+import * as SidebarHeader from "./SidebarHeader.stories";
+
+<Meta of={SidebarHeader} />
+
+# Sidebar Header
+
+The sidebar header is a brand representation containing both
+theme control and logo, presenting the logo according to the
+sidebar configurations made by the user.
+
+<Controls/>
+
+## Example of default header
+
+<Canvas of={SidebarHeader.Default}/>
+
+## Example of collapsed header
+
+<Canvas of={SidebarHeader.Collapsed} />

@@ -5,10 +5,11 @@ import translations from "@/messages/es.json";
 import {IntlProvider} from "use-intl";
 import {useTranslations} from "next-intl";
 import {usePathname} from "@/middleware";
+import {mantineTheme} from "@/style/theme";
 
 const AllProviders: React.FC = ({ children }: any) => {
     return (
-        <MantineProvider>
+        <MantineProvider theme={mantineTheme}>
             <IntlProvider messages={translations} locale="es">
                 <Flex pos="relative">
                     {children}

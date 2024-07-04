@@ -1,10 +1,13 @@
 "use client";
 
 import {createTheme, MantineColorsTuple} from "@mantine/core";
-import "@fontsource/urbanist";
 import {passwordInput, textInput} from "@/style/components/input";
 import {anchor} from "@/style/components/text";
 import {button} from "@/style/components/button";
+
+import "@fontsource/urbanist/400.css";
+import "@fontsource/urbanist/500.css";
+import "@fontsource/urbanist/600.css";
 
 import "@fontsource/poppins/400.css";
 import "@fontsource/poppins/500.css";
