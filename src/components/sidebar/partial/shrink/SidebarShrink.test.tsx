@@ -1,8 +1,8 @@
-import { fireEvent, screen } from "@testing-library/react";
+import {fireEvent, screen} from "@testing-library/react";
 import SidebarShrink from "./SidebarShrink";
 import {render, setupIntlBasics} from "@/test/util";
-import { setupSidebarMockValues } from "@/components/sidebar/partial/Sidebar.test-util";
-import { useSidebar } from "@/context/sidebar/SidebarContext";
+import {setupSidebarMockValues} from "@/components/sidebar/partial/Sidebar.test-util";
+import {useSidebar} from "@/context/sidebar/SidebarContext";
 
 jest.mock("@/context/sidebar/SidebarContext");
 
