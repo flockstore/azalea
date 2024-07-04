@@ -21,6 +21,7 @@ const SidebarShrink = () => {
                 position="right"
             >
                 <Flex
+                    data-testid="sidebar-shrink"
                     component={motion.section}
                     onClick={toggle} style={{ cursor: "pointer" }}
                     animate={{ rotate: isExpanded ? 180 : 0 }}
