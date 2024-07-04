@@ -4,9 +4,7 @@ import {ActionIcon, Avatar, Flex, Text, Tooltip} from "@mantine/core";
 import {IconLogout} from "@tabler/icons-react";
 
 import styles from "./SidebarProfile.module.css";
-import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {useTranslations} from "next-intl";
-import {useRouter} from "next/navigation";
 import {profile} from "@/config/translation";
 
 export interface SidebarProfileProps {
@@ -69,7 +67,7 @@ const SidebarProfile = ({name, picture, organization, logoutAction, expanded}: S
                     position="right"
                     offset={10}
                 >
-                    <ActionIcon className={styles.logout} onClick={logoutAction}>
+                    <ActionIcon className={styles.logout} onClick={logoutAction} data-testid="sidebar-logout">
                         <IconLogout/>
                     </ActionIcon>
                 </Tooltip>

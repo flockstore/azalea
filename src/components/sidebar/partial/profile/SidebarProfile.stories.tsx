@@ -1,55 +1,36 @@
 import {Meta, StoryObj} from "@storybook/react";
-import SidebarNav from "@/components/sidebar/partial/nav/SidebarNav";
-import {navigationItems} from "@/config/navigation";
 import {Box} from "@mantine/core";
-import {useSidebar} from "@/context/sidebar/SidebarContext";
+import SidebarProfile, {SidebarProfileProps} from "@/components/sidebar/partial/profile/SidebarProfile";
 
-const meta: Meta<typeof SidebarNav> = {
-    component: SidebarNav,
+const meta: Meta<typeof SidebarProfile> = {
+    component: SidebarProfile,
     title: "Sidebar/Profile",
 };
 
 export default meta;
 
-type Story = StoryObj<typeof SidebarNav>;
+type Story = StoryObj<typeof SidebarProfile>;
+
+const storyProfile: SidebarProfileProps = {
+    name: "Ian Felipe",
+    picture: "/img/avatar-holder.webp",
+    organization: "Azalea",
+    logoutAction: () => {},
+    expanded: true
+};
 
 export const Default: Story = {
-    args: {items: navigationItems},
+    args: {...storyProfile},
     decorators: [
         (Story) =>
             <Box w="300px"><Story /></Box>
-    ],
-    parameters: {
-        nextjs: {
-            appDirectory: true,
-            navigation: {
-                pathname: "/dashboard"
-            }
-        },
-    }
+    ]
 };
 
 export const Collapsed: Story = {
-    args: {items: navigationItems},
+    args: {...storyProfile, expanded: false},
     decorators: [
-        (Story) => {
-
-            const { toggle, isExpanded } = useSidebar();
-
-            if (isExpanded) {
-                toggle();
-            }
-
-            return  <Box w="100px"><Story /></Box>;
-        }
-    ],
-    parameters: {
-        nextjs: {
-            appDirectory: true,
-            navigation: {
-                pathname: "/dashboard"
-            }
-        },
-    }
+        (Story) =>
+            <Box w="80px"><Story /></Box>
+    ]
 };
-

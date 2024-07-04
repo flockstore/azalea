@@ -1,0 +1,20 @@
+import {Canvas, Controls, Meta} from "@storybook/blocks";
+
+import * as SidebarProfile from "./SidebarProfile.stories";
+
+<Meta of={SidebarProfile} />
+
+# Sidebar Profile
+
+The sidebar profile is a component representing a profile slug
+shown in the sidebar with the actual logged-in user information.
+
+<Controls/>
+
+## Example of default profile
+
+<Canvas of={SidebarProfile.Default}/>
+
+## Example of collapsed profile
+
+<Canvas of={SidebarProfile.Collapsed} />
