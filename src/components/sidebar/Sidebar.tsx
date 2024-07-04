@@ -6,21 +6,34 @@ import {useSidebar} from "@/context/sidebar/SidebarContext";
 import SidebarHeader from "@/components/sidebar/partial/header/SidebarHeader";
 import SidebarNav from "@/components/sidebar/partial/nav/SidebarNav";
 import {navigationItems} from "@/config/navigation";
-
-import styles from "./Sidebar.module.css";
 import SidebarProfile from "@/components/sidebar/partial/profile/SidebarProfile";
 import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
 import React from "react";
 import {IconX} from "@tabler/icons-react";
 import {useTranslations} from "next-intl";
 import {sidebar} from "@/config/translation";
+import {signOut, useSession} from "next-auth/react";
+import {User} from "next-auth";
+import {useRouter} from "next/navigation";
+
+import styles from "./Sidebar.module.css";
 
 const Sidebar = () => {
 
     const {isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
+    const t = useTranslations();
+    const {data: session, status} = useSession();
+    const router = useRouter();
+
     const width = isExpanded ? "280px" : "100px";
     const sidebarClass = `${styles.sidebar} && ${isResponsiveEnabled() && styles.sidebarActive}`;
-    const t = useTranslations();
+    const userProfile = session?.user as User;
+
+    const logout = () => {
+        signOut({redirect: false}).then(result => {
+            router.push("/api/auth/federated-logout");
+        });
+    };
 
     return (
         <Flex
@@ -44,7 +57,12 @@ const Sidebar = () => {
                 </ScrollArea>
             </Flex>
             <Flex className={styles.profileHolder}>
-                <SidebarProfile/>
+                <SidebarProfile
+                    name={userProfile?.name || "..."}
+                    organization={userProfile?.organizations![0] || "..."}
+                    picture={userProfile?.image || "img/avatar-holder.webp"}
+                    logoutAction={logout}
+                />
             </Flex>
             {!canCollapse && (
                 <Flex className={styles.button} onClick={toggleResponsive}>
