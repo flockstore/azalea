@@ -1,9 +1,11 @@
 import {signOut, useSession} from "next-auth/react";
-import { setupSidebarMockValues } from "@/components/sidebar/partial/Sidebar.test-util";
+import {setupSidebarMockValues} from "@/components/sidebar/partial/Sidebar.test-util";
 import {render, setupIntlBasics} from "@/test/util";
-import { useMantineColorScheme } from "@mantine/core";
+import {useMantineColorScheme} from "@mantine/core";
 import Sidebar from "@/components/sidebar/Sidebar";
 import {fireEvent, waitFor} from "@testing-library/dom";
+import {useRouter} from "next/navigation";
+import ScrollMock from "@/test/mock/ScrollMock";
 
 jest.mock("framer-motion", () => ({
     motion: {
@@ -14,7 +16,7 @@ jest.mock("framer-motion", () => ({
 jest.mock("@mantine/core", () => ({
     ...jest.requireActual("@mantine/core"),
     useMantineColorScheme: jest.fn(),
-    ScrollArea: ({ children, ...props }) => <div {...props}>{children}</div>,
+    ScrollArea: ({ children, ...props }: any) => <ScrollMock {...props}>{children}</ScrollMock>,
 }));
 
 jest.mock("@/context/sidebar/SidebarContext", () => ({
@@ -26,15 +28,19 @@ jest.mock("next-auth/react", () => ({
     signOut: jest.fn(),
 }));
 
+jest.mock("next/navigation", () => ({
+    useRouter: jest.fn(),
+}));
+
 describe("Sidebar", () => {
 
     const mockUseSession = useSession as jest.Mock;
     const mockSetColorScheme = jest.fn();
     const mockUseMantineColorScheme = useMantineColorScheme as jest.Mock;
-
     const mockSignOut = signOut as jest.Mock;
     const mockToggleResponsive = jest.fn();
     const mockRouterPush = jest.fn();
+    const mockUseRouter = useRouter as jest.Mock;
 
     beforeEach(() => {
         setupSidebarMockValues(true);
@@ -54,6 +60,9 @@ describe("Sidebar", () => {
             setColorScheme: mockSetColorScheme,
         });
         mockSignOut.mockResolvedValue({});
+        mockUseRouter.mockReturnValue({
+            push: mockRouterPush,
+        });
     });
 
     afterEach(() => {
@@ -70,7 +79,7 @@ describe("Sidebar", () => {
     });
 
     it("should call toggleResponsive on button click when canCollapse is false", () => {
-        setupSidebarMockValues(false, true); // Simulate responsive mode
+        setupSidebarMockValues(false, true, mockToggleResponsive);
 
         const { getByTestId } = render(<Sidebar />);
         const closeButton = getByTestId("sidebar-responsive-close");
@@ -107,5 +116,4 @@ describe("Sidebar", () => {
         expect(getByText("John Doe")).toBeInTheDocument();
         expect(getByText("Company")).toBeInTheDocument();
     });
-
 });

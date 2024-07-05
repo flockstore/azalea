@@ -1,6 +1,6 @@
-import { screen, fireEvent } from "@testing-library/react";
+import {fireEvent, screen} from "@testing-library/react";
 import "@testing-library/jest-dom";
-import SidebarProfile, { SidebarProfileProps } from "./SidebarProfile";
+import SidebarProfile, {SidebarProfileProps} from "./SidebarProfile";
 import {render, setupIntlBasics} from "@/test/util";
 
 describe("SidebarProfile Component", () => {
