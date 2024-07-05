@@ -1,0 +1,21 @@
+import {Canvas, Controls, Meta} from "@storybook/blocks";
+
+import * as SidebarStories from "./Sidebar.stories";
+
+<Meta of={SidebarStories} />
+
+# Sidebar
+
+The sidebar is the main state of system of the entire application,
+providing must-have controls, like navigation, actual logged user
+and ability to log out.
+
+<Controls/>
+
+## Sidebar
+
+<Canvas of={SidebarStories.Default}/>
+
+## Sidebar Shrink
+
+<Canvas of={SidebarStories.Shrink}/>

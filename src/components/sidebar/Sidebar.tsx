@@ -65,7 +65,7 @@ const Sidebar = () => {
                 />
             </Flex>
             {!canCollapse && (
-                <Flex className={styles.button} onClick={toggleResponsive}>
+                <Flex className={styles.button} onClick={toggleResponsive} data-testid="sidebar-responsive-close">
                     <Button className={styles.buttonHolder}>
                         <IconX/> {t(sidebar.close)}
                     </Button>
