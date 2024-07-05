@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --config jest.config.ts",
-    "test:coverage": "jest --coverage",
+    "test": "jest --json --outputFile=.jest-test-results.json --config jest.config.ts",
+    "test:coverage": "jest --coverage --json --outputFile=.jest-test-results.json --config jest.config.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
