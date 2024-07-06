@@ -6,6 +6,7 @@ import Sidebar from "@/components/sidebar/Sidebar";
 import {fireEvent, waitFor} from "@testing-library/dom";
 import {useRouter} from "next/navigation";
 import ScrollMock from "@/test/mock/ScrollMock";
+import {mockRouterPush} from "@/test/mocks";
 
 jest.mock("framer-motion", () => ({
     motion: {
@@ -19,18 +20,11 @@ jest.mock("@mantine/core", () => ({
     ScrollArea: ({ children, ...props }: any) => <ScrollMock {...props}>{children}</ScrollMock>,
 }));
 
-jest.mock("@/context/sidebar/SidebarContext", () => ({
-    useSidebar: jest.fn(),
-}));
-
 jest.mock("next-auth/react", () => ({
     useSession: jest.fn(),
     signOut: jest.fn(),
 }));
 
-jest.mock("next/navigation", () => ({
-    useRouter: jest.fn(),
-}));
 
 describe("Sidebar", () => {
 
@@ -39,7 +33,6 @@ describe("Sidebar", () => {
     const mockUseMantineColorScheme = useMantineColorScheme as jest.Mock;
     const mockSignOut = signOut as jest.Mock;
     const mockToggleResponsive = jest.fn();
-    const mockRouterPush = jest.fn();
     const mockUseRouter = useRouter as jest.Mock;
 
     beforeEach(() => {
@@ -60,9 +53,6 @@ describe("Sidebar", () => {
             setColorScheme: mockSetColorScheme,
         });
         mockSignOut.mockResolvedValue({});
-        mockUseRouter.mockReturnValue({
-            push: mockRouterPush,
-        });
     });
 
     afterEach(() => {

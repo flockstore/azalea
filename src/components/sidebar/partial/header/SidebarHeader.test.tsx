@@ -2,10 +2,6 @@ import {setupSidebarMockValues} from "@/components/sidebar/partial/Sidebar.test-
 import {render} from "@/test/util";
 import SidebarHeader from "@/components/sidebar/partial/header/SidebarHeader";
 
-jest.mock("@/context/sidebar/SidebarContext", () => ({
-    useSidebar: jest.fn(),
-}));
-
 jest.mock("@/components/sidebar/partial/switcher/SidebarSwitcher", () => ({
     __esModule: true,
     default: jest.fn(({ width, ...props }) => (
