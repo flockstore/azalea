@@ -1,5 +1,5 @@
-import {createContext, ReactNode, useContext, useEffect, useState} from "react";
-import {useMediaQuery} from "@mantine/hooks";
+import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import { useMediaQuery } from "@mantine/hooks";
 
 export interface SidebarContextProps {
     isExpanded: boolean;
@@ -19,7 +19,7 @@ const defaultValues: SidebarContextProps = {
 
 const SidebarContext = createContext<SidebarContextProps>(defaultValues);
 
-export const SidebarProvider = ({children}: { children: ReactNode }) => {
+export const SidebarProvider = ({ children }: { children: ReactNode }) => {
 
     const [isExpanded, setIsExpanded] = useState(false);
     const [isResponsiveEnabled, setIsResponsiveEnabled] = useState(false);
