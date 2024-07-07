@@ -41,7 +41,7 @@ const Home = () => {
             {JSON.stringify(isResponsiveEnabled())}
             <Box
                 m="xl"
-                h="1500px"
+                h="15px"
                 w="50px"
                 bg="orange"
             >CHILE</Box>

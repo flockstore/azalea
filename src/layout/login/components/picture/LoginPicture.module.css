@@ -1,0 +1,18 @@
+.container {
+
+    width: 100%;
+    height: 100%;
+    background-color: var(--mantine-color-azalea-blue-2);
+    border-radius: var(--mantine-radius-xl);
+    justify-content: center;
+    padding: 60px 15px;
+
+    @media (min-width: 1200px) {
+        padding: 60px 0;
+    }
+
+}
+
+.image {
+    width: 100%;
+}

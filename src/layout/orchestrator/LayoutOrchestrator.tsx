@@ -4,6 +4,7 @@ import React from "react";
 import DashboardLayout from "@/layout/dashboard/DashboardLayout";
 import {signIn, useSession} from "next-auth/react";
 import {Flex, Loader} from "@mantine/core";
+import LoginLayout from "@/layout/login/LoginLayout";
 
 /**
  * Final abstraction of layout for further
@@ -14,18 +15,10 @@ import {Flex, Loader} from "@mantine/core";
  */
 const LayoutOrchestrator = ({children}: { children: React.ReactNode }) => {
 
-    const session = useSession();
+    const test = true;
 
-    if (session.status === "unauthenticated") {
-        signIn("logto");
-        return <Flex
-            align="center"
-            justify="center"
-            w="100vw"
-            h="100vh"
-        >
-            <Loader color="purple" />
-        </Flex>;
+    if (test) {
+        return (<LoginLayout>{children}</LoginLayout>);
     }
 
     return (<DashboardLayout>
