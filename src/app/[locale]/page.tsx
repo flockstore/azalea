@@ -1,44 +1,12 @@
 "use client";
 
-import {useTranslations} from "next-intl";
-import {signIn, signOut, useSession} from "next-auth/react";
-import {Box, Button} from "@mantine/core";
-import {useSidebar} from "@/context/sidebar/SidebarContext";
-import {useBreadcrumb} from "@/context/breadcrumb/BreadcrumbContext";
-import {useEffect} from "react";
-import {useRouter} from "next/navigation";
+import {Box} from "@mantine/core";
 
 const Home = () => {
 
-    const t = useTranslations();
-    const session = useSession();
-    const router = useRouter();
-    const { setItems} = useBreadcrumb();
-    const { isResponsiveEnabled } = useSidebar();
-
-    useEffect(() => {
-        setItems([
-            {link: "/demo", label: "navigation.dashboard"},
-            {link: "/products", label: "navigation.product", active: true},
-        ]);
-    }, [setItems]);
-
-    const logout = () => {
-        signOut({redirect: false}).then(result => {
-            router.push("/api/auth/federated-logout");
-        });
-    };
-
-    const login = () => {
-        signIn("logto");
-    };
 
     return (
         <div>
-            {JSON.stringify(session)}
-            <Button onClick={login}>Sign In</Button>
-            <Button onClick={logout}>Logout</Button>
-            {JSON.stringify(isResponsiveEnabled())}
             <Box
                 m="xl"
                 h="15px"

@@ -12,8 +12,6 @@ import React from "react";
 import {IconX} from "@tabler/icons-react";
 import {useTranslations} from "next-intl";
 import {sidebar} from "@/config/translation";
-import {signOut, useSession} from "next-auth/react";
-import {User} from "next-auth";
 import {useRouter} from "next/navigation";
 
 import styles from "./Sidebar.module.css";
@@ -22,17 +20,18 @@ const Sidebar = () => {
 
     const {isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
     const t = useTranslations();
-    const {data: session, status} = useSession();
     const router = useRouter();
 
     const width = isExpanded ? "280px" : "100px";
     const sidebarClass = `${styles.sidebar} && ${isResponsiveEnabled() && styles.sidebarActive}`;
-    const userProfile = session?.user as User;
+    const userProfile = {
+        organizations: ["flock"],
+        name: "Ian castano",
+        image: "/img/avatar-holder.webp"
+    };
 
     const logout = () => {
-        signOut({redirect: false}).then(result => {
-            router.push("/api/auth/federated-logout");
-        });
+
     };
 
     return (
