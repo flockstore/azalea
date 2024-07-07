@@ -1,5 +1,5 @@
 import React from "react";
-import {Flex, Grid} from "@mantine/core";
+import {Flex} from "@mantine/core";
 
 import styles from "./LoginLayout.module.css";
 import LoginPicture from "@/layout/login/components/picture/LoginPicture";
@@ -16,8 +16,8 @@ const LoginLayout = ({children}: { children: React.ReactNode }) => {
         <Flex className={styles.layout}>
             <Flex className={styles.pictureCol}><LoginPicture/></Flex>
             <Flex className={styles.main}>
-                <LoginHeader/>
-                {children}
+                <Flex className={styles.header}><LoginHeader/></Flex>
+                <Flex className={styles.content}>{children}</Flex>
             </Flex>
         </Flex>
     );

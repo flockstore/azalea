@@ -22,3 +22,11 @@ export const profile = {
     gag:  "profile.gag",
     logout: "profile.logout"
 };
+
+export const auth = {
+    login: "auth.login",
+    sub: "auth.sub",
+    label: "auth.label",
+    holder: "auth.holder",
+    submit: "auth.submit",
+};

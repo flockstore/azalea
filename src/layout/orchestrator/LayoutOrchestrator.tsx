@@ -2,8 +2,6 @@
 
 import React from "react";
 import DashboardLayout from "@/layout/dashboard/DashboardLayout";
-import {signIn, useSession} from "next-auth/react";
-import {Flex, Loader} from "@mantine/core";
 import LoginLayout from "@/layout/login/LoginLayout";
 
 /**

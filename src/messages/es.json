@@ -19,5 +19,12 @@
   "profile": {
     "gag": "Si, eres tú",
     "logout": "Cerrar sesión"
+  },
+  "auth": {
+    "login": "Bienvenido de vuelta",
+    "sub": "Ingresa tu correo electrónico para iniciciar sesión en azalea.",
+    "label": "Correo electrónico",
+    "holder": "Ej: micorreo@mihotmail.com",
+    "submit": "Enviar link de inicio de sesión"
   }
 }

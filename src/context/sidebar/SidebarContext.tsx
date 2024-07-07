@@ -1,5 +1,5 @@
-import React, { createContext, ReactNode, useContext, useEffect, useState } from "react";
-import { useMediaQuery } from "@mantine/hooks";
+import React, {createContext, ReactNode, useContext, useEffect, useState} from "react";
+import {useMediaQuery} from "@mantine/hooks";
 
 export interface SidebarContextProps {
     isExpanded: boolean;

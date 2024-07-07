@@ -1,0 +1,15 @@
+.container {
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+    width: 100%;
+
+    @media (min-width: 992px) {
+        padding: 0 100px;
+    }
+
+}
+
+.title {
+    text-align: center;
+}

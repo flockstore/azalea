@@ -1,5 +1,6 @@
 .header {
 
+    width: 100%;
     justify-content: space-between;
     padding: var(--mantine-spacing-lg) 0;
 
