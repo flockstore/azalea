@@ -14,3 +14,15 @@
     }
 
 }
+
+.main {
+
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 20px;
+
+    @media (min-width: 992px) {
+        width: 55%;
+    }
+
+}
