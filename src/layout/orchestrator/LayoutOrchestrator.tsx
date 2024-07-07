@@ -3,6 +3,7 @@
 import React from "react";
 import DashboardLayout from "@/layout/dashboard/DashboardLayout";
 import LoginLayout from "@/layout/login/LoginLayout";
+import {useUser} from "@/context/user/UserContext";
 
 /**
  * Final abstraction of layout for further
@@ -12,6 +13,11 @@ import LoginLayout from "@/layout/login/LoginLayout";
  * @constructor
  */
 const LayoutOrchestrator = ({children}: { children: React.ReactNode }) => {
+
+
+    const user = useUser();
+
+    console.log(user);
 
     const test = true;
 
