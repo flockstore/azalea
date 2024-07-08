@@ -1,6 +1,8 @@
 .dashboard {
     position: relative;
     flex-direction: column;
+    top: 0;
+    left: 0;
 
     @media (min-width: 992px) {
         flex-direction: row;

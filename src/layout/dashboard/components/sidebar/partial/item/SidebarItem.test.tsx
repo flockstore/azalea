@@ -1,5 +1,6 @@
-import SidebarItem, {SidebarItemProps} from "@/components/sidebar/partial/item/SidebarItem";
+
 import {fireEvent, render, screen} from "@/test/util";
+import SidebarItem, {SidebarItemProps} from "@/layout/dashboard/components/sidebar/partial/item/SidebarItem";
 
 describe("SidebarItem Component", () => {
     const defaultProps: SidebarItemProps = {

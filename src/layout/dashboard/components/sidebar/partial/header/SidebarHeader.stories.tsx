@@ -1,7 +1,7 @@
-import SidebarHeader from "@/components/sidebar/partial/header/SidebarHeader";
 import {Meta, StoryObj} from "@storybook/react";
 import {Box} from "@mantine/core";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
+import SidebarHeader from "@/layout/dashboard/components/sidebar/partial/header/SidebarHeader";
 
 const meta: Meta<typeof SidebarHeader> = {
     component: SidebarHeader,

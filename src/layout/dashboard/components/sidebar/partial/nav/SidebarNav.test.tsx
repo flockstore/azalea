@@ -1,9 +1,9 @@
 import {render, screen, setupIntlBasics} from "@/test/util";
-import SidebarNav, {SidebarNavItem} from "@/components/sidebar/partial/nav/SidebarNav";
-import {setupSidebarMockValues} from "@/components/sidebar/partial/Sidebar.test-util";
 import {fireEvent} from "@testing-library/dom";
 import {mockRouterPush} from "@/test/mocks";
 import {navigation} from "@/config/translation";
+import SidebarNav, {SidebarNavItem} from "@/layout/dashboard/components/sidebar/partial/nav/SidebarNav";
+import {setupSidebarMockValues} from "@/layout/dashboard/components/sidebar/partial/Sidebar.test-util";
 
 jest.mock("@/context/sidebar/SidebarContext", () => ({
     useSidebar: jest.fn(),

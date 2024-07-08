@@ -1,8 +1,8 @@
 import {Meta, StoryObj} from "@storybook/react";
-import SidebarNav from "@/components/sidebar/partial/nav/SidebarNav";
 import {navigationItems} from "@/config/navigation";
 import {Box} from "@mantine/core";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
+import SidebarNav from "@/layout/dashboard/components/sidebar/partial/nav/SidebarNav";
 
 const meta: Meta<typeof SidebarNav> = {
     component: SidebarNav,

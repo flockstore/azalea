@@ -1,6 +1,8 @@
 import {Meta, StoryObj} from "@storybook/react";
 import {Box} from "@mantine/core";
-import SidebarProfile, {SidebarProfileProps} from "@/components/sidebar/partial/profile/SidebarProfile";
+import SidebarProfile, {
+    SidebarProfileProps
+} from "@/layout/dashboard/components/sidebar/partial/profile/SidebarProfile";
 
 const meta: Meta<typeof SidebarProfile> = {
     component: SidebarProfile,

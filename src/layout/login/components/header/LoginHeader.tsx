@@ -2,9 +2,9 @@
 
  import {Flex, useMantineColorScheme, useMantineTheme} from "@mantine/core";
  import Logo from "@/components/logo/Logo";
- import SidebarSwitcher from "@/components/sidebar/partial/switcher/SidebarSwitcher";
 
  import styles from "./LoginHeader.module.css";
+ import SidebarSwitcher from "@/layout/dashboard/components/sidebar/partial/switcher/SidebarSwitcher";
 
  const LoginHeader = () => {
 

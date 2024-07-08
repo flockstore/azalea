@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/react";
-import HeaderBreadcrumb from "@/components/header/partial/breadcrumb/HeaderBreadcrumb";
 import {BreadcrumbItem, useBreadcrumb} from "@/context/breadcrumb/BreadcrumbContext";
 import {Box} from "@mantine/core";
+import HeaderBreadcrumb from "@/layout/dashboard/components/header/partial/breadcrumb/HeaderBreadcrumb";
 
 const meta: Meta<typeof HeaderBreadcrumb> = {
     component: HeaderBreadcrumb,

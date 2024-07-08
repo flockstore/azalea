@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/react";
-import SidebarItem, {SidebarItemProps} from "@/components/sidebar/partial/item/SidebarItem";
 import {IconDashboard} from "@tabler/icons-react";
 import {Box} from "@mantine/core";
+import SidebarItem, {SidebarItemProps} from "@/layout/dashboard/components/sidebar/partial/item/SidebarItem";
 
 const meta: Meta<typeof SidebarItem> = {
     component: SidebarItem,

@@ -1,11 +1,11 @@
 import {Flex, Overlay} from "@mantine/core";
 import React from "react";
-import Sidebar from "@/components/sidebar/Sidebar";
-import Header from "@/components/header/Header";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 
 import styles from "./DashboardLayout.module.css";
-import HeaderResponsive from "@/components/header-responsive/HeaderResponsive";
+import HeaderResponsive from "@/layout/dashboard/components/header-responsive/HeaderResponsive";
+import Sidebar from "@/layout/dashboard/components/sidebar/Sidebar";
+import Header from "@/layout/dashboard/components/header/Header";
 
 /**
  * Defines the rendering behaviour of the dashboard

@@ -1,7 +1,7 @@
 import {render, setupIntlBasics} from "@/test/util";
-import SidebarSwitcher from "@/components/sidebar/partial/switcher/SidebarSwitcher";
 import {fireEvent} from "@testing-library/dom";
 import {useMantineColorScheme} from "@mantine/core";
+import SidebarSwitcher from "@/layout/dashboard/components/sidebar/partial/switcher/SidebarSwitcher";
 
 jest.mock("@mantine/core", () => ({
     ...jest.requireActual("@mantine/core"),

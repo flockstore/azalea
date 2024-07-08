@@ -3,10 +3,9 @@ import {useTranslations} from "next-intl";
 import {auth} from "@/config/translation";
 import {IconMail, IconSend} from "@tabler/icons-react";
 import {useForm} from "@mantine/form";
-import {Account} from "appwrite";
-import {client, ID} from "@/provider/appwrite.provider";
 import {getLogger} from "@/provider/logging.provider";
-import {notifications} from "@mantine/notifications";
+import {signIn} from "@/provider/appwrite.provider";
+import {showFormNotification} from "@/views/auth/login/helper/login-notification.helper";
 
 export interface LoginValues {
     email: string;
@@ -25,23 +24,18 @@ const LoginForm = () => {
         }
     });
 
-    const handleSubmit = async ({email}: LoginValues) => {
+    const performLogin = async (email: string) => {
         try {
-            const account = new Account(client);
-            await account.createMagicURLToken(ID.unique(), email);
-            notifications.show({
-                title: t(auth.success.title),
-                message: t(auth.success.message),
-                color: "teel"
-            });
+            await signIn(email);
+            showFormNotification({t, success: true});
         } catch (error) {
             getLogger().error("Error while sending magic token", error);
-            notifications.show({
-                title: t(auth.error.title),
-                message: t(auth.error.message),
-                color: "red"
-            });
+            showFormNotification({t, success: false});
         }
+    };
+
+    const handleSubmit = ({email}: LoginValues) => {
+        performLogin(email);
     };
 
     return (
@@ -57,6 +51,7 @@ const LoginForm = () => {
             </Box>
             <Box my="xl">
                 <Button
+                    type="submit"
                     leftSection={<IconSend/>}
                     w="100%"
                 >{t(auth.submit)}</Button>

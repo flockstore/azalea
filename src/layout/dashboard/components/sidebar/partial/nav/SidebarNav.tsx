@@ -1,12 +1,12 @@
 import {Flex} from "@mantine/core";
 import React from "react";
-import SidebarItem from "@/components/sidebar/partial/item/SidebarItem";
 import {useTranslations} from "next-intl";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {usePathname} from "@/middleware";
 import {useRouter} from "next/navigation";
 
 import styles from "./SidebarNav.module.css";
+import SidebarItem from "@/layout/dashboard/components/sidebar/partial/item/SidebarItem";
 
 /**
  * Defines the properties for a sidebar element.

@@ -1,12 +1,12 @@
-import {signOut, useSession} from "next-auth/react";
-import {setupSidebarMockValues} from "@/components/sidebar/partial/Sidebar.test-util";
 import {render, setupIntlBasics} from "@/test/util";
 import {useMantineColorScheme} from "@mantine/core";
-import Sidebar from "@/components/sidebar/Sidebar";
 import {fireEvent, waitFor} from "@testing-library/dom";
 import {useRouter} from "next/navigation";
 import ScrollMock from "@/test/mock/ScrollMock";
 import {mockRouterPush} from "@/test/mocks";
+import Sidebar from "@/layout/dashboard/components/sidebar/Sidebar";
+import {setupSidebarMockValues} from "@/layout/dashboard/components/sidebar/partial/Sidebar.test-util";
+import {signOut} from "@/provider/appwrite.provider";
 
 jest.mock("framer-motion", () => ({
     motion: {
@@ -28,7 +28,7 @@ jest.mock("next-auth/react", () => ({
 
 describe("Sidebar", () => {
 
-    const mockUseSession = useSession as jest.Mock;
+    //const mockUseSession = useses as jest.Mock;
     const mockSetColorScheme = jest.fn();
     const mockUseMantineColorScheme = useMantineColorScheme as jest.Mock;
     const mockSignOut = signOut as jest.Mock;
@@ -38,7 +38,7 @@ describe("Sidebar", () => {
     beforeEach(() => {
         setupSidebarMockValues(true);
         setupIntlBasics("/dashboard");
-        mockUseSession.mockReturnValue({
+        /*mockUseSession.mockReturnValue({
             data: {
                 user: {
                     name: "John Doe",
@@ -47,7 +47,7 @@ describe("Sidebar", () => {
                 },
             },
             status: "authenticated",
-        });
+        });*/ //TODO: Fix this
         mockUseMantineColorScheme.mockReturnValue({
             colorScheme: "light",
             setColorScheme: mockSetColorScheme,

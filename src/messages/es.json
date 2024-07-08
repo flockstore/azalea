@@ -35,5 +35,11 @@
       "title": "Revisa tu correo",
       "message": "Hemos enviado un correo con el link de acceso a nuestra plataforma."
     }
+  },
+  "session": {
+    "redeemError": {
+      "title": "Error de inicio",
+      "message": "No se ha podido iniciar sesión, inténtalo de nuevo. Si el problema persiste envía un mensaje al administrador."
+    }
   }
 }

@@ -3,24 +3,23 @@
 import {Button, Flex, ScrollArea} from "@mantine/core";
 import {motion} from "framer-motion";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
-import SidebarHeader from "@/components/sidebar/partial/header/SidebarHeader";
-import SidebarNav from "@/components/sidebar/partial/nav/SidebarNav";
 import {navigationItems} from "@/config/navigation";
-import SidebarProfile from "@/components/sidebar/partial/profile/SidebarProfile";
-import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
 import React from "react";
 import {IconX} from "@tabler/icons-react";
 import {useTranslations} from "next-intl";
 import {sidebar} from "@/config/translation";
-import {useRouter} from "next/navigation";
 
 import styles from "./Sidebar.module.css";
+import SidebarProfile from "@/layout/dashboard/components/sidebar/partial/profile/SidebarProfile";
+import SidebarNav from "@/layout/dashboard/components/sidebar/partial/nav/SidebarNav";
+import SidebarHeader from "@/layout/dashboard/components/sidebar/partial/header/SidebarHeader";
+import SidebarShrink from "@/layout/dashboard/components/sidebar/partial/shrink/SidebarShrink";
+import {signOut} from "@/provider/appwrite.provider";
 
 const Sidebar = () => {
 
     const {isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
     const t = useTranslations();
-    const router = useRouter();
 
     const width = isExpanded ? "280px" : "100px";
     const sidebarClass = `${styles.sidebar} && ${isResponsiveEnabled() && styles.sidebarActive}`;
@@ -31,7 +30,7 @@ const Sidebar = () => {
     };
 
     const logout = () => {
-
+        signOut();
     };
 
     return (

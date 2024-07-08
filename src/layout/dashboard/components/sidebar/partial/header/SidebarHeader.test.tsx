@@ -1,6 +1,6 @@
-import {setupSidebarMockValues} from "@/components/sidebar/partial/Sidebar.test-util";
 import {render} from "@/test/util";
-import SidebarHeader from "@/components/sidebar/partial/header/SidebarHeader";
+import {setupSidebarMockValues} from "@/layout/dashboard/components/sidebar/partial/Sidebar.test-util";
+import SidebarHeader from "@/layout/dashboard/components/sidebar/partial/header/SidebarHeader";
 
 jest.mock("@/components/sidebar/partial/switcher/SidebarSwitcher", () => ({
     __esModule: true,

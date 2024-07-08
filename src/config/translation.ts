@@ -39,3 +39,10 @@ export const auth = {
         message: "auth.success.message"
     }
 };
+
+export const session = {
+    redeemError: {
+        title: "session.redeemError.title",
+        message: "session.redeemError.message"
+    }
+};

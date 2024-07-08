@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/react";
 import {Box} from "@mantine/core";
-import Sidebar from "@/components/sidebar/Sidebar";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
+import Sidebar from "@/layout/dashboard/components/sidebar/Sidebar";
 
 const meta: Meta<typeof Sidebar> = {
     component: Sidebar,

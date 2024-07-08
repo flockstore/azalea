@@ -1,6 +1,6 @@
 import {Meta, StoryObj} from "@storybook/react";
-import SidebarSwitcher from "@/components/sidebar/partial/switcher/SidebarSwitcher";
 import {Box} from "@mantine/core";
+import SidebarSwitcher from "@/layout/dashboard/components/sidebar/partial/switcher/SidebarSwitcher";
 
 const meta: Meta<typeof SidebarSwitcher> = {
     component: SidebarSwitcher,

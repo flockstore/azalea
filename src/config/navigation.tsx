@@ -1,6 +1,6 @@
-import {SidebarNavItem} from "@/components/sidebar/partial/nav/SidebarNav";
 import {IconBuildingFactory2, IconKey, IconLayoutDashboard, IconShoppingBag, IconUser} from "@tabler/icons-react";
 import {navigation} from "@/config/translation";
+import {SidebarNavItem} from "@/layout/dashboard/components/sidebar/partial/nav/SidebarNav";
 
 export const navigationItems: SidebarNavItem[] = [
     {

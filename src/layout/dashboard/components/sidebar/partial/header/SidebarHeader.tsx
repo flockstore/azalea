@@ -3,9 +3,9 @@
 import {Flex, useMantineColorScheme, useMantineTheme} from "@mantine/core";
 import Logo from "@/components/logo/Logo";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
-import SidebarSwitcher from "@/components/sidebar/partial/switcher/SidebarSwitcher";
 
 import styles from "./SidebarHeader.module.css";
+import SidebarSwitcher from "@/layout/dashboard/components/sidebar/partial/switcher/SidebarSwitcher";
 
 /**
  * Defines the rendering behaviour of the

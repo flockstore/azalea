@@ -1,7 +1,7 @@
 import {Flex} from "@mantine/core";
-import HeaderBreadcrumb from "@/components/header/partial/breadcrumb/HeaderBreadcrumb";
-import HeaderToolbar from "@/components/header/partial/toolbar/HeaderToolbar";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
+import HeaderBreadcrumb from "@/layout/dashboard/components/header/partial/breadcrumb/HeaderBreadcrumb";
+import HeaderToolbar from "@/layout/dashboard/components/header/partial/toolbar/HeaderToolbar";
 
 const Header = () => {
 

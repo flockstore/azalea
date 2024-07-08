@@ -1,9 +1,9 @@
 import {fireEvent, screen} from "@testing-library/react";
 import {useBreadcrumb} from "@/context/breadcrumb/BreadcrumbContext";
 import {useRouter} from "@/middleware";
-import HeaderBreadcrumb from "@/components/header/partial/breadcrumb/HeaderBreadcrumb";
 import {useMantineColorScheme} from "@mantine/core";
 import {render} from "@/test/util";
+import HeaderBreadcrumb from "@/layout/dashboard/components/header/partial/breadcrumb/HeaderBreadcrumb";
 
 jest.mock("@/context/breadcrumb/BreadcrumbContext", () => ({
     useBreadcrumb: jest.fn(),

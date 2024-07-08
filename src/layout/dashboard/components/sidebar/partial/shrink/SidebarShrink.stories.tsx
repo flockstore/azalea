@@ -1,7 +1,7 @@
 import {Meta, StoryObj} from "@storybook/react";
 import {Box} from "@mantine/core";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
-import SidebarShrink from "@/components/sidebar/partial/shrink/SidebarShrink";
+import SidebarShrink from "@/layout/dashboard/components/sidebar/partial/shrink/SidebarShrink";
 
 const meta: Meta<typeof SidebarShrink> = {
     component: SidebarShrink,
