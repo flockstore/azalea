@@ -29,4 +29,13 @@ export const auth = {
     label: "auth.label",
     holder: "auth.holder",
     submit: "auth.submit",
+    invalid: "auth.invalid",
+    error: {
+        title: "auth.error.title",
+        message: "auth.error.message"
+    },
+    success: {
+        title: "auth.success.title",
+        message: "auth.success.message"
+    }
 };

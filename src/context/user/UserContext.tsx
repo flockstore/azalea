@@ -2,6 +2,7 @@
 import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { Account } from "appwrite";
 import {client} from "@/provider/appwrite.provider";
+import {getLogger} from "@/provider/logging.provider";
 
 type UserContextType = {
     user: any | null;
@@ -22,7 +23,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
                 const user = await account.get();
                 setUser(user);
             } catch (error) {
-                console.error("No user logged in", error);
+                getLogger().error("Error while retrieving user", error);
                 setUser(null);
             } finally {
                 setLoading(false);

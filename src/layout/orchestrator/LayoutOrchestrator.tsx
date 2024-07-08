@@ -4,6 +4,7 @@ import React from "react";
 import DashboardLayout from "@/layout/dashboard/DashboardLayout";
 import LoginLayout from "@/layout/login/LoginLayout";
 import {useUser} from "@/context/user/UserContext";
+import {Center, Loader} from "@mantine/core";
 
 /**
  * Final abstraction of layout for further
@@ -15,13 +16,20 @@ import {useUser} from "@/context/user/UserContext";
 const LayoutOrchestrator = ({children}: { children: React.ReactNode }) => {
 
 
-    const user = useUser();
+    const {user, loading} = useUser();
 
-    console.log(user);
+    if (loading) {
+        return <Center
+            w="100%"
+            h="100vh"
+        >
+            <Loader
+                color="violet"
+            />
+        </Center>;
+    }
 
-    const test = true;
-
-    if (test) {
+    if (!user) {
         return (<LoginLayout>{children}</LoginLayout>);
     }
 

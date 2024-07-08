@@ -8,6 +8,7 @@ import {mantineTheme} from "@/style/theme";
 import {SidebarProvider} from "@/context/sidebar/SidebarContext";
 import {BreadcrumbProvider} from "@/context/breadcrumb/BreadcrumbContext";
 import {UserProvider} from "@/context/user/UserContext";
+import {Notifications} from "@mantine/notifications";
 
 /**
  * Defines the properties of the component.
@@ -39,6 +40,7 @@ const BaseLayout = (
                 <SidebarProvider>
                     <BreadcrumbProvider>
                         <UserProvider>
+                            <Notifications />
                             <LayoutOrchestrator>
                                 {children}
                             </LayoutOrchestrator>

@@ -25,6 +25,15 @@
     "sub": "Ingresa tu correo electrónico para iniciciar sesión en azalea.",
     "label": "Correo electrónico",
     "holder": "Ej: micorreo@mihotmail.com",
-    "submit": "Enviar link de inicio de sesión"
+    "submit": "Enviar link de inicio de sesión",
+    "invalid": "Ingresa un correo electrónico válido",
+    "error": {
+      "title": "Error de inicio",
+      "message": "Ha ocurrido un error al enviar el link de inicio. Si el problema persiste envía un mensaje al administrador."
+    },
+    "success": {
+      "title": "Revisa tu correo",
+      "message": "Hemos enviado un correo con el link de acceso a nuestra plataforma."
+    }
   }
 }
