@@ -15,11 +15,18 @@ import SidebarNav from "@/layout/dashboard/components/sidebar/partial/nav/Sideba
 import SidebarHeader from "@/layout/dashboard/components/sidebar/partial/header/SidebarHeader";
 import SidebarShrink from "@/layout/dashboard/components/sidebar/partial/shrink/SidebarShrink";
 import {signOut} from "@/provider/appwrite.provider";
+import {useLoading} from "@/context/loading/LoadingContext";
+import {getLogger} from "@/provider/logging.provider";
+import {useRouter} from "@/middleware";
+import {useUser} from "@/context/user/UserContext";
 
 const Sidebar = () => {
 
     const {isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
+    const {setLoading} = useLoading();
+    const {setUser} = useUser();
     const t = useTranslations();
+    const router = useRouter();
 
     const width = isExpanded ? "280px" : "100px";
     const sidebarClass = `${styles.sidebar} && ${isResponsiveEnabled() && styles.sidebarActive}`;
@@ -30,7 +37,19 @@ const Sidebar = () => {
     };
 
     const logout = () => {
-        signOut();
+        setLoading(true);
+        signOut().then(
+            () => {
+                setLoading(false);
+                setUser(null);
+                router.push("/auth/login");
+            }
+        ).catch(
+            error => {
+                getLogger().fatal("Error while logging out", error);
+                window.close();
+            }
+        );
     };
 
     return (

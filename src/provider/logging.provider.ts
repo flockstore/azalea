@@ -1,4 +1,4 @@
-import pinoLogger, { Logger } from "pino";
+import pinoLogger, {Logger} from "pino";
 
 let logger: Logger;
 export const getLogger = () => {

@@ -6,6 +6,7 @@ import {useForm} from "@mantine/form";
 import {getLogger} from "@/provider/logging.provider";
 import {signIn} from "@/provider/appwrite.provider";
 import {showFormNotification} from "@/views/auth/login/helper/login-notification.helper";
+import {useState} from "react";
 
 export interface LoginValues {
     email: string;
@@ -14,6 +15,7 @@ export interface LoginValues {
 const LoginForm = () => {
 
     const t = useTranslations();
+    const [loading, setLoading] = useState(false);
 
     const form = useForm<LoginValues>({
         initialValues: {
@@ -31,10 +33,13 @@ const LoginForm = () => {
         } catch (error) {
             getLogger().error("Error while sending magic token", error);
             showFormNotification({t, success: false});
+        } finally {
+            setLoading(false);
         }
     };
 
     const handleSubmit = ({email}: LoginValues) => {
+        setLoading(true);
         performLogin(email);
     };
 
@@ -51,6 +56,7 @@ const LoginForm = () => {
             </Box>
             <Box my="xl">
                 <Button
+                    loading={loading}
                     type="submit"
                     leftSection={<IconSend/>}
                     w="100%"

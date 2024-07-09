@@ -1,18 +1,18 @@
-import React, { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import React, {createContext, ReactNode, useContext, useEffect, useState} from "react";
 import {Account} from "appwrite";
-import {client, signOut} from "@/provider/appwrite.provider";
+import {client, getUser, signOut} from "@/provider/appwrite.provider";
 import {getLogger} from "@/provider/logging.provider";
 import {notifications} from "@mantine/notifications";
 import {session} from "@/config/translation";
 import {useTranslations} from "next-intl";
 import {useRouter} from "@/middleware";
+import {useLoading} from "@/context/loading/LoadingContext";
 
 /**
  * Defines the component props.
  */
 export interface UserContextType {
     user: any | null;
-    loading: boolean;
     setUser: (user: any) => void;
 }
 
@@ -26,12 +26,12 @@ const UserContext = createContext<UserContextType | undefined>(undefined);
 export const UserProvider = ({ children }: { children: ReactNode }) => {
 
     const [user, setUser] = useState<any | null>(null);
-    const [loading, setLoading] = useState(true);
+    const { loading, setLoading } = useLoading();
     const t = useTranslations();
     const router = useRouter();
 
     useEffect(() => {
-        const getUser = async () => {
+        const fetchUser = async () => {
             try {
                 const user = await getUser();
                 setUser(user);
@@ -43,8 +43,8 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
             }
         };
 
-        getUser();
-    }, []);
+        fetchUser();
+    }, [setLoading]);
 
     useEffect(() => {
 
@@ -58,6 +58,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
                 return;
             }
 
+            setLoading(true);
             try {
                 const account = new Account(client);
                 await account.createSession(userId!, secret!);
@@ -73,6 +74,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
                 await signOut();
             } finally {
                 router.replace("/");
+                setLoading(false);
             }
 
         };
@@ -82,10 +84,10 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
         }
         createSessionFromParams();
 
-    }, [t, user, loading, router, setUser]);
+    }, [loading, router, setLoading, t, user]);
 
     return (
-        <UserContext.Provider value={{ user, loading, setUser }}>
+        <UserContext.Provider value={{ user, setUser }}>
             {children}
         </UserContext.Provider>
     );

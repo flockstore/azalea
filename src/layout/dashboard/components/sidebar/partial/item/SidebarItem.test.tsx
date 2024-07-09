@@ -1,4 +1,3 @@
-
 import {fireEvent, render, screen} from "@/test/util";
 import SidebarItem, {SidebarItemProps} from "@/layout/dashboard/components/sidebar/partial/item/SidebarItem";
 
