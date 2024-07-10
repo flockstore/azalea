@@ -31,3 +31,12 @@ export const getUser = async () => {
 export const signOut = async () => {
     await account.deleteSession("current");
 };
+
+/**
+ * Redeems a session for actual account.
+ * @param userId from magic link.
+ * @param secret from magic link.
+ */
+export const redeemAccountSession = async (userId: string, secret: string) => {
+    await account.createSession(userId, secret);
+};

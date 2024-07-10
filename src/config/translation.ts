@@ -29,7 +29,9 @@ export const auth = {
     label: "auth.label",
     holder: "auth.holder",
     submit: "auth.submit",
+    help: "auth.help",
     invalid: "auth.invalid",
+    check: "auth.check",
     error: {
         title: "auth.error.title",
         message: "auth.error.message"

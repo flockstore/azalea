@@ -15,16 +15,14 @@ import SidebarNav from "@/layout/dashboard/components/sidebar/partial/nav/Sideba
 import SidebarHeader from "@/layout/dashboard/components/sidebar/partial/header/SidebarHeader";
 import SidebarShrink from "@/layout/dashboard/components/sidebar/partial/shrink/SidebarShrink";
 import {signOut} from "@/provider/appwrite.provider";
-import {useLoading} from "@/context/loading/LoadingContext";
 import {getLogger} from "@/provider/logging.provider";
 import {useRouter} from "@/middleware";
-import {useUser} from "@/context/user/UserContext";
+import {useLayout} from "@/context/layout/LayoutContext";
 
 const Sidebar = () => {
 
     const {isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
-    const {setLoading} = useLoading();
-    const {setUser} = useUser();
+    const {setLoading, setDashboardAccess} = useLayout();
     const t = useTranslations();
     const router = useRouter();
 
@@ -41,7 +39,7 @@ const Sidebar = () => {
         signOut().then(
             () => {
                 setLoading(false);
-                setUser(null);
+                setDashboardAccess(false);
                 router.push("/auth/login");
             }
         ).catch(

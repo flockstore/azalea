@@ -26,6 +26,8 @@
     "label": "Correo electrónico",
     "holder": "Ej: micorreo@mihotmail.com",
     "submit": "Enviar link de inicio de sesión",
+    "help": "¿No lo recibiste?, envía uno nuevo",
+    "check": "¡Revisa tu correo!",
     "invalid": "Ingresa un correo electrónico válido",
     "error": {
       "title": "Error de inicio",

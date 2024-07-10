@@ -3,9 +3,8 @@
 import React from "react";
 import DashboardLayout from "@/layout/dashboard/DashboardLayout";
 import LoginLayout from "@/layout/login/LoginLayout";
-import {useUser} from "@/context/user/UserContext";
 import {Center, Loader} from "@mantine/core";
-import {useLoading} from "@/context/loading/LoadingContext";
+import {useLayout} from "@/context/layout/LayoutContext";
 
 /**
  * Final abstraction of layout for further
@@ -16,8 +15,7 @@ import {useLoading} from "@/context/loading/LoadingContext";
  */
 const LayoutOrchestrator = ({children}: { children: React.ReactNode }) => {
 
-    const {user} = useUser();
-    const {loading} = useLoading();
+    const {dashboardAccess, loading} = useLayout();
 
     if (loading) {
         return <Center
@@ -31,7 +29,7 @@ const LayoutOrchestrator = ({children}: { children: React.ReactNode }) => {
         </Center>;
     }
 
-    if (!user) {
+    if (!dashboardAccess) {
         return (<LoginLayout>
             {children}
         </LoginLayout>);
@@ -40,6 +38,7 @@ const LayoutOrchestrator = ({children}: { children: React.ReactNode }) => {
     return (<DashboardLayout>
         {children}
     </DashboardLayout>);
+
 };
 
 export default LayoutOrchestrator;

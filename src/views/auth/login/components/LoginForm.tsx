@@ -1,4 +1,4 @@
-import {Box, Button, TextInput} from "@mantine/core";
+import {Badge, Box, Button, TextInput} from "@mantine/core";
 import {useTranslations} from "next-intl";
 import {auth} from "@/config/translation";
 import {IconMail, IconSend} from "@tabler/icons-react";
@@ -16,6 +16,15 @@ const LoginForm = () => {
 
     const t = useTranslations();
     const [loading, setLoading] = useState(false);
+    const [sent, setSent] = useState(false);
+    const [canResend, setCanResend] = useState(false);
+    const [delayTime, setDelayTime] = useState(0);
+
+    const displayingText =
+        loading ? "" :
+            canResend ? auth.help :
+                sent ? auth.check
+                    : auth.submit;
 
     const form = useForm<LoginValues>({
         initialValues: {
@@ -34,8 +43,33 @@ const LoginForm = () => {
             getLogger().error("Error while sending magic token", error);
             showFormNotification({t, success: false});
         } finally {
+
             setLoading(false);
+            setSent(true);
+
+            setTimeout(() => {
+                allowResend();
+            }, (30 * 1000));
+
+            setDelayTime(30);
+
+            const interval = setInterval(() => {
+                setDelayTime(prev => {
+                    if (prev <= 1) {
+                        clearInterval(interval);
+                        allowResend();
+                        return 0;
+                    }
+                    return prev - 1;
+                });
+            }, 1000);
+
         }
+    };
+
+    const allowResend = () => {
+        setSent(false);
+        setCanResend(true);
     };
 
     const handleSubmit = ({email}: LoginValues) => {
@@ -57,10 +91,13 @@ const LoginForm = () => {
             <Box my="xl">
                 <Button
                     loading={loading}
+                    disabled={sent}
                     type="submit"
                     leftSection={<IconSend/>}
                     w="100%"
-                >{t(auth.submit)}</Button>
+                >
+                    {t(displayingText)} {delayTime !== 0 && <Badge ml="md" color="red">({delayTime}s)</Badge>}
+                </Button>
             </Box>
         </form>
     );
