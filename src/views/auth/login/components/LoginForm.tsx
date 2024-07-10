@@ -39,14 +39,8 @@ const LoginForm = () => {
         try {
             await signIn(email);
             showFormNotification({t, success: true});
-        } catch (error) {
-            getLogger().error("Error while sending magic token", error);
-            showFormNotification({t, success: false});
-        } finally {
 
-            setLoading(false);
             setSent(true);
-
             setTimeout(() => {
                 allowResend();
             }, (30 * 1000));
@@ -64,6 +58,11 @@ const LoginForm = () => {
                 });
             }, 1000);
 
+        } catch (error) {
+            getLogger().error("Error while sending magic token", error);
+            showFormNotification({t, success: false});
+        } finally {
+            setLoading(false);
         }
     };
 
