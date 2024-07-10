@@ -59,7 +59,7 @@ const LoginForm = () => {
             }, 1000);
 
         } catch (error) {
-            getLogger().error("Error while sending magic token", error);
+            getLogger().error(error,"Error while sending magic token");
             showFormNotification({t, success: false});
         } finally {
             setLoading(false);
@@ -93,6 +93,7 @@ const LoginForm = () => {
                     disabled={sent}
                     type="submit"
                     leftSection={<IconSend/>}
+                    data-loading={loading}
                     w="100%"
                 >
                     {t(displayingText)} {delayTime !== 0 && <Badge ml="md" color="red">({delayTime}s)</Badge>}

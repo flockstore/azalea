@@ -41,7 +41,7 @@ export const LayoutProvider = ({ children }: { children: ReactNode }) => {
                 setLoading(false);
                 return;
             } catch (error) {
-                getLogger().error("Error while checking if user is logged:", error);
+                getLogger().error(error, "Error while checking if user is logged:");
             }
 
             const queryParams = new URLSearchParams(window.location.search);
@@ -60,7 +60,7 @@ export const LayoutProvider = ({ children }: { children: ReactNode }) => {
                 setLoading(false);
                 setDashboardAccess(true);
             } catch (error) {
-                getLogger().error("Error redeeming session:", error);
+                getLogger().error(error, "Error redeeming session:");
                 notifications.show({
                     color: "red",
                     title: t(session.redeemError.title),
