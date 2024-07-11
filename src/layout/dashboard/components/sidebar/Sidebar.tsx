@@ -4,7 +4,7 @@ import {Button, Flex, ScrollArea} from "@mantine/core";
 import {motion} from "framer-motion";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 import {navigationItems} from "@/config/navigation";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {IconX} from "@tabler/icons-react";
 import {useTranslations} from "next-intl";
 import {sidebar} from "@/config/translation";
@@ -14,25 +14,32 @@ import SidebarProfile from "@/layout/dashboard/components/sidebar/partial/profil
 import SidebarNav from "@/layout/dashboard/components/sidebar/partial/nav/SidebarNav";
 import SidebarHeader from "@/layout/dashboard/components/sidebar/partial/header/SidebarHeader";
 import SidebarShrink from "@/layout/dashboard/components/sidebar/partial/shrink/SidebarShrink";
-import {signOut} from "@/provider/appwrite.provider";
+import {getUser, signOut} from "@/provider/appwrite.provider";
 import {getLogger} from "@/provider/logging.provider";
-import {useRouter} from "@/middleware";
 import {useLayout} from "@/context/layout/LayoutContext";
+import {User} from "@/types/user";
+import {useRouter} from "next/navigation";
 
 const Sidebar = () => {
 
     const {isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
     const {setLoading, setDashboardAccess} = useLayout();
+    const [user, setUser] = useState<User | null>(null);
     const t = useTranslations();
     const router = useRouter();
 
     const width = isExpanded ? "280px" : "100px";
     const sidebarClass = `${styles.sidebar} && ${isResponsiveEnabled() && styles.sidebarActive}`;
-    const userProfile = {
-        organizations: ["flock"],
-        name: "Ian castano",
-        image: "/img/avatar-holder.webp"
-    };
+
+    useEffect(() => {
+        const setUserData = async () => {
+            const user = await getUser();
+            setUser(user);
+        };
+        setUserData();
+    }, []);
+    // TODO: Organization system
+    // TODO: Picture
 
     const logout = () => {
         setLoading(true);
@@ -72,9 +79,9 @@ const Sidebar = () => {
             </Flex>
             <Flex className={styles.profileHolder}>
                 <SidebarProfile
-                    name={userProfile?.name || "..."}
-                    organization={userProfile?.organizations![0] || "..."}
-                    picture={userProfile?.image || "img/avatar-holder.webp"}
+                    name={user?.name || "..."}
+                    organization={"Azalea"}
+                    picture={"img/avatar-holder.webp"}
                     logoutAction={logout}
                     expanded={isExpanded}
                 />

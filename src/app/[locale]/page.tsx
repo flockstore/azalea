@@ -1,18 +1,19 @@
 "use client";
 
-import {Box} from "@mantine/core";
+import {Box, Text} from "@mantine/core";
+import {useEffect, useState} from "react";
+import {getUser} from "@/provider/appwrite.provider";
 
 const Home = () => {
+
+    const [user, setUser] = useState({} as any);
+
 
 
     return (
         <div>
-            <Box
-                m="xl"
-                h="15px"
-                w="50px"
-                bg="orange"
-            >CHILE</Box>
+            <Text
+            >{JSON.stringify(user)}</Text>
         </div>
     );
 

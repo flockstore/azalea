@@ -23,6 +23,15 @@ jest.mock("next/navigation", () => ({
     }
 }));
 
+export const setLoading = jest.fn();
+export const setDashboardAccess = jest.fn();
+jest.mock("@/context/layout/LayoutContext", () => ({
+    useLayout: () => ({
+        setLoading: setLoading,
+        setDashboardAccess: setDashboardAccess,
+    }),
+}));
+
 beforeAll(() => {
     Object.defineProperty(window, "matchMedia", {
         writable: true,

@@ -1,5 +1,6 @@
 import {Account, Client, ID} from "appwrite";
 import {appWrite} from "@/config/app";
+import {User} from "@/types/user";
 
 /**
  * Client and account creation from AppWrite.
@@ -22,7 +23,7 @@ export const signIn = async (email: string) => {
  * Provides the user from account.
  */
 export const getUser = async () => {
-    return account.get();
+    return await account.get() as User;
 };
 
 /**

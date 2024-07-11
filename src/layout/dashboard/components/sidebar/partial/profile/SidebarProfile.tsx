@@ -55,8 +55,8 @@ const SidebarProfile = ({name, picture, organization, logoutAction, expanded}: S
                 </Tooltip>
                 {expanded &&
                     <Flex className={styles.context}>
-                        <Text className={styles.name}>{name}</Text>
-                        <Text className={styles.organization}>{organization}</Text>
+                        <Text data-testid="sidebar-profile-name" className={styles.name}>{name}</Text>
+                        <Text data-testid="sidebar-profile-organization" className={styles.organization}>{organization}</Text>
                     </Flex>
                 }
             </Flex>
