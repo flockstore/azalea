@@ -9,6 +9,7 @@ const Header = () => {
 
     return (
         <Flex
+            data-testid="header"
             component="header"
             my="xl"
             w="100%"

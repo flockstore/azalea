@@ -54,17 +54,17 @@ describe("Sidebar", () => {
     });
 
     it("should render correctly", async () => {
-        const { getByTestId } = render(<Sidebar />);
+        const { getByTestId, queryByTestId } = render(<Sidebar />);
 
         // Assert sidebar components are rendered
         await waitFor(() => {
             expect(getByTestId("sidebar-profile-name")).toHaveTextContent("John Doe");
-            expect(getByTestId("sidebar-responsive-close")).toBeInTheDocument();
+            expect(queryByTestId("sidebar-responsive-close")).not.toBeInTheDocument();
         });
     });
 
     it("should call toggleResponsive on button click when canCollapse is false", () => {
-        setupSidebarMockValues(false, true, mockToggleResponsive);
+        setupSidebarMockValues(false, true, mockToggleResponsive, false);
 
         const { getByTestId } = render(<Sidebar />);
         const closeButton = getByTestId("sidebar-responsive-close");

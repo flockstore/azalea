@@ -19,6 +19,7 @@ const LayoutOrchestrator = ({children}: { children: React.ReactNode }) => {
 
     if (loading) {
         return <Center
+            data-testid="layout-loading"
             w="100%"
             h="100vh"
         >

@@ -5,16 +5,19 @@ import {useSidebar} from "@/context/sidebar/SidebarContext";
  * @param active if the sidebar is expanded.
  * @param responsiveEnabled if responsive mode is enabled.
  * @param toggleResponsive to mock.
+ * @param canCollapse to mock.
  */
 export const setupSidebarMockValues = (
     active: boolean,
     responsiveEnabled: boolean = false,
-    toggleResponsive: any = jest.fn()
+    toggleResponsive: any = jest.fn(),
+    canCollapse: boolean = true
 ) => {
     const mockUseSidebar = useSidebar as jest.Mock;
     mockUseSidebar.mockReturnValue({
         isExpanded: active,
         isResponsiveEnabled: () => responsiveEnabled,
-        toggleResponsive
+        toggleResponsive,
+        canCollapse
     });
 };

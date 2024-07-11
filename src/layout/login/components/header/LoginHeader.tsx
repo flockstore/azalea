@@ -17,7 +17,7 @@
     const width = 42;
 
     return (
-        <Flex className={styles.header}>
+        <Flex className={styles.header} data-testid="login-header">
             <Flex className={styles.logo}>
                 <Logo
                     color={logo}

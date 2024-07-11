@@ -1,4 +1,5 @@
 // --- Translation mocks --- //
+
 jest.mock("next-intl", () => ({
     useTranslations: jest.fn(),
 }));
