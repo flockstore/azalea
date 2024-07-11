@@ -6,6 +6,7 @@ import {mockRouterPush, setDashboardAccess, setLoading} from "@/test/mocks";
 import Sidebar from "@/layout/dashboard/components/sidebar/Sidebar";
 import {setupSidebarMockValues} from "@/layout/dashboard/components/sidebar/partial/Sidebar.test-util";
 import {getUser, signOut} from "@/provider/appwrite.provider";
+import {act} from "@testing-library/react";
 
 jest.mock("framer-motion", () => ({
     motion: {
@@ -68,9 +69,14 @@ describe("Sidebar", () => {
         const { getByTestId } = render(<Sidebar />);
         const closeButton = getByTestId("sidebar-responsive-close");
 
-        fireEvent.click(closeButton);
+        act(() => {
+            fireEvent.click(closeButton);
+        });
 
-        expect(mockToggleResponsive).toHaveBeenCalled();
+        waitFor(() => {
+            expect(mockToggleResponsive).toHaveBeenCalled();
+        });
+
     });
 
     it("should call signOut on logout", async () => {
@@ -95,14 +101,20 @@ describe("Sidebar", () => {
     });
 
     it("should set loading state when starting sign out", async () => {
+
         const { getByTestId } = render(<Sidebar />);
         const logoutButton = getByTestId("sidebar-logout");
-        fireEvent.click(logoutButton);
+
+        act(() => {
+            fireEvent.click(logoutButton);
+        });
+
         await waitFor(() => {
             expect(setLoading).toHaveBeenCalledWith(true);
             expect(setDashboardAccess).toHaveBeenCalledWith(false);
             expect(setLoading).toHaveBeenCalledWith(false);
         });
+
     });
 
 });

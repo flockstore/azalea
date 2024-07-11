@@ -1,8 +1,7 @@
 "use client";
 
-import {Box, Text} from "@mantine/core";
-import {useEffect, useState} from "react";
-import {getUser} from "@/provider/appwrite.provider";
+import {Text} from "@mantine/core";
+import {useState} from "react";
 
 const Home = () => {
 

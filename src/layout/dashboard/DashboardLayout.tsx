@@ -23,6 +23,7 @@ const DashboardLayout = ({children}: { children: React.ReactNode }) => {
             {
                 isResponsiveEnabled() &&
                 <Overlay
+                    data-testid="sidebar-overlay"
                     color="#000"
                     backgroundOpacity={0.85}
                     zIndex={50}

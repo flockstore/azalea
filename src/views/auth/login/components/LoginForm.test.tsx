@@ -1,4 +1,4 @@
-import {fireEvent, screen, waitFor} from "@testing-library/react";
+import {act, fireEvent, screen, waitFor} from "@testing-library/react";
 import {signIn} from "@/provider/appwrite.provider";
 import {showFormNotification} from "@/views/auth/login/helper/login-notification.helper";
 import {render, setupIntlBasics} from "@/test/util";
@@ -32,9 +32,10 @@ describe("LoginForm Component", () => {
         render(<LoginForm />);
         const emailInput = screen.getByLabelText("auth.label");
         const submitButton = screen.getByRole("button");
-
-        fireEvent.change(emailInput, options);
-        fireEvent.click(submitButton);
+        act(() => {
+            fireEvent.change(emailInput, options);
+            fireEvent.click(submitButton);
+        });
     };
 
     it("should render without crashing", () => {
@@ -50,7 +51,7 @@ describe("LoginForm Component", () => {
     });
 
     it("should show validation errors when present", async () => {
-        renderWithLoginFill({target: {value: "invalid-email"}});
+        renderWithLoginFill({ target: { value: "invalid-email" } });
         await waitFor(() => {
             expect(screen.getByText("auth.invalid")).toBeInTheDocument();
         });
@@ -102,24 +103,31 @@ describe("LoginForm Component", () => {
     it("should set 30s interval after sent and clear resend after interval executed", async () => {
         jest.useFakeTimers();
         (signIn as jest.Mock).mockResolvedValueOnce({});
+
         renderWithLoginFill({ target: { value: "test@example.com" } });
 
         await waitFor(() => {
             expect(screen.getByText("auth.check")).toBeInTheDocument();
         });
 
-        jest.advanceTimersByTime(30000);
+        act(() => {
+            jest.advanceTimersByTime(30000);
+        });
 
         await waitFor(() => {
             expect(screen.getByText("auth.help")).toBeInTheDocument();
         });
 
-        jest.useRealTimers();
+        act(() => {
+            jest.useRealTimers();
+        });
+
     });
 
     it("should display correct badge matching interval and hide when not present", async () => {
         jest.useFakeTimers();
         (signIn as jest.Mock).mockResolvedValueOnce({});
+
         renderWithLoginFill({ target: { value: "test@example.com" } });
 
         await waitFor(() => {
@@ -127,18 +135,26 @@ describe("LoginForm Component", () => {
             expect(screen.getByText("(30s)")).toBeInTheDocument();
         });
 
-        jest.advanceTimersByTime(10000);
+        act(() => {
+            jest.advanceTimersByTime(10000);
+        });
 
         await waitFor(() => {
             expect(screen.getByText("(20s)")).toBeInTheDocument();
         });
 
-        jest.advanceTimersByTime(20000);
+        act(() => {
+            jest.advanceTimersByTime(20000);
+        });
 
         await waitFor(() => {
             expect(screen.queryByText(/\(\d+s\)/)).not.toBeInTheDocument();
         });
 
-        jest.useRealTimers();
+        act(() => {
+            jest.useRealTimers();
+        });
+
     });
+
 });

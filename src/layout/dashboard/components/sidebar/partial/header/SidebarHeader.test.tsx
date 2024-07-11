@@ -2,7 +2,7 @@ import {render} from "@/test/util";
 import {setupSidebarMockValues} from "@/layout/dashboard/components/sidebar/partial/Sidebar.test-util";
 import SidebarHeader from "@/layout/dashboard/components/sidebar/partial/header/SidebarHeader";
 
-jest.mock("@/components/sidebar/partial/switcher/SidebarSwitcher", () => ({
+jest.mock("@/layout/dashboard/components/sidebar/partial/switcher/SidebarSwitcher", () => ({
     __esModule: true,
     default: jest.fn(({ width, ...props }) => (
         <div data-testid="side-header-switcher" style={{ width }} {...props}>
