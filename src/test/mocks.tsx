@@ -9,11 +9,6 @@ jest.mock("@/middleware", () => ({
     useRouter: jest.fn(),
 }));
 
-// --- Provider mocks --- //
-jest.mock("@/context/sidebar/SidebarContext", () => ({
-    useSidebar: jest.fn(),
-}));
-
 // --- Navigation mocks --- //
 export const mockRouterPush = jest.fn();
 jest.mock("next/navigation", () => ({

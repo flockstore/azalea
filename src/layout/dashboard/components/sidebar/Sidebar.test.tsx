@@ -25,6 +25,10 @@ jest.mock("@/provider/appwrite.provider", () => ({
     signOut: jest.fn(),
 }));
 
+jest.mock("@/context/sidebar/SidebarContext", () => ({
+    useSidebar: jest.fn(),
+}));
+
 const setLoading = jest.fn();
 const setDashboardAccess = jest.fn();
 jest.mock("@/context/layout/LayoutContext", () => ({

@@ -2,6 +2,10 @@ import {render} from "@/test/util";
 import Header from "@/layout/dashboard/components/header/Header";
 import {setupSidebarMockValues} from "@/layout/dashboard/components/sidebar/partial/Sidebar.test-util";
 
+jest.mock("@/context/sidebar/SidebarContext", () => ({
+    useSidebar: jest.fn(),
+}));
+
 jest.mock("@/layout/dashboard/components/header/partial/toolbar/HeaderToolbar", () =>
     // eslint-disable-next-line react/display-name
     () => <div data-testid="mock-toolbar">Mock toolbar</div>

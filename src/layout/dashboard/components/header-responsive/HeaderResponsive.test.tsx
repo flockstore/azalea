@@ -4,6 +4,10 @@ import HeaderResponsive from "@/layout/dashboard/components/header-responsive/He
 import {act} from "@testing-library/react";
 import {fireEvent} from "@testing-library/dom";
 
+jest.mock("@/context/sidebar/SidebarContext", () => ({
+    useSidebar: jest.fn(),
+}));
+
 describe("HeaderResponsive Component", () => {
 
     it("should render correctly", () => {
