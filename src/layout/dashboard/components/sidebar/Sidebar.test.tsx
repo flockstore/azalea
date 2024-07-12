@@ -2,7 +2,7 @@ import {render, setupIntlBasics} from "@/test/util";
 import {useMantineColorScheme} from "@mantine/core";
 import {fireEvent, waitFor} from "@testing-library/dom";
 import ScrollMock from "@/test/mock/ScrollMock";
-import {mockRouterPush, setDashboardAccess, setLoading} from "@/test/mocks";
+import {mockRouterPush} from "@/test/mocks";
 import Sidebar from "@/layout/dashboard/components/sidebar/Sidebar";
 import {setupSidebarMockValues} from "@/layout/dashboard/components/sidebar/partial/Sidebar.test-util";
 import {getUser, signOut} from "@/provider/appwrite.provider";
@@ -25,6 +25,14 @@ jest.mock("@/provider/appwrite.provider", () => ({
     signOut: jest.fn(),
 }));
 
+const setLoading = jest.fn();
+const setDashboardAccess = jest.fn();
+jest.mock("@/context/layout/LayoutContext", () => ({
+    useLayout: () => ({
+        setLoading: setLoading,
+        setDashboardAccess: setDashboardAccess,
+    }),
+}));
 
 describe("Sidebar", () => {
 

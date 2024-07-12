@@ -16,12 +16,13 @@ const HeaderResponsive = () => {
     };
 
     return (
-        <Flex className={styles.header}>
+        <Flex className={styles.header} data-testid="responsive-header">
             <Flex className={styles.logo}>
                 <Logo color={logo} collapsed={false}/>
             </Flex>
             <Flex>
                 <Burger
+                    data-testid="header-burger"
                     size="lg"
                     opened={isResponsiveEnabled()}
                     onClick={switchMenu}
