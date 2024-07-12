@@ -6,6 +6,7 @@ jest.mock("next-intl", () => ({
 
 jest.mock("@/middleware", () => ({
     usePathname: jest.fn(),
+    useRouter: jest.fn(),
 }));
 
 // --- Provider mocks --- //
