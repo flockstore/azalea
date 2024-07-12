@@ -1,0 +1,19 @@
+.menu {
+    width: 100%;
+    border-radius: var(--mantine-radius-lg);
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-9));
+}
+
+.slug {
+    composes: menu;
+    justify-content: space-between;
+    padding: var(--mantine-spacing-xs) var(--mantine-spacing-md);
+    background-color: transparent;
+    cursor: pointer;
+    user-select: none;
+}
+
+.content {
+    overflow: hidden;
+    transition: .3s;
+}
