@@ -21,7 +21,7 @@ const SidebarContext = createContext<SidebarContextProps>(defaultValues);
 
 export const SidebarProvider = ({ children }: { children: ReactNode }) => {
 
-    const [isExpanded, setIsExpanded] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(true);
     const [isResponsiveEnabled, setIsResponsiveEnabled] = useState(false);
 
     const canCollapse = useMediaQuery("(min-width: 992px)") ?? false;
