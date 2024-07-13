@@ -11,9 +11,21 @@
     background-color: transparent;
     cursor: pointer;
     user-select: none;
+    font-weight: 600;
+    border-radius: var(--mantine-radius-lg) var(--mantine-radius-lg) 0 0;
+}
+
+.slugActive {
+    transition: .3s all;
+    background-color: var(--mantine-color-azalea-blue-4);
+    color: var(--mantine-color-white);
 }
 
 .content {
     overflow: hidden;
-    transition: .3s;
+}
+
+.chevronActive {
+    transition: .3s all;
+    rotate: 180deg;
 }

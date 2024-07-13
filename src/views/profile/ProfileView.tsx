@@ -6,10 +6,12 @@ import {useEffect} from "react";
 import {navigation} from "@/config/translation";
 import ProfileForm from "@/views/profile/form/ProfileForm";
 import DropMenu from "@/components/drop-menu/DropMenu";
+import {useMediaQuery} from "@mantine/hooks";
 
 const ProfileView = () => {
 
     const { setItems} = useBreadcrumb();
+    const large = useMediaQuery("(min-width: 992px)") ?? false;
     useEffect(() => {
         setItems([
             {link: "/profile", label: navigation.profile, active: true},
@@ -23,9 +25,11 @@ const ProfileView = () => {
                 <Flex>
                     <DropMenu
                         slug="Mi perfil"
-                        responsive={true}
-                        height="500px"
-                    >XD</DropMenu>
+                        responsive={false}
+                        maxHeight="550px"
+                    >
+                        xd
+                    </DropMenu>
                 </Flex>
             </Grid.Col>
 
