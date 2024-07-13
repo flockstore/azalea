@@ -48,10 +48,10 @@ const AccountViewLayout = ({children}: Props) => {
 
     return (
         <Grid w="100%">
-            <Grid.Col span={{base: 12, md: 3}} h="100%">
+            <Grid.Col span={{base: 12, lg: 3}} h="100%">
                 <DropNavigation items={links} maxHeight="550px"/>
             </Grid.Col>
-            <Grid.Col span={{base: 12, md: 9}}>
+            <Grid.Col span={{base: 12, lg: 9}}>
                 <Box className={styles.content}>
                     {children}
                 </Box>

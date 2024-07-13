@@ -36,7 +36,7 @@ export interface DropNavigationProps {
  */
 const DropNavigation = ({items, maxHeight}: DropNavigationProps) => {
 
-    const large = useMediaQuery("(min-width: 992px)") ?? false;
+    const large = useMediaQuery("(min-width: 1200px)") ?? false;
     const t = useTranslations();
     const path = usePathname();
     const router = useRouter();
