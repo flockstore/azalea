@@ -1,0 +1,21 @@
+import {Canvas, Controls, Meta} from "@storybook/blocks";
+
+import * as DropMenu from "./DropMenu.stories";
+
+<Meta of={DropMenu} />
+
+# Drop Menu
+
+The Drop Menu is a conditional manageable dropdown menu,
+which can be a collapsable or an always-expanded menu
+depending on the context of use.
+
+<Controls/>
+
+## Example of default collapsable
+
+<Canvas of={DropMenu.Default} />
+
+## Example of non collapsable
+
+<Canvas of={DropMenu.NonResponsive} />
