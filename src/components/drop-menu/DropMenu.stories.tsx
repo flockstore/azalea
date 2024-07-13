@@ -31,7 +31,7 @@ const testProps: DropMenuProps = {
             <li>Hello from test</li>
         </ul>
     )
-}
+};
 
 export const Default: Story = {
     args: {
