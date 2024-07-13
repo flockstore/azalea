@@ -1,22 +1,20 @@
 "use client";
 
-import {Box, Flex, Grid} from "@mantine/core";
-import {useBreadcrumb} from "@/context/breadcrumb/BreadcrumbContext";
-import {useEffect} from "react";
-import {navigation} from "@/config/translation";
-import ProfileForm from "@/views/profile/form/ProfileForm";
+import {Flex, Grid} from "@mantine/core";
 import DropMenu from "@/components/drop-menu/DropMenu";
+import {ReactNode} from "react";
 import {useMediaQuery} from "@mantine/hooks";
 
-const ProfileView = () => {
+/**
+ * Defines the component props.
+ */
+type Props = {
+    children: ReactNode;
+};
 
-    const { setItems} = useBreadcrumb();
+const AccountViewLayout = ({children}: Props) => {
+
     const large = useMediaQuery("(min-width: 992px)") ?? false;
-    useEffect(() => {
-        setItems([
-            {link: "/profile", label: navigation.profile, active: true},
-        ]);
-    }, [setItems]);
 
     return (
         <Grid w="100%">
@@ -25,7 +23,7 @@ const ProfileView = () => {
                 <Flex>
                     <DropMenu
                         slug="Mi perfil"
-                        responsive={false}
+                        responsive={!large}
                         maxHeight="550px"
                     >
                         xd
@@ -34,8 +32,7 @@ const ProfileView = () => {
             </Grid.Col>
 
             <Grid.Col span={{base: 12, md: 9}}>
-                <ProfileForm/>
-                <Box h="1500px" bg="red">chile</Box>
+                {children}
             </Grid.Col>
 
         </Grid>
@@ -43,4 +40,4 @@ const ProfileView = () => {
 
 };
 
-export default ProfileView;
+export default AccountViewLayout;
