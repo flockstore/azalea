@@ -9,10 +9,6 @@ jest.mock("@/context/breadcrumb/BreadcrumbContext", () => ({
     useBreadcrumb: jest.fn(),
 }));
 
-jest.mock("@/middleware", () => ({
-    useRouter: jest.fn(),
-}));
-
 jest.mock("@mantine/core", () => ({
     ...jest.requireActual("@mantine/core"),
     useMantineColorScheme: jest.fn(),

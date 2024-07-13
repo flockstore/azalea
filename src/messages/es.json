@@ -7,6 +7,13 @@
     "iam": "Identidades",
     "account": "Mi cuenta"
   },
+  "account": {
+    "menu": {
+      "title": "Mi cuenta",
+      "basic": "Datos básicos",
+      "email": "Correo electrónico"
+    }
+  },
   "sidebar": {
     "shrink": "Contraer",
     "expand": "Expandir",

@@ -48,3 +48,13 @@ export const session = {
         message: "session.redeemError.message"
     }
 };
+
+export const menu = {
+    title: "account.menu.title",
+    basic: "account.menu.basic",
+    email: "account.menu.email"
+};
+
+export const account = {
+    menu
+};

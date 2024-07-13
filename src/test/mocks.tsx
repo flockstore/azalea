@@ -4,9 +4,15 @@ jest.mock("next-intl", () => ({
     useTranslations: jest.fn(),
 }));
 
+export const middleRouterPush = jest.fn();
 jest.mock("@/middleware", () => ({
-    usePathname: jest.fn(),
-    useRouter: jest.fn(),
+    usePathname: middleRouterPush,
+    useRouter() {
+        return {
+            push: middleRouterPush,
+            prefetch: () => null
+        };
+    }
 }));
 
 // --- Navigation mocks --- //
