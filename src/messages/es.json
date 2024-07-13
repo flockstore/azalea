@@ -12,6 +12,14 @@
       "title": "Mi cuenta",
       "basic": "Datos básicos",
       "email": "Correo electrónico"
+    },
+    "basic": {
+      "title": "Datos básicos",
+      "subtitle": "Actualiza toda la información esencial de tu cuenta."
+    },
+    "email": {
+      "title": "Correo electrónico",
+      "subtitle": "Verifica y actualiza tu correo electrónico."
     }
   },
   "sidebar": {

@@ -55,6 +55,18 @@ export const menu = {
     email: "account.menu.email"
 };
 
+export const accountBasic = {
+    title: "account.basic.title",
+    subtitle: "account.basic.subtitle"
+};
+
+export const accountEmail =  {
+    title: "account.email.title",
+    subtitle: "account.email.subtitle"
+};
+
 export const account = {
-    menu
+    menu,
+    basic: accountBasic,
+    email: accountEmail
 };

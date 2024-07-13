@@ -1,0 +1,6 @@
+.content {
+    padding: 0;
+    @media (min-width: 992px) {
+        padding: 0 var(--mantine-spacing-xl);
+    }
+}

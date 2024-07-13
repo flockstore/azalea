@@ -1,0 +1,18 @@
+import {Canvas, Controls, Meta} from "@storybook/blocks";
+
+import * as ContextBanner from "./ContextBanner.stories";
+
+<Meta of={ContextBanner} />
+
+# Context Banner
+
+The Context Banners serves as graphical representation and
+user state-of-system representation as extra reinforcement
+for the common breadcrumb, which can be also used as reference
+for subsections at the dashboard.
+
+<Controls/>
+
+## Example of default context banner
+
+<Canvas of={ContextBanner.Default} />

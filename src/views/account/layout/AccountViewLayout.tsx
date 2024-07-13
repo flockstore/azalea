@@ -1,10 +1,13 @@
 "use client";
 
-import {Grid} from "@mantine/core";
-import React, {ReactNode} from "react";
+import {Box, Grid} from "@mantine/core";
+import React, {ReactNode, useEffect} from "react";
 import DropNavigation, {DropNavigationItem} from "@/components/drop-navigation/DropNavigation";
-import {account} from "@/config/translation";
+import {account, navigation} from "@/config/translation";
 import {IconMail, IconUser} from "@tabler/icons-react";
+import {useBreadcrumb} from "@/context/breadcrumb/BreadcrumbContext";
+
+import styles from "./AccountViewLayout.module.css";
 
 /**
  * Defines the component props.
@@ -35,13 +38,23 @@ const links: DropNavigationItem[] = [
  * @constructor
  */
 const AccountViewLayout = ({children}: Props) => {
+
+    const { setItems} = useBreadcrumb();
+    useEffect(() => {
+        setItems([
+            {link: "/account", label: navigation.account, active: true},
+        ]);
+    }, [setItems]);
+
     return (
         <Grid w="100%">
             <Grid.Col span={{base: 12, md: 3}} h="100%">
                 <DropNavigation items={links} maxHeight="550px"/>
             </Grid.Col>
             <Grid.Col span={{base: 12, md: 9}}>
-                {children}
+                <Box className={styles.content}>
+                    {children}
+                </Box>
             </Grid.Col>
         </Grid>
     );
