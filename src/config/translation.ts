@@ -64,6 +64,11 @@ export const accountBasic = {
         title: "account.basic.avatar.title",
         receive: "account.basic.avatar.receive",
         upload: "account.basic.avatar.upload",
+        privacy: {
+            title: "account.basic.avatar.privacy.title",
+            text: "account.basic.avatar.privacy.text",
+            sub: "account.basic.avatar.privacy.sub"
+        }
     },
     form: {
         section: "account.basic.form.section",

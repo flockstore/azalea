@@ -7,17 +7,8 @@ import styles from "./AvatarForm.module.css";
 
 const AvatarForm = () => {
     const [value, setValue] = useState<File | null>(null);
+    const ref = useRef<HTMLButtonElement>(null);
     const t = useTranslations();
-    const fileInputRef = useRef<HTMLInputElement>(null);
-
-    const handleButtonClick = () => {
-        fileInputRef.current?.click();
-    };
-
-    const handleFileChange = (file: File | null) => {
-        setValue(file);
-        console.log(file);
-    };
 
     return (
         <Flex className={styles.box}>
@@ -28,15 +19,17 @@ const AvatarForm = () => {
             </Box>
             <Button
                 leftSection={<IconUpload />}
-                onClick={handleButtonClick}
+                onClick={() => {ref.current!.click();}}
             >
                 {t(account.basic.avatar.upload)}
             </Button>
             <FileInput
-                ref={fileInputRef}
-                accept="image/*"
-                onChange={(event: any) => handleFileChange(event.currentTarget.files?.[0] || null)}
-                style={{ display: "none" }}
+                label="Input label"
+                description="Input description"
+                placeholder="Input placeholder"
+                display="none"
+                onChange={setValue}
+                ref={ref}
             />
         </Flex>
     );

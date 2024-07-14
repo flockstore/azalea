@@ -20,6 +20,11 @@
       "avatar": {
         "section": "Foto de perfil",
         "title": "Sube una foto",
+        "privacy": {
+          "title": "¿Mi foto de perfil es privada?",
+          "text": "Tu foto de perfil solo se mostrará a los usuarios de Azalea.",
+          "sub": "Se mostrará para identificar acciones hechas por tí únicamente por motivos de registro."
+        },
         "receive": "Recibe archivos: .jpg, .png, .gif, .webp ({quantity} max)",
         "upload": "Cargar arhivo"
       },

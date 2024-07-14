@@ -1,7 +1,7 @@
 "use client";
 
 import PersonalForm from "@/views/account/page/form/PersonalForm";
-import {Box, Grid, Title, useMantineColorScheme, useMantineTheme} from "@mantine/core";
+import {Box, Grid, Title, Text, useMantineColorScheme, useMantineTheme, Flex} from "@mantine/core";
 import {useTranslations} from "next-intl";
 import ContextBanner from "@/components/context-banner/ContextBanner";
 import {IconPencil} from "@tabler/icons-react";
@@ -37,10 +37,12 @@ const AccountView = () => {
             <Title order={3} mb="md">{t(account.basic.avatar.section)}</Title>
             <Box mb="xl">
                 <Grid w="100%">
-                    <Grid.Col span={{base: 12, lg: 6}}>
-                        hola
+                    <Grid.Col span={{base: 12, xs: 6}}>
+                        <Title order={4} my="md">{t(account.basic.avatar.privacy.title)}</Title>
+                        <Text mb="lg">{t(account.basic.avatar.privacy.text)}</Text>
+                        <Text>{t(account.basic.avatar.privacy.sub)}</Text>
                     </Grid.Col>
-                    <Grid.Col span={{base: 12, lg: 6}}>
+                    <Grid.Col span={{base: 12, xs: 6}}>
                         <AvatarForm/>
                     </Grid.Col>
                 </Grid>
