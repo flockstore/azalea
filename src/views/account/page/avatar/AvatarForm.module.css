@@ -1,0 +1,17 @@
+.box {
+    width: 100%;
+    border-radius: var(--mantine-radius-lg);
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-9));
+    padding: var(--mantine-spacing-lg);
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.title {
+    font-size: 24px;
+}
+
+.sub {
+    font-size: 12px;
+}

@@ -61,6 +61,9 @@ export const accountBasic = {
     submit: "account.basic.submit",
     avatar : {
         section: "account.basic.avatar.section",
+        title: "account.basic.avatar.title",
+        receive: "account.basic.avatar.receive",
+        upload: "account.basic.avatar.upload",
     },
     form: {
         section: "account.basic.form.section",

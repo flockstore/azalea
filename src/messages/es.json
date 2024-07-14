@@ -18,7 +18,10 @@
       "subtitle": "Actualiza toda la información esencial de tu cuenta.",
       "submit": "Actualizar datos",
       "avatar": {
-        "section": "Foto de perfil"
+        "section": "Foto de perfil",
+        "title": "Sube una foto",
+        "receive": "Recibe archivos: .jpg, .png, .gif, .webp ({quantity} max)",
+        "upload": "Cargar arhivo"
       },
       "form": {
         "section": "Información personal",
