@@ -1,7 +1,7 @@
 "use client";
 
-import ProfileForm from "@/views/account/page/form/ProfileForm";
-import {Box, useMantineColorScheme, useMantineTheme} from "@mantine/core";
+import PersonalForm from "@/views/account/page/form/PersonalForm";
+import {Box, Title, useMantineColorScheme, useMantineTheme} from "@mantine/core";
 import {useTranslations} from "next-intl";
 import ContextBanner from "@/components/context-banner/ContextBanner";
 import {IconPencil} from "@tabler/icons-react";
@@ -28,7 +28,14 @@ const AccountView = () => {
                 />
             </Box>
 
-            <ProfileForm/>
+            <Title order={3} mb="md">{t(account.basic.form.section)}</Title>
+            <Box mb="xl">
+                <PersonalForm/>
+            </Box>
+            <Title order={3} mb="md">{t(account.basic.avatar.section)}</Title>
+            <Box mb="xl">
+                <Box h="2000px">XD</Box>
+            </Box>
 
         </Box>
     );

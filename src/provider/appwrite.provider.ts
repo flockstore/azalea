@@ -1,6 +1,6 @@
 import {Account, Client, ID} from "appwrite";
 import {appWrite} from "@/config/app";
-import {User} from "@/types/user";
+import {User} from "@/model/user";
 
 /**
  * Client and account creation from AppWrite.
@@ -9,7 +9,7 @@ export const client = new Client();
 client
     .setEndpoint(appWrite.endpoint!)
     .setProject(appWrite.app!);
-const account = new Account(client);
+export const account = new Account(client);
 
 /**
  * Sign in utility function.
@@ -20,7 +20,7 @@ export const signIn = async (email: string) => {
 };
 
 /**
- * Provides the user from account.
+ * Provides the profile from account.
  */
 export const getUser = async () => {
     return await account.get() as User;

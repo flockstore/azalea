@@ -1,7 +1,16 @@
 import {Models} from "appwrite";
 import Target = Models.Target;
 
-type OriginalUser<Preferences extends Models.Preferences> = {
+export enum Gender {
+    MALE = "male", FEMALE = "female", OTHER = "other"
+}
+
+export type UserPreferences = {
+    gender: Gender;
+    about: string;
+}
+
+export type OriginalUser = {
     $id: string;
     $createdAt: string;
     $updatedAt: string;
@@ -18,9 +27,9 @@ type OriginalUser<Preferences extends Models.Preferences> = {
     emailVerification: boolean;
     phoneVerification: boolean;
     mfa: boolean;
-    prefs: Preferences;
+    prefs: UserPreferences;
     targets: Target[];
     accessedAt: string;
 };
 
-type User = OriginalUser<any>;
+export type User = OriginalUser<any>;

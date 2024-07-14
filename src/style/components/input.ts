@@ -1,4 +1,4 @@
-import {PasswordInput, TextInput} from "@mantine/core";
+import {InputBase, PasswordInput, TextInput} from "@mantine/core";
 
 const defaultInput = {
     defaultProps: {
@@ -20,3 +20,4 @@ const defaultInput = {
 
 export const textInput = TextInput.extend(defaultInput);
 export const passwordInput = PasswordInput.extend(defaultInput);
+export const baseInput = InputBase.extend(defaultInput);

@@ -18,11 +18,11 @@ export interface SidebarProfileProps {
 /**
  * Defines the rendering behaviour for a profile slug
  * shown in the sidebar representing the actual logged-in
- * user.
- * @param name of the user.
+ * profile.
+ * @param name of the profile.
  * @param picture to display.
- * @param organization of the user.
- * @param logoutAction to be executed when the user logs out.
+ * @param organization of the profile.
+ * @param logoutAction to be executed when the profile logs out.
  * @param expanded if sidebar is expanded or shrink.
  * @constructor
  */

@@ -1,7 +1,7 @@
 "use client";
 
 import {createTheme, MantineColorsTuple} from "@mantine/core";
-import {passwordInput, textInput} from "@/style/components/input";
+import {baseInput, passwordInput, textInput} from "@/style/components/input";
 import {anchor} from "@/style/components/text";
 import {button} from "@/style/components/button";
 
@@ -43,6 +43,7 @@ export const mantineTheme = createTheme({
     components: {
         Button: button,
         TextInput: textInput,
+        InputBase: baseInput,
         PasswordInput: passwordInput,
         Anchor: anchor,
     }

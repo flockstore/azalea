@@ -15,7 +15,42 @@
     },
     "basic": {
       "title": "Datos básicos",
-      "subtitle": "Actualiza toda la información esencial de tu cuenta."
+      "subtitle": "Actualiza toda la información esencial de tu cuenta.",
+      "submit": "Actualizar datos",
+      "avatar": {
+        "section": "Foto de perfil"
+      },
+      "form": {
+        "section": "Información personal",
+        "name": {
+          "label": "Nombre",
+          "holder": "Ej: Martina Perez",
+          "validation": "Ingresa un nombre que no exceda los {char} carácteres"
+        },
+        "gender": {
+          "label": "Género",
+          "holder": "Ej: Hombre"
+        },
+        "about": {
+          "label": "Sobre ti",
+          "holder": "Ej: CTO & Business Analyst",
+          "validation": "Ingresa una descripción que no exceda los {char} carácteres"
+        },
+        "success": {
+          "title": "Actualización exitosa",
+          "sub": "Actualizaste los datos de tu perfil exitosamente"
+        },
+        "error": {
+          "load": {
+            "title": "Error al cargar",
+            "sub": "Ha ocurrido un error al obtener tus datos, intenta nuevamente recargando la página."
+          },
+          "submit": {
+            "title": "Error al actualizar",
+            "sub": "Ha ocurrido un error al actualizar tus datos, intenta nuevamente y si el problema persiste, contacta con un administrador."
+          }
+        }
+      }
     },
     "email": {
       "title": "Correo electrónico",
@@ -51,6 +86,13 @@
     "success": {
       "title": "Revisa tu correo",
       "message": "Hemos enviado un correo con el link de acceso a nuestra plataforma."
+    }
+  },
+  "user": {
+    "genders": {
+      "male": "Hombre",
+      "female": "Mujer",
+      "other": "No específico"
     }
   },
   "session": {

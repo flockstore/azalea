@@ -41,7 +41,7 @@ export const LayoutProvider = ({ children }: { children: ReactNode }) => {
                 setLoading(false);
                 return;
             } catch (error) {
-                getLogger().error(error, "Error while checking if user is logged:");
+                getLogger().error(error, "Error while checking if profile is logged:");
             }
 
             const queryParams = new URLSearchParams(window.location.search);

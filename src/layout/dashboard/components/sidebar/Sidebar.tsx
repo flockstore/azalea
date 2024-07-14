@@ -17,7 +17,7 @@ import SidebarShrink from "@/layout/dashboard/components/sidebar/partial/shrink/
 import {getUser, signOut} from "@/provider/appwrite.provider";
 import {getLogger} from "@/provider/logging.provider";
 import {useLayout} from "@/context/layout/LayoutContext";
-import {User} from "@/types/user";
+import {User} from "@/model/user";
 import {useRouter} from "next/navigation";
 
 const Sidebar = () => {

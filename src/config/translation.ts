@@ -57,7 +57,50 @@ export const menu = {
 
 export const accountBasic = {
     title: "account.basic.title",
-    subtitle: "account.basic.subtitle"
+    subtitle: "account.basic.subtitle",
+    submit: "account.basic.submit",
+    avatar : {
+        section: "account.basic.avatar.section",
+    },
+    form: {
+        section: "account.basic.form.section",
+        name: {
+            label: "account.basic.form.name.label",
+            holder: "account.basic.form.name.holder",
+            validation: "account.basic.form.name.validation",
+        },
+        gender: {
+            label: "account.basic.form.gender.label",
+            holder: "account.basic.form.gender.holder",
+        },
+        about: {
+            label: "account.basic.form.about.label",
+            holder: "account.basic.form.about.holder",
+            validation: "account.basic.form.about.validation",
+        },
+        success: {
+            title: "account.basic.form.success.title",
+            sub: "account.basic.form.success.sub"
+        },
+        error: {
+            load: {
+                title: "account.basic.form.error.load.title",
+                sub: "account.basic.form.error.load.sub"
+            },
+            submit: {
+                title: "account.basic.form.error.submit.title",
+                sub: "account.basic.form.error.submit.sub"
+            }
+        }
+    }
+};
+
+export const user = {
+    genders: {
+        male: "user.genders.male",
+        female: "user.genders.female",
+        other: "user.genders.other"
+    }
 };
 
 export const accountEmail =  {
