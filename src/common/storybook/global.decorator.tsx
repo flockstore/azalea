@@ -1,6 +1,6 @@
 import {NextIntlClientProvider} from "next-intl";
-import {SidebarProvider} from "@/context/sidebar/SidebarContext";
-import {BreadcrumbProvider} from "@/context/breadcrumb/BreadcrumbContext";
+import {SidebarProvider} from "@/module/dashboard/context/sidebar/SidebarContext";
+import {BreadcrumbProvider} from "@/module/dashboard/context/breadcrumb/BreadcrumbContext";
 import messages from "@/common/messages/es.json";
 import {localization} from "@/common/config/app";
 

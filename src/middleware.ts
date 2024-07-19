@@ -2,7 +2,7 @@ import createMiddleware from "next-intl/middleware";
 import {createSharedPathnamesNavigation} from "next-intl/navigation";
 import {localization} from "@/common/config/app";
 import {NextRequest} from "next/server";
-import {middleware} from "@/provider/auth.provider";
+import {middleware} from "@/common/provider/auth.provider";
 
 /**
  * Creates a middleware with next-intl localization.

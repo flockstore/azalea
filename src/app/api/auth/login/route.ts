@@ -1,4 +1,4 @@
-import {signIn} from "@/provider/auth.provider";
+import {signIn} from "@/common/provider/auth.provider";
 
 /**
  * Creates a federated logout request which

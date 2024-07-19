@@ -1,4 +1,4 @@
-import AccountEmailView from "@/views/account/email/AccountEmailView";
+import AccountEmailView from "@/module/account/views/email/AccountEmailView";
 
 /**
  * Defines the rendering behaviour of the account email page.

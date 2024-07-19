@@ -1,4 +1,4 @@
-import AccountView from "@/views/account/page/AccountView";
+import AccountView from "@/module/account/views/AccountView";
 
 /**
  * Defines the rendering behaviour for the account page.

@@ -1,4 +1,4 @@
-import {auth, signIn} from "@/provider/auth.provider";
+import {auth, signIn} from "@/common/provider/auth.provider";
 
 const Home = async () => {
 

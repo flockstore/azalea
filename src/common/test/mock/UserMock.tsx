@@ -1,4 +1,4 @@
-import {User} from "@/model/user";
+import {User} from "@/common/model/user";
 
 const mockUser: User = {
     $id: "user_id_123",

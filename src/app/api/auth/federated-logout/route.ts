@@ -1,5 +1,5 @@
 import {NextResponse} from "next/server";
-import {logoutURL} from "@/provider/auth.provider";
+import {logoutURL} from "@/common/provider/auth.provider";
 
 /**
  * Creates a federated logout request which

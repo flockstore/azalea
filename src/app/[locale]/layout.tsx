@@ -1,7 +1,7 @@
 import {useMessages} from "next-intl";
 import {localization} from "@/common/config/app";
 import {notFound} from "next/navigation";
-import BaseLayout from "@/layout/base/BaseLayout";
+import BaseLayout from "@/common/layout/BaseLayout";
 
 const Layout = ({children, params: {locale}}: any) => {
 

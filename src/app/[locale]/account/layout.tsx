@@ -1,5 +1,5 @@
 import {ReactNode} from "react";
-import AccountViewLayout from "@/views/account/layout/AccountViewLayout";
+import AccountViewLayout from "@/module/account/layout/AccountViewLayout";
 
 /**
  * Defines the component props.
@@ -9,7 +9,7 @@ type Props = {
 };
 
 /**
- * Defines the rendering behaviour of the account layout.
+ * Defines the rendering behaviour of the account context.
  * @param children to render inside.
  * @constructor
  */

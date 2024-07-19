@@ -10,7 +10,7 @@ type Props = {
 };
 
 /**
- * Root layout only passing not-found children
+ * Root context only passing not-found children
  * when a not found locale was provided.
  * @param children to pass as not-found.
  * @constructor to render.
