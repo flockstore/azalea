@@ -1,5 +1,5 @@
 import {notifications} from "@mantine/notifications";
-import {auth} from "@/config/translation";
+import {auth} from "@/common/config/translation";
 
 /**
  * Helper function to send notification.

@@ -1,25 +1,37 @@
+"use client";
+
 import {Flex, Overlay} from "@mantine/core";
-import React from "react";
+import React, {ReactNode} from "react";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
 
 import styles from "./DashboardLayout.module.css";
-import HeaderResponsive from "@/layout/dashboard/components/header-responsive/HeaderResponsive";
-import Sidebar from "@/layout/dashboard/components/sidebar/Sidebar";
-import Header from "@/layout/dashboard/components/header/Header";
+import HeaderResponsive from "@/components/header-responsive/HeaderResponsive";
+import Sidebar from "@/components/sidebar/Sidebar";
+import Header from "@/components/header/Header";
+import {Session} from "next-auth";
 
 /**
- * Defines the rendering behaviour of the dashboard
+ * Define the component props.
+ */
+export interface DashboardLayoutProps {
+    session: Session | null;
+    children: ReactNode;
+}
+
+/**
+ * Defines the rendering behaviour of the sidebar
  * layout, including a sidebar and children content.
+ * @param session where to fetch dashboard.
  * @param children
  * @constructor
  */
-const DashboardLayout = ({children}: { children: React.ReactNode }) => {
+const DashboardLayout = ({session, children}: DashboardLayoutProps) => {
 
     const { isExpanded, canCollapse, isResponsiveEnabled, toggleResponsive} = useSidebar();
 
     return (
         <Flex className={styles.dashboard}>
-            <Sidebar/>
+            <Sidebar session={session}/>
             {
                 isResponsiveEnabled() &&
                 <Overlay

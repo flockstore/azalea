@@ -1,6 +1,6 @@
 import {Badge, Box, Button, TextInput} from "@mantine/core";
 import {useTranslations} from "next-intl";
-import {auth} from "@/config/translation";
+import {auth} from "@/common/config/translation";
 import {IconMail, IconSend} from "@tabler/icons-react";
 import {useForm} from "@mantine/form";
 import {getLogger} from "@/provider/logging.provider";

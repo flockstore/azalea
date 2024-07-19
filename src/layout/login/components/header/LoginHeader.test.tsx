@@ -1,7 +1,7 @@
-import {render} from "@/test/util";
+import {render} from "@/common/test/util";
 import LoginHeader from "@/layout/login/components/header/LoginHeader";
 
-jest.mock("@/layout/dashboard/components/sidebar/partial/switcher/SidebarSwitcher", () =>
+jest.mock("@/components/sidebar/partial/switcher/SidebarSwitcher", () =>
     // eslint-disable-next-line react/display-name
     () => <div data-testid="mock-sidebar-switcher">Header</div>
 );

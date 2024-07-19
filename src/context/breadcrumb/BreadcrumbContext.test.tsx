@@ -1,7 +1,7 @@
 import {render, renderHook, screen} from "@testing-library/react";
 import {BreadcrumbProvider, useBreadcrumb} from "./BreadcrumbContext";
 import React from "react";
-import {setupIntlBasics} from "@/test/util";
+import {setupIntlBasics} from "@/common/test/util";
 
 
 const TestComponent = () => {

@@ -1,5 +1,5 @@
 import {SidebarProvider, useSidebar} from "@/context/sidebar/SidebarContext";
-import {render} from "@/test/util";
+import {render} from "@/common/test/util";
 import {useMediaQuery} from "@mantine/hooks";
 import {act} from "@testing-library/react";
 import {fireEvent, waitFor} from "@testing-library/dom";

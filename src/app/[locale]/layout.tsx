@@ -1,5 +1,5 @@
 import {useMessages} from "next-intl";
-import {localization} from "@/config/app";
+import {localization} from "@/common/config/app";
 import {notFound} from "next/navigation";
 import BaseLayout from "@/layout/base/BaseLayout";
 
@@ -13,14 +13,14 @@ const Layout = ({children, params: {locale}}: any) => {
 
     return (
         <html lang={locale}>
-        <head>
-            <title>NextJS</title>
-        </head>
-        <body>
-        <BaseLayout locale={locale} messages={messages}>
-            {children}
-        </BaseLayout>
-        </body>
+            <head>
+                <title>NextJS</title>
+            </head>
+            <body>
+                <BaseLayout locale={locale} messages={messages}>
+                    {children}
+                </BaseLayout>
+            </body>
         </html>
     );
 };

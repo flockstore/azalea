@@ -1,19 +1,19 @@
 import {fireEvent} from "@testing-library/react";
 import DashboardLayout from "./DashboardLayout";
 import {useSidebar} from "@/context/sidebar/SidebarContext";
-import {render} from "@/test/util";
+import {render} from "@/common/test/util";
 
-jest.mock("@/layout/dashboard/components/header/Header", () =>
+jest.mock("@/components/header/Header", () =>
     // eslint-disable-next-line react/display-name
     () => <div data-testid="mock-header">Mock Header</div>
 );
 
-jest.mock("@/layout/dashboard/components/header-responsive/HeaderResponsive", () =>
+jest.mock("@/components/header-responsive/HeaderResponsive", () =>
     // eslint-disable-next-line react/display-name
     () => <div data-testid="mock-header-responsive">Mock Responsive</div>
 );
 
-jest.mock("@/layout/dashboard/components/sidebar/Sidebar", () =>
+jest.mock("@/components/sidebar/Sidebar", () =>
     // eslint-disable-next-line react/display-name
     () => <div data-testid="mock-sidebar">Mock Sidebar</div>
 );

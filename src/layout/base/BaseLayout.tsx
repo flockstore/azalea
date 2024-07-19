@@ -1,18 +1,14 @@
-"use client";
-
 import {NextIntlClientProvider} from "next-intl";
 import React from "react";
-import LayoutOrchestrator from "@/layout/orchestrator/LayoutOrchestrator";
 import {MantineProvider} from "@mantine/core";
-import {mantineTheme} from "@/style/theme";
-import {SidebarProvider} from "@/context/sidebar/SidebarContext";
-import {BreadcrumbProvider} from "@/context/breadcrumb/BreadcrumbContext";
-import {Notifications} from "@mantine/notifications";
+import {mantineTheme} from "@/common/style/theme";
 import "@mantine/notifications/styles.css";
-import {LayoutProvider} from "@/context/layout/LayoutContext";
+import ProviderLayout from "@/layout/provider/ProviderLayout";
+import {Notifications} from "@mantine/notifications";
+import {auth, signOut} from "@/provider/auth.provider";
 
 /**
- * Defines the properties of the component.
+ * Defines the component props.
  */
 export interface BaseLayoutProps {
     children?: React.ReactNode;
@@ -28,26 +24,23 @@ export interface BaseLayoutProps {
  * @param messages from next-intl
  * @constructor
  */
-const BaseLayout = (
+const BaseLayout = async (
     {
         children,
         locale,
         messages
     }: BaseLayoutProps
 ) => {
+
+    const session = await auth();
+
     return (
         <NextIntlClientProvider locale={locale} messages={messages}>
             <MantineProvider theme={mantineTheme}>
-                <SidebarProvider>
-                    <BreadcrumbProvider>
-                        <LayoutProvider>
-                            <LayoutOrchestrator>
-                                <Notifications />
-                                {children}
-                            </LayoutOrchestrator>
-                        </LayoutProvider>
-                    </BreadcrumbProvider>
-                </SidebarProvider>
+                <ProviderLayout session={session}>
+                    <Notifications />
+                    {children}
+                </ProviderLayout>
             </MantineProvider>
         </NextIntlClientProvider>
     );

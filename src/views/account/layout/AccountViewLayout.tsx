@@ -2,8 +2,8 @@
 
 import {Box, Grid} from "@mantine/core";
 import React, {ReactNode, useEffect} from "react";
-import DropNavigation, {DropNavigationItem} from "@/components/drop-navigation/DropNavigation";
-import {account, navigation} from "@/config/translation";
+import DropNavigation, {DropNavigationItem} from "@/common/components/drop-navigation/DropNavigation";
+import {account, navigation} from "@/common/config/translation";
 import {IconMail, IconUser} from "@tabler/icons-react";
 import {useBreadcrumb} from "@/context/breadcrumb/BreadcrumbContext";
 

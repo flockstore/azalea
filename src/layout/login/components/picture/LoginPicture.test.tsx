@@ -1,4 +1,4 @@
-import {render} from "@/test/util";
+import {render} from "@/common/test/util";
 import LoginPicture from "@/layout/login/components/picture/LoginPicture";
 
 describe("LoginPicture Component", () => {

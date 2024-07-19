@@ -2,7 +2,7 @@
 
 import {Box, Flex, Text, Title} from "@mantine/core";
 import {useTranslations} from "next-intl";
-import {auth} from "@/config/translation";
+import {auth} from "@/common/config/translation";
 
 import styles from "./LoginView.module.css";
 import LoginForm from "@/views/auth/login/components/LoginForm";

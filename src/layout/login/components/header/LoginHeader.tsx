@@ -1,10 +1,10 @@
  "use client";
 
  import {Flex, useMantineColorScheme, useMantineTheme} from "@mantine/core";
- import Logo from "@/components/logo/Logo";
+ import Logo from "@/common/components/logo/Logo";
 
  import styles from "./LoginHeader.module.css";
- import SidebarSwitcher from "@/layout/dashboard/components/sidebar/partial/switcher/SidebarSwitcher";
+ import SidebarSwitcher from "@/components/sidebar/partial/switcher/SidebarSwitcher";
 
  const LoginHeader = () => {
 

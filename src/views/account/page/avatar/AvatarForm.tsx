@@ -2,7 +2,7 @@ import {Avatar, Box, Button, FileInput, Flex, Text, Title} from "@mantine/core";
 import {useRef, useState} from "react";
 import {IconUpload} from "@tabler/icons-react";
 import {useTranslations} from "next-intl";
-import {account} from "@/config/translation";
+import {account} from "@/common/config/translation";
 import styles from "./AvatarForm.module.css";
 
 const AvatarForm = () => {

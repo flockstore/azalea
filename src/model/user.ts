@@ -8,6 +8,7 @@ export enum Gender {
 export type UserPreferences = {
     gender: Gender;
     about: string;
+    avatarId: string;
 }
 
 export type OriginalUser = {

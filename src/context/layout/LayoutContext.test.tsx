@@ -1,12 +1,12 @@
 import {render} from "@testing-library/react";
 import {LayoutProvider, useLayout} from "@/context/layout/LayoutContext";
-import {setupIntlBasics} from "@/test/util";
+import {setupIntlBasics} from "@/common/test/util";
 import {getUser, redeemAccountSession} from "@/provider/appwrite.provider";
 import {waitFor} from "@testing-library/dom";
 import {useRouter} from "@/middleware";
 import {getLogger} from "@/provider/logging.provider";
 import {useTranslations} from "next-intl";
-import {session} from "@/config/translation";
+import {session} from "@/common/config/translation";
 import {notifications} from "@mantine/notifications";
 
 // --- Error logger --- //

@@ -1,18 +1,19 @@
-"use client";
+import {auth, signIn} from "@/provider/auth.provider";
 
-import {Text} from "@mantine/core";
-import {useState} from "react";
+const Home = async () => {
 
-const Home = () => {
+    const login = async () => {
+        "use server";
+        await signIn("logto");
+    };
 
-    const [user, setUser] = useState({} as any);
-
-
+    const session = await auth();
+    const text = JSON.stringify(session);
 
     return (
         <div>
-            <Text
-            >{JSON.stringify(user)}</Text>
+            {typeof window === 'undefined' ? 'server' : 'client'}
+            {text}
         </div>
     );
 

@@ -1,7 +1,7 @@
 import {act, fireEvent, screen, waitFor} from "@testing-library/react";
 import {signIn} from "@/provider/appwrite.provider";
 import {showFormNotification} from "@/views/auth/login/helper/login-notification.helper";
-import {render, setupIntlBasics} from "@/test/util";
+import {render, setupIntlBasics} from "@/common/test/util";
 import LoginForm from "@/views/auth/login/components/LoginForm";
 
 // Mocking necessary imports
@@ -25,7 +25,7 @@ describe("LoginForm Component", () => {
 
     beforeEach(() => {
         jest.clearAllMocks();
-        setupIntlBasics("/dashboard");
+        setupIntlBasics("/sidebar");
     });
 
     const renderWithLoginFill = (options: any) => {

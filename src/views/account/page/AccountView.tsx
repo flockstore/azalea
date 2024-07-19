@@ -3,9 +3,9 @@
 import PersonalForm from "@/views/account/page/form/PersonalForm";
 import {Box, Grid, Title, Text, useMantineColorScheme, useMantineTheme, Flex} from "@mantine/core";
 import {useTranslations} from "next-intl";
-import ContextBanner from "@/components/context-banner/ContextBanner";
+import ContextBanner from "@/common/components/context-banner/ContextBanner";
 import {IconPencil} from "@tabler/icons-react";
-import {account} from "@/config/translation";
+import {account} from "@/common/config/translation";
 import AvatarForm from "@/views/account/page/avatar/AvatarForm";
 import React from "react";
 

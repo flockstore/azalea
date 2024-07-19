@@ -2,9 +2,9 @@
 
 import {useForm} from "@mantine/form";
 import {Button, Combobox, Flex, Grid, Input, InputBase, Skeleton, TextInput, useCombobox} from "@mantine/core";
-import {profile} from "@/config/app";
+import {profile} from "@/common/config/app";
 import {useTranslations} from "next-intl";
-import {account, user} from "@/config/translation";
+import {account, user} from "@/common/config/translation";
 import {Gender} from "@/model/user";
 import {IconCloud} from "@tabler/icons-react";
 import {useEffect, useState} from "react";

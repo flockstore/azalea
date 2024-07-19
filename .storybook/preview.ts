@@ -1,6 +1,6 @@
 import type {Preview} from '@storybook/react'
-import {decorators} from "../src/util/storybook/mantine.decorator";
-import {GlobalDecorator} from "../src/util/storybook/global.decorator";
+import {decorators} from "@/common/storybook/mantine.decorator";
+import {GlobalDecorator} from "@/common/storybook/global.decorator";
 
 const preview: Preview = {
     decorators: [...decorators, GlobalDecorator],

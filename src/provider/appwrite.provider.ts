@@ -1,5 +1,5 @@
 import {Account, Client, ID} from "appwrite";
-import {appWrite} from "@/config/app";
+import {appWrite} from "@/common/config/app";
 import {User} from "@/model/user";
 
 /**

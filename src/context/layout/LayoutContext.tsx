@@ -2,7 +2,7 @@ import {createContext, ReactNode, useContext, useEffect, useState} from "react";
 import {getUser, redeemAccountSession} from "@/provider/appwrite.provider";
 import {getLogger} from "@/provider/logging.provider";
 import {notifications} from "@mantine/notifications";
-import {session} from "@/config/translation";
+import {session} from "@/common/config/translation";
 import {useRouter} from "@/middleware";
 import {useTranslations} from "next-intl";
 

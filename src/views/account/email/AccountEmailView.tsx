@@ -1,8 +1,8 @@
 "use client";
 
 import {Box, useMantineColorScheme, useMantineTheme} from "@mantine/core";
-import ContextBanner from "@/components/context-banner/ContextBanner";
-import {account} from "@/config/translation";
+import ContextBanner from "@/common/components/context-banner/ContextBanner";
+import {account} from "@/common/config/translation";
 import {IconMailbox} from "@tabler/icons-react";
 import {useTranslations} from "next-intl";
 

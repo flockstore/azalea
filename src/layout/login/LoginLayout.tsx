@@ -6,10 +6,11 @@ import LoginPicture from "@/layout/login/components/picture/LoginPicture";
 import LoginHeader from "@/layout/login/components/header/LoginHeader";
 
 /**
- * Defines the rendering behaviour of the dashboard
+ * Defines the rendering behaviour of the sidebar
  * layout, including a sidebar and children content.
  * @param children
  * @constructor
+ * @deprecated in favour of Logto.
  */
 const LoginLayout = ({children}: { children: React.ReactNode }) => {
     return (

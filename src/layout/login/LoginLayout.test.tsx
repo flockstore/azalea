@@ -1,4 +1,4 @@
-import {render} from "@/test/util";
+import {render} from "@/common/test/util";
 import LoginLayout from "@/layout/login/LoginLayout";
 
 jest.mock("@/layout/login/components/picture/LoginPicture", () =>
